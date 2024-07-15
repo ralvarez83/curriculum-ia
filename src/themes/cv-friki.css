@@ -1,0 +1,82 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* ... (el resto del CSS se mantiene igual) ... */
+
+@media print {
+  body {
+    font-size: 10pt;
+  }
+
+  .cv-container {
+    max-width: 100%;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .header h1 {
+    font-size: 18pt;
+  }
+
+  .header h2 {
+    font-size: 14pt;
+  }
+
+  .section {
+    page-break-inside: avoid; /* Evita que una sección se divida entre páginas */
+  }
+
+  .section-title {
+    font-size: 16pt;
+    page-break-after: avoid; /* Evita un salto de página inmediatamente después del título */
+  }
+
+  .card {
+    page-break-inside: avoid; /* Mantiene cada tarjeta en una sola página */
+  }
+
+  .card-title {
+    font-size: 12pt;
+    page-break-after: avoid;
+  }
+
+  .card-subtitle {
+    font-size: 10pt;
+  }
+
+  .skill-tag {
+    font-size: 8pt;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .project-card {
+    page-break-inside: avoid; /* Mantiene cada proyecto en una sola página */
+  }
+
+  .project-title {
+    font-size: 12pt;
+    page-break-after: avoid;
+  }
+
+  .project-description {
+    font-size: 9pt;
+  }
+
+  .project-link {
+    font-size: 8pt;
+    padding: 0.3rem 0.7rem;
+  }
+
+  /* Ocultar elementos que no son necesarios en la impresión */
+  .project-link-view, .project-link-source, .project-link-docker, .languaje-boton {
+    display: none;
+  }
+
+  /* Asegurar que la última página no tenga un salto de página innecesario al final */
+  .cv-container::after {
+    content: "";
+    display: block;
+    page-break-after: auto;
+  }
+}
