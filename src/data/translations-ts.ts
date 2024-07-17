@@ -169,8 +169,7 @@ export const translations: Record<Language, Translation> = {
         image: "/graficas-auto-evaluacion.png",
         projectLink: "http://194.164.174.221:8080",
         sourceLink: "https://github.com/ralvarez83/selft-assesment-charts",
-        dockerLink:
-          "https://hub.docker.com/r/rubenag83/datos-auto-evaluaciones",
+        dockerLink: "https://hub.docker.com/r/rubenag83/selft-assesment-charts",
       },
     ],
     languages: [
@@ -300,8 +299,7 @@ export const translations: Record<Language, Translation> = {
         image: "/graficas-auto-evaluacion.png",
         projectLink: "http://194.164.174.221:8080",
         sourceLink: "https://github.com/ralvarez83/selft-assesment-charts",
-        dockerLink:
-          "https://hub.docker.com/r/rubenag83/datos-auto-evaluaciones",
+        dockerLink: "https://hub.docker.com/r/rubenag83/selft-assesment-charts",
       },
     ],
     languages: [
