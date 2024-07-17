@@ -11,20 +11,20 @@ interface ProjectCardProps {
   dockerLink?: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ 
-  title, 
-  shortDescription, 
-  image, 
-  projectLink, 
-  sourceLink, 
-  dockerLink 
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  title,
+  shortDescription,
+  image,
+  projectLink,
+  sourceLink,
+  dockerLink
 }) => {
   return (
     <div className="bg-gray-100 p-4 rounded-lg border-l-4 border-green-500 flex flex-col h-full">
       <img src={image} alt={title} className="w-full h-40 object-cover rounded-lg mb-4" />
       <h4 className="text-lg font-medium text-gray-800 mb-2">{title}</h4>
       <ReactMarkdown className="text-gray-600 mb-4 flex-grow">{shortDescription}</ReactMarkdown>
-      <div className="flex flex-wrap gap-2 mt-auto">
+      <div className="flex flex-wrap gap-2 mt-auto screen-only">
         {projectLink && (
           <a href={projectLink} target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-3 py-1 rounded-full text-sm hover:bg-green-600 transition-colors flex items-center">
             <ExternalLink className="w-4 h-4 mr-1" /> View
@@ -40,6 +40,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <ExternalLink className="w-4 h-4 mr-1" /> Docker
           </a>
         )}
+      </div>
+      <div className="hidden print-only">
+        {projectLink && <div>View: {projectLink}</div>}
+        {sourceLink && <div>Source: {sourceLink}</div>}
+        {dockerLink && <div>Docker: {dockerLink}</div>}
       </div>
     </div>
   );

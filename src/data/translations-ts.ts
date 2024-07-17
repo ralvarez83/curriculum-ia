@@ -21,6 +21,10 @@ interface Project {
   sourceLink?: string;
   dockerLink?: string;
 }
+interface LanguageSkill {
+  language: string;
+  level: "Básico" | "Intermedio" | "Avanzado" | "Nativo";
+}
 
 export interface Translation {
   name: string;
@@ -32,12 +36,14 @@ export interface Translation {
     education: string;
     skills: string;
     projects: string;
+    languages: string;
   };
   profile: string;
   experience: Experience[];
   education: Education[];
   skills: string[];
   projects: Project[];
+  languages: LanguageSkill[];
 }
 
 export const translations: Record<Language, Translation> = {
@@ -51,6 +57,7 @@ export const translations: Record<Language, Translation> = {
       education: "Educación",
       skills: "Habilidades",
       projects: "Proyectos",
+      languages: "Idiomas",
     },
     profile:
       "Me gusta el **desarrollo de productos de software** y me encanta trabajar lo mejor que puedo, aplicando las **mejores prácticas** que conozco. Disfruto buscando **nuevas y mejores maneras de hacer las cosas**. Siempre estoy en busca de **innovaciones** que puedan mejorar mi trabajo y los productos que desarrollo. Me esfuerzo por **aprender y adaptarme** a nuevas tecnologías y metodologías. Me motiva enfrentar **desafíos** que me permitan **crecer profesionalmente** y contribuir de manera significativa a los proyectos en los que participo. Valoro mucho la **colaboración con mis compañeros**, ya que creo que el **trabajo en equipo mejora los resultados**. Me esfuerzo cada día por **mejorar mis habilidades y conocimientos** para poder aprovechar las herramientas y tecnologías que tengo a mi alcance.",
@@ -166,6 +173,10 @@ export const translations: Record<Language, Translation> = {
           "https://hub.docker.com/r/rubenag83/datos-auto-evaluaciones",
       },
     ],
+    languages: [
+      { language: "Español", level: "Nativo" },
+      { language: "Inglés", level: "Intermedio" },
+    ],
   },
   en: {
     name: "Ruben Alvarez",
@@ -177,6 +188,7 @@ export const translations: Record<Language, Translation> = {
       education: "Education",
       skills: "Skills",
       projects: "Projects",
+      languages: "Languages",
     },
     profile:
       "I enjoy **software product development** and love working to the best of my ability, applying the **best practices** I know. I enjoy finding **new and better ways to do things**. I am always looking for **innovations** that can improve my work and the products I develop. I strive to **learn and adapt** to new technologies and methodologies. I am motivated by facing **challenges** that allow me to **grow professionally** and contribute significantly to the projects I am involved in. I greatly value **collaboration with my colleagues** as I believe that **teamwork improves results**. I strive every day to **improve my skills and knowledge** to make the most of the tools and technologies available to me.",
@@ -291,6 +303,10 @@ export const translations: Record<Language, Translation> = {
         dockerLink:
           "https://hub.docker.com/r/rubenag83/datos-auto-evaluaciones",
       },
+    ],
+    languages: [
+      { language: "Spanish", level: "Nativo" },
+      { language: "Inglés", level: "Intermedio" },
     ],
   },
 };

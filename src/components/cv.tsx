@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Code, Briefcase, GraduationCap, Folder } from 'lucide-react';
+import { Code, Briefcase, GraduationCap, Folder, Globe } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import Header from './header';
 import { Language, Translation, translations } from '../data/translations-ts';
@@ -8,6 +8,7 @@ import Card from './card';
 import Skills from './skills';
 import ProjectCard from './project';
 import { contacts } from '../data/contact';
+import LanguageSkills from './language';
 import '../themes/cv-friki.css'
 
 const CV: React.FC = () => {
@@ -45,6 +46,10 @@ const CV: React.FC = () => {
 
           <Section title={t.sections.skills} icon={Code}>
             <Skills skills={t.skills} />
+          </Section>
+
+          <Section title={t.sections.languages} icon={Globe}>
+            <LanguageSkills skills={t.languages} />
           </Section>
 
           <Section title={t.sections.projects} icon={Folder}>

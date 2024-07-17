@@ -1,0 +1,22 @@
+/* Importar los estilos base de Tailwind */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Variables CSS personalizadas */
+:root {
+  --primary-color: #10B981; /* El color verde que estás usando */
+  --secondary-color: #1F2937; /* El color de fondo del encabezado */
+}
+
+/* Estilos globales */
+body {
+  font-family: 'Courier New', Courier, monospace; /* Para mantener la fuente monoespaciada */
+}
+
+/* Ejemplo de una clase personalizada */
+.custom-shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Puedes agregar más estilos personalizados aquí si los necesitas */
