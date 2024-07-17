@@ -9,20 +9,18 @@ services:
       - "5080:80"
 
   reverse-proxy:
-    image: valian/docker-nginx-auto-ssl:1.0.0
+    image: nginx:stable-perl
     container_name: reverse-proxy
     restart: on-failure
     ports:
       - 80:80
       - 443:443
     volumes:
-      - ./.ssl-data:/etc/resty-auto-ssl
-    environment:
-      ALLOWED_DOMAINS: "rubenalvarezgonzalez.eu;localhost"
-      SITES: "rubenalvarezgonzalez.eu=curriculum:80;localhost=curriculum:80"
-      FORCE_HTTPS: "true"
+      - ./.ssl-data:/etc/nginx/certs
+      - ./nginx/nginx-reverse.conf:/etc/nginx/conf.d/nginx.conf
     depends_on:
       - curriculum
 
 volumes:
   .ssl-data:
+  nginx:
