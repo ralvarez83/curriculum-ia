@@ -63,6 +63,16 @@ export const translations: Record<Language, Translation> = {
       "Me gusta el **desarrollo de productos de software** y me encanta trabajar lo mejor que puedo, aplicando las **mejores prácticas** que conozco. Disfruto buscando **nuevas y mejores maneras de hacer las cosas**. Siempre estoy en busca de **innovaciones** que puedan mejorar mi trabajo y los productos que desarrollo. Me esfuerzo por **aprender y adaptarme** a nuevas tecnologías y metodologías. Me motiva enfrentar **desafíos** que me permitan **crecer profesionalmente** y contribuir de manera significativa a los proyectos en los que participo. Valoro mucho la **colaboración con mis compañeros**, ya que creo que el **trabajo en equipo mejora los resultados**. Me esfuerzo cada día por **mejorar mis habilidades y conocimientos** para poder aprovechar las herramientas y tecnologías que tengo a mi alcance.",
     experience: [
       {
+        title: "Head of Software Development",
+        company: "Uniendo Nodos",
+        period: "Sept. 2024 - Actualidad",
+        responsibilities: [
+          "Desarrollo de productos digitales utilizando **Angular** y **NodeJs**.",
+          "Implementación de arquitecturas *serverless* en **Google Cloud Platform**.",
+          "Ayudar a eficientar la empresa desde el punto de vista estratégico, táctico y de operaciones mediante técnicas ágiles y automatizaciones.",
+        ],
+      },
+      {
         title: "Agile Coach / Formador",
         company: "Estratecno",
         period: "Oct. 2019 - Jul. 2024",
@@ -153,11 +163,18 @@ export const translations: Record<Language, Translation> = {
     ],
     projects: [
       {
+        title: "Cloud Monitor",
+        shortDescription:
+          "Aplicación de aprendizaje para mostrar el estado de los servidores en la nube. Desarrollada con **DotNet Core 8** en el backend, siguiendo una arquitectura de **microservicios**, **arquitectura hexagonal** y **patrones DDD, Repository y Criteria**. Implementa con **TDD**, primero una prueba y luego el código que la supere.",
+        image: "/cloud-monitor.png",
+        sourceLink: "https://github.com/ralvarez83/clouds-monitor",
+      },
+      {
         title: "Movi-info",
         shortDescription:
           "Aplicación de aprendizaje para gestión de información de películas. Desarrollada con **React** y **TypeScript** en el frontend, **DotNet Core 8** en el backend, siguiendo una arquitectura hexagonal y patrones DDD, Repository y Criteria. Implementa pruebas automáticas y está containerizada con **Docker**.",
         image: "/movi-info.png",
-        projectLink: "http://194.164.174.221:8181",
+        projectLink: "https://movie-info.rubenalvarezgonzalez.eu",
         sourceLink: "https://github.com/ralvarez83/movi-info",
         dockerLink:
           "https://hub.docker.com/repository/docker/rubenag83/movi-info-react-dotnet-frontend",
@@ -167,7 +184,7 @@ export const translations: Record<Language, Translation> = {
         shortDescription:
           "Aplicación web para procesar y visualizar datos de auto-evaluaciones de agilidad organizacional. Desarrollada con **ReactJs**, implementando parcialmente una **arquitectura Hexagonal**. Procesa archivos Excel de Microsoft Forms y genera visualizaciones gráficas. **Dockerizada** y desplegada en un servidor web.",
         image: "/graficas-auto-evaluacion.png",
-        projectLink: "http://194.164.174.221:8080",
+        projectLink: "https://datos-auto-evaluacion.rubenalvarezgonzalez.eu",
         sourceLink: "https://github.com/ralvarez83/selft-assesment-charts",
         dockerLink: "https://hub.docker.com/r/rubenag83/selft-assesment-charts",
       },
@@ -192,6 +209,16 @@ export const translations: Record<Language, Translation> = {
     profile:
       "I enjoy **software product development** and love working to the best of my ability, applying the **best practices** I know. I enjoy finding **new and better ways to do things**. I am always looking for **innovations** that can improve my work and the products I develop. I strive to **learn and adapt** to new technologies and methodologies. I am motivated by facing **challenges** that allow me to **grow professionally** and contribute significantly to the projects I am involved in. I greatly value **collaboration with my colleagues** as I believe that **teamwork improves results**. I strive every day to **improve my skills and knowledge** to make the most of the tools and technologies available to me.",
     experience: [
+      {
+        title: "Head of Software Development",
+        company: "Uniendo Nodos",
+        period: "Sept. 2024 - Present",
+        responsibilities: [
+          "Developed digital products using **Angular** and **Node.js**.",
+          "Implemented serverless architectures on **Google Cloud Platform**.",
+          "Contributed to the company's strategic, tactical, and operational efficiency through agile methodologies and automation.",
+        ],
+      },
       {
         title: "Agile Coach / Trainer",
         company: "Estratecno",
@@ -283,11 +310,18 @@ export const translations: Record<Language, Translation> = {
     ],
     projects: [
       {
+        title: "Cloud Monitor",
+        shortDescription:
+          "Learning application to display the status of cloud servers. Developed using **DotNet Core 8** on the backend, following a **microservices architecture**, **hexagonal architecture**, and **DDD, Repository, and Criteria patterns**. Implemented with **TDD** (Test-Driven Development), starting with a test and then writing the code to pass it.",
+        image: "/cloud-monitor.png",
+        sourceLink: "https://github.com/ralvarez83/clouds-monitor",
+      },
+      {
         title: "Movi-info",
         shortDescription:
           "Learning application for movie information management. Developed with **React** and **TypeScript** for the frontend, **DotNet Core 8** for the backend, following a hexagonal architecture and DDD, Repository, and Criteria patterns. It implements automated tests and is containerized with **Docker**.",
         image: "/movi-info.png",
-        projectLink: "http://194.164.174.221:8181",
+        projectLink: "https://movie-info.rubenalvarezgonzalez.eu",
         sourceLink: "https://github.com/ralvarez83/movi-info",
         dockerLink:
           "https://hub.docker.com/repository/docker/rubenag83/movi-info-react-dotnet-frontend",
@@ -297,7 +331,7 @@ export const translations: Record<Language, Translation> = {
         shortDescription:
           "Web application for processing and visualizing organizational agility self-assessment data. Developed with **ReactJs**, partially implementing a **Hexagonal architecture**. Processes Microsoft Forms Excel files and generates graphical visualizations. **Dockerized** and deployed on a web server.",
         image: "/graficas-auto-evaluacion.png",
-        projectLink: "http://194.164.174.221:8080",
+        projectLink: "https://self-assessment-data.rubenalvarezgonzalez.eu",
         sourceLink: "https://github.com/ralvarez83/selft-assesment-charts",
         dockerLink: "https://hub.docker.com/r/rubenag83/selft-assesment-charts",
       },
