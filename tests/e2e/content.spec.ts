@@ -116,17 +116,12 @@ for (const { locale, path, t } of LOCALES) {
       }
     });
 
-    test('todas las imágenes cargan', async ({ page }) => {
-      await page.goto(path);
-
-      // Las imágenes de proyecto son `loading="lazy"`: hay que recorrer la
-      // página para que el navegador las pida.
-      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-      const images = page.locator('img');
-      const total = await images.count();
-      for (let i = 0; i < total; i++) {
-        await images.nth(i).scrollIntoViewIfNeeded();
-      }
+    test('todas las imágenes cargan sin necesidad de hacer scroll', async ({ page }) => {
+      // Deliberadamente sin scroll: con loading="lazy" WebKit se dejaba las
+      // imágenes de proyecto sin pedir hasta que había scroll o resize, y se
+      // veían en blanco de forma intermitente. Si alguien vuelve a diferirlas,
+      // esta prueba lo detecta.
+      await page.goto(path, { waitUntil: 'load' });
 
       await expect
         .poll(
@@ -136,9 +131,15 @@ for (const { locale, path, t } of LOCALES) {
                 .filter((img) => !img.complete || img.naturalWidth === 0)
                 .map((img) => img.getAttribute('src')),
             ),
-          { message: 'hay imágenes que no cargan' },
+          { message: 'hay imágenes que no llegan a cargar sin scroll' },
         )
         .toEqual([]);
+
+      // Y que ninguna quede con dimensión cero por un fallo de maquetación.
+      const anchos = await page.evaluate(() =>
+        [...document.querySelectorAll('img')].map((i) => i.getBoundingClientRect().width),
+      );
+      expect(anchos.every((w) => w > 0)).toBe(true);
     });
 
     test('sin errores de consola ni recursos caídos', async ({ page }) => {
