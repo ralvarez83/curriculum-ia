@@ -61,7 +61,7 @@ jobs:
     # útil como CI en bifurcaciones del repositorio.
     if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
     environment:
-      name: ${{ github.ref_name == 'main' && 'production' || 'preview' }}
+      name: ${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }}
       url: ${{ steps.netlify.outputs.url }}
     steps:
       - uses: actions/checkout@v4
@@ -83,16 +83,21 @@ jobs:
           fi
 
           # Sólo main publica en producción; el resto genera una previsualización.
-          if [ "${{ github.ref_name }}" = "main" ]; then
+          # Se mira github.ref porque en un pull_request ref_name vale "N/merge".
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
             PROD_FLAG="--prod"
           else
             PROD_FLAG=""
           fi
 
+          # --no-build: el sitio ya viene compilado del job anterior. Sin este
+          # flag la CLI detecta el framework y lanza "astro build" aquí, donde
+          # no hay dependencias instaladas.
           npx --yes netlify-cli@latest deploy \
             --dir=dist \
+            --no-build \
             --site="$NETLIFY_SITE_ID" \
-            --message="${{ github.ref_name }}@${{ github.sha }}" \
+            --message="${{ github.head_ref || github.ref_name }}@${{ github.sha }}" \
             $PROD_FLAG \
             --json > deploy.json
 
