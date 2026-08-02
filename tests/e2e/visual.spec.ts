@@ -16,12 +16,14 @@ const PAGES = [
  * que altere el resultado hace fallar la comparación. Si el cambio es
  * intencionado, regenerar con `npx playwright test --update-snapshots`.
  *
- * Nota: las capturas dependen del navegador y del sistema. Se generan en el
- * mismo entorno en que se ejecutan; en CI hay que usar la misma imagen.
+ * Van etiquetadas con @visual y quedan fuera de la integración continua: el
+ * dibujado de fuentes cambia de un entorno a otro, así que compararlas contra
+ * capturas hechas en otra máquina daría falsos negativos. Se ejecutan en local
+ * (`npm test`), donde sí sirven de red de seguridad.
  */
 for (const { locale, path } of PAGES) {
   for (const vp of VIEWPORTS) {
-    test(`aspecto ${vp.name} [${locale}]`, async ({ page }) => {
+    test(`aspecto ${vp.name} [${locale}]`, { tag: '@visual' }, async ({ page }) => {
       await page.setViewportSize({ width: vp.width, height: vp.height });
       await page.goto(path, { waitUntil: 'networkidle' });
 

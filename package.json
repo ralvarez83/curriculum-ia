@@ -2,7 +2,7 @@
   "name": "curriculum-ia",
   "private": true,
   "version": "0.0.0",
-  "description": "CV web personal de Rubén Álvarez, construido con Astro",
+  "description": "CV web personal de Rub\u00e9n \u00c1lvarez, construido con Astro",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
@@ -11,7 +11,8 @@
     "astro": "astro",
     "check": "astro check",
     "test": "playwright test",
-    "test:ui": "playwright test --ui"
+    "test:ui": "playwright test --ui",
+    "test:ci": "playwright test --grep-invert @visual"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

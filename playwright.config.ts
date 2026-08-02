@@ -10,7 +10,9 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'list',
-  snapshotPathTemplate: '{testDir}/__screenshots__/{arg}{ext}',
+  // El sistema operativo va en la ruta: las capturas dependen de cómo dibuje
+  // las fuentes cada entorno, así que cada plataforma guarda su propio juego.
+  snapshotPathTemplate: '{testDir}/__screenshots__/{platform}/{arg}{ext}',
 
   use: {
     baseURL,
