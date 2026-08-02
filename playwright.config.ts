@@ -1,7 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
 
 const PORT = 4321;
-const baseURL = `http://127.0.0.1:${PORT}`;
+const HOST = '127.0.0.1';
+const baseURL = `http://${HOST}:${PORT}`;
 
 export default defineConfig({
   testDir: './tests/e2e',
@@ -39,8 +40,11 @@ export default defineConfig({
   ],
 
   // Se prueba el artefacto real que se despliega, no el servidor de desarrollo.
+  // El host se fija de forma explícita: por defecto Astro escucha en
+  // "localhost", que en los runners de CI resuelve antes a ::1, y entonces las
+  // peticiones a 127.0.0.1 no encuentran a nadie al otro lado.
   webServer: {
-    command: 'npm run build && npm run preview -- --port ' + PORT,
+    command: `npm run build && npm run preview -- --port ${PORT} --host ${HOST}`,
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
