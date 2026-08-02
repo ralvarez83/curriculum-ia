@@ -9,9 +9,16 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react/jsx-runtime'
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: ['dist', '.astro', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: true,
+    tsconfigRootDir: __dirname,
+  },
   plugins: ['react-refresh'],
+  settings: {
+    react: { version: 'detect' },
+  },
   rules: {
     'react-refresh/only-export-components': [
       'warn',

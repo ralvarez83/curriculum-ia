@@ -9,11 +9,10 @@ COPY package.json .
 
 RUN npm install
 
-COPY tsconfig.* .
-COPY vite.config.ts .
+COPY tsconfig.json .
+COPY astro.config.mjs .
 COPY tailwind.config.js .
 COPY postcss.config.js .
-COPY index.html .
 COPY public /app/public
 COPY src /app/src
 

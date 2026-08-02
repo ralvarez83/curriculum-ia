@@ -8,7 +8,7 @@ Este proyecto es una página web que presenta mi Curriculum Vitae, creada casi e
 
 - Diseño moderno y responsivo
 - Creado principalmente con prompts de IA
-- Implementado con HTML5, CSS3 y React
+- Implementado con Astro, React y CSS3
 - Soporte multiidioma
 - Sección de proyectos con imágenes y enlaces
 - Contenido en Markdown renderizado en la web
@@ -16,11 +16,11 @@ Este proyecto es una página web que presenta mi Curriculum Vitae, creada casi e
 
 ## 🛠️ Tecnologías Utilizadas
 
-- React
+- Astro
+- React (como isla interactiva)
 - TypeScript
 - CSS3
-- Docker
-- HTTPS con certificados del hosting
+- Desplegado en Netlify
 
 ## 🤖 Proceso de Desarrollo con IA
 
@@ -38,9 +38,9 @@ El proyecto se desarrolló principalmente a través de prompts a sistemas de IA.
 10. Conversión del contenido a Markdown para mayor flexibilidad.
 11. Migración a TypeScript para añadir tipado estático.
 
-## 🐳 Despliegue
+## 🚀 Despliegue
 
-El mayor desafío técnico fue configurar los contenedores Docker para servir la página de forma segura (HTTPS) utilizando los certificados proporcionados por el hosting.
+La web se despliega en [Netlify](https://www.netlify.com/) directamente desde este repositorio (build automático en cada push), con Netlify gestionando también el DNS y el certificado HTTPS. El proyecto mantiene además un `Dockerfile`/`docker-compose.yaml` por si en el futuro se necesita volver a un despliegue autogestionado.
 
 ## 📝 Lecciones Aprendidas
 

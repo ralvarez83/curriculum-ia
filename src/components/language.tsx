@@ -34,7 +34,7 @@ const LanguageSkill: React.FC<LanguageSkillProps> = ({ language, level }) => {
 
 // Interfaz para las propiedades del componente principal
 interface LanguageSkillsProps {
-  skills: Array<{ language: string; level: LanguageLevel }>;
+  skills: { language: string; level: LanguageLevel }[];
 }
 
 // Componente principal que muestra todas las habilidades de idioma
