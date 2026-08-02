@@ -1,0 +1,157 @@
+{
+  "meta": {
+    "title": "CV - Ruben Alvarez",
+    "description": "Résumé of Ruben Alvarez, back-end developer based in Madrid. Experience with .Net Core, hexagonal architecture, DDD and agile."
+  },
+  "name": "Ruben Alvarez",
+  "title": "Back-end Developer",
+  "photo": "/photo.jpg",
+  "sections": {
+    "profile": "Profile",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "projects": "Projects",
+    "languages": "Languages"
+  },
+  "profile": "I enjoy **software product development** and love working to the best of my ability, applying the **best practices** I know. I enjoy finding **new and better ways to do things**. I am always looking for **innovations** that can improve my work and the products I develop. I strive to **learn and adapt** to new technologies and methodologies. I am motivated by facing **challenges** that allow me to **grow professionally** and contribute significantly to the projects I am involved in. I greatly value **collaboration with my colleagues** as I believe that **teamwork improves results**. I strive every day to **improve my skills and knowledge** to make the most of the tools and technologies available to me.",
+  "skills": [
+    ".Net Core",
+    "API REST",
+    "Dockers",
+    "DDD",
+    "CQRS",
+    "Hexagonal Architecture",
+    "xUnit",
+    "Azure",
+    "React",
+    "Jest",
+    "Scrum",
+    "SAFe"
+  ],
+  "languageLevels": {
+    "basic": "Basic",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "native": "Native"
+  },
+  "languages": [
+    {
+      "name": "Spanish",
+      "level": "native"
+    },
+    {
+      "name": "English",
+      "level": "intermediate"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Cloud Monitor",
+      "shortDescription": "Learning application to display the status of cloud servers. Developed using **DotNet Core 8** on the backend, following a **microservices architecture**, **hexagonal architecture**, and **DDD, Repository, and Criteria patterns**. Implemented with **TDD** (Test-Driven Development), starting with a test and then writing the code to pass it.",
+      "image": "/cloud-monitor.png",
+      "sourceLink": "https://github.com/ralvarez83/clouds-monitor"
+    },
+    {
+      "title": "Movi-info",
+      "shortDescription": "Learning application for movie information management. Developed with **React** and **TypeScript** for the frontend, **DotNet Core 8** for the backend, following a hexagonal architecture and DDD, Repository, and Criteria patterns. It implements automated tests and is containerized with **Docker**.",
+      "image": "/movi-info.png",
+      "projectLink": "https://movie-info.rubenalvarezgonzalez.eu",
+      "sourceLink": "https://github.com/ralvarez83/movi-info",
+      "dockerLink": "https://hub.docker.com/repository/docker/rubenag83/movi-info-react-dotnet-frontend"
+    },
+    {
+      "title": "Self-Assessment Data",
+      "shortDescription": "Web application for processing and visualizing organizational agility self-assessment data. Developed with **ReactJs**, partially implementing a **Hexagonal architecture**. Processes Microsoft Forms Excel files and generates graphical visualizations. **Dockerized** and deployed on a web server.",
+      "image": "/graficas-auto-evaluacion.png",
+      "projectLink": "https://self-assessment-data.rubenalvarezgonzalez.eu",
+      "sourceLink": "https://github.com/ralvarez83/selft-assesment-charts",
+      "dockerLink": "https://hub.docker.com/r/rubenag83/selft-assesment-charts"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Head of Software Development",
+      "company": "Uniendo Nodos",
+      "period": "Sept. 2024 - Present",
+      "responsibilities": [
+        "Developed digital products using **Angular** and **Node.js**.",
+        "Implemented serverless architectures on **Google Cloud Platform**.",
+        "Contributed to the company's strategic, tactical, and operational efficiency through agile methodologies and automation."
+      ]
+    },
+    {
+      "title": "Agile Coach / Trainer",
+      "company": "Estratecno",
+      "period": "Oct. 2019 - Jul. 2024",
+      "responsibilities": [
+        "Implemented Scrum, Kanban, and SAFe in various companies, providing training and coaching.",
+        "Practised TDD and BDD before promoting them along with DevOps to maximize agility effectiveness in development environments."
+      ]
+    },
+    {
+      "title": "Scrum Master / Agile Coach",
+      "company": "UST-Global",
+      "period": "Jun. 2018 - Oct. 2019",
+      "responsibilities": [
+        "Helped work teams function more effectively by applying agile frameworks such as Scrum and specific adapted SAFe techniques.",
+        "Quickly demonstrated project viability."
+      ]
+    },
+    {
+      "title": "Co-Founder – CTO",
+      "company": "Spika Tech",
+      "period": "Nov. 2015 - Feb. 2018",
+      "responsibilities": [
+        "Led technology projects for clients such as BBVA and HP.",
+        "Designed software solutions, managed teams, and selected key technologies.",
+        "Sectors: Fintech, Medical Virtual Reality, 3D tools, tourism, and education.",
+        "Managed client relationships and provided technical mentoring to the team.",
+        "Technologies: **.Net Core**, **Azure**, **MySQL**, **SQL Server**, **PostgreSQL**, Xamarin, Stripe, Paypal, Unity3D, Unreal, Cuda, Angular JS, Java (Jersey and Spring), PHP, PhoneGap, etc."
+      ]
+    },
+    {
+      "title": "Co-Founder – CTO",
+      "company": "DreamTechnology",
+      "period": "Jan. 2013 - Nov. 2015",
+      "responsibilities": [
+        "Directed e-commerce and logistics projects, designing software solutions and selecting technologies.",
+        "Managed client relationships and provided technical mentoring to the team.",
+        "Technologies: **.Net 4.5**, **Entity Framework** and **LINQ**, **Selenium**, **SQL Server**, PHP with Zend Framework and Doctrine, MySQL"
+      ]
+    },
+    {
+      "title": "Previous Experiences",
+      "company": "",
+      "period": "May 2007 - Jan. 2013",
+      "responsibilities": [
+        "**.NET 4.5 Instructor** - Innopulse Technology Advisors: **C#**, **VB**, **Entity Framework**, **LINQ**, **MVC**, **Web Services**, Security, and XML.",
+        "**Senior Developer** - Kincubator: Java (REST API), Oauth2, Protege, Jena, SDB)",
+        "**Senior Developer** - Innopulse Technology Advisors: **.NET 3.5**, TFS, TFS Build and **automated testing**",
+        "**Junior Developer** - Innopulse Technology Advisors and Technology and Internet Development: **.NET 3.5** and Java (Servlets)"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master's in Artificial Intelligence Research",
+      "institution": "Universidad Politécnica de Madrid",
+      "period": "Sept. 2008 - Jun. 2011"
+    },
+    {
+      "degree": "Degree in Software Engineering",
+      "institution": "Universidad Politécnica de Madrid",
+      "period": "Sept. 2009 - Jun. 2010"
+    },
+    {
+      "degree": "Master's in Computer Science and Technology",
+      "institution": "Universidad Carlos III de Madrid",
+      "period": "Sept. 2007 - Jun. 2008"
+    },
+    {
+      "degree": "Technical Engineering in Computer Systems",
+      "institution": "Universidad Politécnica de Madrid",
+      "period": "Sept. 2003 - Mar. 2007"
+    }
+  ]
+}

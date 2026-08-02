@@ -1,0 +1,80 @@
+---
+import { ExternalLink } from '@lucide/astro';
+import GithubIcon from './icons/GithubIcon.astro';
+import { renderInlineMarkdown } from '../utils/markdown';
+
+interface Props {
+  title: string;
+  shortDescription: string;
+  image: string;
+  projectLink?: string | undefined;
+  sourceLink?: string | undefined;
+  dockerLink?: string | undefined;
+}
+
+const { title, shortDescription, image, projectLink, sourceLink, dockerLink } =
+  Astro.props;
+
+const actionClass =
+  'px-3 py-1 rounded-full text-sm transition-colors flex items-center text-primary-contrast';
+---
+
+<article
+  class="cv-card bg-surface-muted p-4 rounded-lg border-l-4 border-primary flex flex-col h-full"
+>
+  <img
+    src={image}
+    alt={title}
+    loading="lazy"
+    decoding="async"
+    class="w-full h-40 object-cover rounded-lg mb-4"
+  />
+  <h4 class="cv-card-title text-lg font-medium text-text mb-2">{title}</h4>
+  <p class="md text-text-muted mb-4 grow" set:html={renderInlineMarkdown(shortDescription)} />
+
+  <div class="flex flex-wrap gap-2 mt-auto screen-only">
+    {
+      projectLink && (
+        <a
+          href={projectLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class:list={[actionClass, 'bg-primary hover:bg-primary-hover']}
+        >
+          <ExternalLink class="w-4 h-4 mr-1" aria-hidden="true" /> View
+        </a>
+      )
+    }
+    {
+      sourceLink && (
+        <a
+          href={sourceLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class:list={[actionClass, 'bg-action-source hover:bg-action-source-hover']}
+        >
+          <GithubIcon class="w-4 h-4 mr-1" aria-hidden="true" /> Source
+        </a>
+      )
+    }
+    {
+      dockerLink && (
+        <a
+          href={dockerLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class:list={[actionClass, 'bg-action-docker hover:bg-action-docker-hover']}
+        >
+          <ExternalLink class="w-4 h-4 mr-1" aria-hidden="true" /> Docker
+        </a>
+      )
+    }
+  </div>
+
+  {/* En papel los botones no sirven: se imprimen las URLs. */}
+  <div class="print-only text-text-muted">
+    {projectLink && <div>View: {projectLink}</div>}
+    {sourceLink && <div>Source: {sourceLink}</div>}
+    {dockerLink && <div>Docker: {dockerLink}</div>}
+  </div>
+</article>

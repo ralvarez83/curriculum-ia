@@ -1,11 +1,23 @@
 import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    react(),
-    tailwind({ applyBaseStyles: false }),
-  ],
+  site: 'https://rubenalvarezgonzalez.eu',
+  output: 'static',
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'en'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  integrations: [sitemap()],
+  build: {
+    format: 'directory',
+  },
 });

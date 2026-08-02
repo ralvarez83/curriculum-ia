@@ -1,0 +1,27 @@
+---
+import { renderInlineMarkdown } from '../utils/markdown';
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  content?: string[];
+}
+
+const { title, subtitle, content = [] } = Astro.props;
+---
+
+<article
+  class="cv-card bg-surface-muted p-4 rounded-lg border-l-4 border-primary mb-4"
+>
+  <h4 class="cv-card-title text-xl font-medium text-text mb-2">{title}</h4>
+  {subtitle && <p class="text-text-muted mb-2">{subtitle}</p>}
+  {
+    content.length > 0 && (
+      <div class="text-text-secondary">
+        {content.map((paragraph) => (
+          <p class="md text-justify mb-2 last:mb-0" set:html={renderInlineMarkdown(paragraph)} />
+        ))}
+      </div>
+    )
+  }
+</article>

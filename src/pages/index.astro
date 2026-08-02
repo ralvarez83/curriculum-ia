@@ -1,15 +1,10 @@
 ---
-import CV from '../components/cv';
+import Layout from '../layouts/Layout.astro';
+import Cv from '../components/Cv.astro';
+
+const locale = 'es' as const;
 ---
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CV - Rubén Álvarez</title>
-  </head>
-  <body>
-    <CV client:load />
-  </body>
-</html>
+
+<Layout locale={locale}>
+  <Cv locale={locale} />
+</Layout>

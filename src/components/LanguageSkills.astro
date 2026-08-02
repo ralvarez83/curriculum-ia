@@ -1,0 +1,36 @@
+---
+import type { LanguageLevel, Translation } from '../i18n/utils';
+
+interface Props {
+  languages: Translation['languages'];
+  levelLabels: Translation['languageLevels'];
+}
+
+const { languages, levelLabels } = Astro.props;
+
+/* El color depende del nivel, no del idioma: cada nivel tiene su token. */
+const LEVEL_CLASS: Record<LanguageLevel, string> = {
+  basic: 'bg-level-basic',
+  intermediate: 'bg-level-intermediate',
+  advanced: 'bg-level-advanced',
+  native: 'bg-level-native',
+};
+---
+
+<ul class="space-y-2 list-none p-0 m-0">
+  {
+    languages.map(({ name, level }) => (
+      <li class="flex items-center justify-between p-2 rounded-lg shadow-sm">
+        <span class="font-medium text-text-secondary">{name}</span>
+        <span
+          class:list={[
+            'px-2 py-1 text-sm font-semibold rounded-full text-text',
+            LEVEL_CLASS[level as LanguageLevel],
+          ]}
+        >
+          {levelLabels[level as LanguageLevel]}
+        </span>
+      </li>
+    ))
+  }
+</ul>

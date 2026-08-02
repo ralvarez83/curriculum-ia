@@ -1,0 +1,75 @@
+---
+import { Code, Briefcase, GraduationCap, Folder, Globe } from '@lucide/astro';
+import type { Locale } from '../i18n/utils';
+import { getTranslations } from '../i18n/utils';
+import { renderMarkdown } from '../utils/markdown';
+import Header from './Header.astro';
+import Section from './Section.astro';
+import Card from './Card.astro';
+import Skills from './Skills.astro';
+import LanguageSkills from './LanguageSkills.astro';
+import ProjectCard from './ProjectCard.astro';
+import LanguageSelector from './ui/LanguageSelector.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+---
+
+<div class="min-h-screen bg-background py-12 px-4 sm:px-6 lg:px-8">
+  <div
+    class="cv-container max-w-(--container-cv) mx-auto bg-surface shadow-card rounded-lg overflow-hidden border border-border"
+  >
+    <div class="flex justify-end p-4 screen-only">
+      <LanguageSelector locale={locale} />
+    </div>
+
+    <Header name={t.name} title={t.title} photo={t.photo} />
+
+    <main class="p-6">
+      <Section title={t.sections.profile} icon={Code}>
+        <div
+          class="md text-text-secondary bg-surface-muted p-4 rounded-lg border-l-4 border-primary"
+          set:html={renderMarkdown(t.profile)}
+        />
+      </Section>
+
+      <Section title={t.sections.skills} icon={Code}>
+        <Skills skills={t.skills} />
+      </Section>
+
+      <Section title={t.sections.languages} icon={Globe}>
+        <LanguageSkills languages={t.languages} levelLabels={t.languageLevels} />
+      </Section>
+
+      <Section title={t.sections.projects} icon={Folder}>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {t.projects.map((project) => <ProjectCard {...project} />)}
+        </div>
+      </Section>
+
+      <Section title={t.sections.experience} icon={Briefcase}>
+        {
+          t.experience.map((job) => (
+            <Card
+              title={job.title}
+              subtitle={[job.company, job.period].filter(Boolean).join(' | ')}
+              content={job.responsibilities}
+            />
+          ))
+        }
+      </Section>
+
+      <Section title={t.sections.education} icon={GraduationCap}>
+        {
+          t.education.map((edu) => (
+            <Card title={edu.degree} subtitle={`${edu.institution} | ${edu.period}`} />
+          ))
+        }
+      </Section>
+    </main>
+  </div>
+</div>
