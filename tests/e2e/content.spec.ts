@@ -29,7 +29,8 @@ for (const { locale, path, t } of LOCALES) {
       await expect(page.getByRole('heading', { level: 2 })).toHaveText(t.title);
 
       const photo = page.locator('header img');
-      await expect(photo).toHaveAttribute('src', t.photo);
+      const photoStem = t.photo.split('/').pop()!.replace(/\.[^.]+$/, '');
+      await expect(photo).toHaveAttribute('src', new RegExp(photoStem));
       await expect(photo).toHaveAttribute('alt', t.name);
 
       await expect(page.getByRole('link', { name: 'rubenag83@gmail.com' })).toHaveAttribute(
@@ -104,7 +105,12 @@ for (const { locale, path, t } of LOCALES) {
       for (const [i, project] of t.projects.entries()) {
         const card = projects.nth(i);
         await expect(card).toContainText(project.title);
-        await expect(card.locator('img')).toHaveAttribute('src', project.image);
+
+        // Astro procesa las imágenes y les cambia el nombre con un hash, así
+        // que se comprueba que la tarjeta lleva la imagen que le toca por el
+        // nombre del fichero de origen, no por la ruta literal.
+        const stem = project.image.split('/').pop()!.replace(/\.[^.]+$/, '');
+        await expect(card.locator('img')).toHaveAttribute('src', new RegExp(stem));
 
         for (const href of [project.projectLink, project.sourceLink, project.dockerLink]) {
           if (!href) continue;

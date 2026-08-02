@@ -1,7 +1,9 @@
 ---
+import { getImage } from 'astro:assets';
 import '../styles/globals.css';
 import type { Locale } from '../i18n/utils';
 import { getAlternateUrl, getTranslations } from '../i18n/utils';
+import { getImageAsset } from '../utils/images';
 
 interface Props {
   locale: Locale;
@@ -13,6 +15,10 @@ const alternateLocale: Locale = locale === 'es' ? 'en' : 'es';
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const alternateUrl = new URL(getAlternateUrl(Astro.url, alternateLocale), Astro.site);
+
+// Para las tarjetas de redes sociales se genera un JPEG aparte: no todos los
+// rastreadores entienden el WebP que se sirve en la página.
+const ogImage = await getImage({ src: getImageAsset(t.photo), format: 'jpeg' });
 
 const personSchema = {
   '@context': 'https://schema.org',
@@ -45,7 +51,7 @@ const personSchema = {
     <meta property="og:title" content={t.meta.title} />
     <meta property="og:description" content={t.meta.description} />
     <meta property="og:url" content={canonicalUrl.href} />
-    <meta property="og:image" content={new URL(t.photo, Astro.site).href} />
+    <meta property="og:image" content={new URL(ogImage.src, Astro.site).href} />
     <meta property="og:locale" content={locale === 'es' ? 'es_ES' : 'en_US'} />
     <meta property="og:locale:alternate" content={locale === 'es' ? 'en_US' : 'es_ES'} />
 

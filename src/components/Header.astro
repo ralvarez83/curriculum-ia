@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import { contacts } from '../data/contact';
+import { getImageAsset } from '../utils/images';
 
 interface Props {
   name: string;
@@ -8,15 +10,17 @@ interface Props {
 }
 
 const { name, title, photo } = Astro.props;
+const portrait = getImageAsset(photo);
 ---
 
 <header class="bg-header-bg text-header-text p-6">
   <div class="flex items-center border-b-2 border-primary pb-4 mb-4">
-    <img
-      src={photo}
+    <Image
+      src={portrait}
       alt={name}
-      width="96"
-      height="96"
+      width={96}
+      height={96}
+      loading="eager"
       class="w-24 h-24 rounded-full border-2 border-primary mr-6 object-cover"
     />
     <div>

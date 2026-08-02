@@ -1,7 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import { ExternalLink } from '@lucide/astro';
 import GithubIcon from './icons/GithubIcon.astro';
 import { renderInlineMarkdown } from '../utils/markdown';
+import { getImageAsset } from '../utils/images';
 
 interface Props {
   title: string;
@@ -15,6 +17,8 @@ interface Props {
 const { title, shortDescription, image, projectLink, sourceLink, dockerLink } =
   Astro.props;
 
+const cover = getImageAsset(image);
+
 const actionClass =
   'px-3 py-1 rounded-full text-sm transition-colors flex items-center text-primary-contrast';
 ---
@@ -22,13 +26,16 @@ const actionClass =
 <article
   class="cv-card bg-surface-muted p-4 rounded-lg border-l-4 border-primary flex flex-col h-full"
 >
-  {/* Sin loading="lazy": en WebKit no siempre llega a pedir la imagen hasta que
-      hay scroll o resize, y se quedaban en blanco de forma intermitente. Son
-      tres imágenes pequeñas justo bajo el pliegue, así que diferirlas no
-      compensaba el riesgo. */}
-  <img
-    src={image}
+  {/* loading="eager" a propósito: Astro difiere las imágenes por defecto y en
+      WebKit no siempre llega a pedirlas hasta que hay scroll o resize, así que
+      se quedaban en blanco de forma intermitente. Al ir en WebP y a la medida
+      real de la tarjeta pesan poco, y no hay nada que ganar difiriéndolas. */}
+  <Image
+    src={cover}
     alt={title}
+    widths={[400, 800]}
+    sizes="(min-width: 1024px) 340px, (min-width: 768px) 50vw, 100vw"
+    loading="eager"
     decoding="async"
     class="w-full h-40 object-cover rounded-lg mb-4"
   />

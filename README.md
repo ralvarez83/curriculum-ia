@@ -58,6 +58,20 @@ traducen.
 Los textos admiten Markdown en línea (`**negrita**`, `*cursiva*`, enlaces), que
 se convierte a HTML durante el build.
 
+### Imágenes
+
+Van en `src/assets/` (las de proyectos, en `src/assets/projects/`), no en
+`public/`. Astro las procesa durante el build: las convierte a WebP, genera
+varios tamaños y sirve el que corresponda a cada pantalla.
+
+En los diccionarios se siguen nombrando por su fichero, como
+`"image": "/cloud-monitor.png"`; basta con dejar el archivo en
+`src/assets/projects/` con ese nombre. Si no aparece, el build falla en vez de
+publicar una imagen rota.
+
+En `public/` solo queda el favicon, porque debe servirse tal cual y sin
+renombrar.
+
 ## 🌍 Añadir un idioma
 
 1. Crea `src/i18n/<código>.json` copiando la estructura de `es.json`.
