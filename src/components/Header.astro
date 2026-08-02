@@ -1,0 +1,49 @@
+---
+import { contacts } from '../data/contact';
+
+interface Props {
+  name: string;
+  title: string;
+  photo: string;
+}
+
+const { name, title, photo } = Astro.props;
+---
+
+<header class="bg-header-bg text-header-text p-6">
+  <div class="flex items-center border-b-2 border-primary pb-4 mb-4">
+    <img
+      src={photo}
+      alt={name}
+      width="96"
+      height="96"
+      class="w-24 h-24 rounded-full border-2 border-primary mr-6 object-cover"
+    />
+    <div>
+      <h1 class="text-4xl font-bold mb-2">{name}</h1>
+      <h2 class="text-xl">{title}</h2>
+    </div>
+  </div>
+
+  <address class="not-italic grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    {
+      contacts.map(({ icon: Icon, text, href }) => (
+        <div class="flex items-center mb-2">
+          <Icon class="w-5 h-5 mr-2 text-primary shrink-0" aria-hidden="true" />
+          {href ? (
+            <a
+              href={href}
+              class="text-header-text hover:text-primary transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {text}
+            </a>
+          ) : (
+            <span class="text-header-text">{text}</span>
+          )}
+        </div>
+      ))
+    }
+  </address>
+</header>

@@ -1,0 +1,106 @@
+name: CI/CD
+
+# El despliegue lo hace este workflow, no la integración Git de Netlify:
+# se compila aquí y se sube el resultado ya construido con la CLI.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verificar:
+    name: Comprobaciones
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Tipos y plantillas
+        run: npm run check
+
+      - name: Navegadores de Playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Pruebas end-to-end
+        # Se excluyen las de regresión visual (@visual): las capturas dependen
+        # de cómo dibuje las fuentes cada entorno y aquí darían falsos fallos.
+        run: npm run test:ci
+
+      - name: Construir
+        run: npm run build
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sitio
+          path: dist
+          retention-days: 7
+
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: informe-playwright
+          path: playwright-report
+          retention-days: 7
+
+  desplegar:
+    name: Desplegar en Netlify
+    needs: verificar
+    runs-on: ubuntu-latest
+    # Sin credenciales no se intenta desplegar: así el workflow sigue siendo
+    # útil como CI en bifurcaciones del repositorio.
+    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
+    environment:
+      name: ${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }}
+      url: ${{ steps.netlify.outputs.url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: sitio
+          path: dist
+
+      - name: Publicar
+        id: netlify
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+            echo "::error::Faltan los secretos NETLIFY_AUTH_TOKEN y/o NETLIFY_SITE_ID"
+            exit 1
+          fi
+
+          # Sólo main publica en producción; el resto genera una previsualización.
+          # Se mira github.ref porque en un pull_request ref_name vale "N/merge".
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            PROD_FLAG="--prod"
+          else
+            PROD_FLAG=""
+          fi
+
+          # --no-build: el sitio ya viene compilado del job anterior. Sin este
+          # flag la CLI detecta el framework y lanza "astro build" aquí, donde
+          # no hay dependencias instaladas.
+          npx --yes netlify-cli@latest deploy \
+            --dir=dist \
+            --no-build \
+            --site="$NETLIFY_SITE_ID" \
+            --message="${{ github.head_ref || github.ref_name }}@${{ github.sha }}" \
+            $PROD_FLAG \
+            --json > deploy.json
+
+          URL=$(node -p "const d=require('./deploy.json'); d.deploy_url || d.url")
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+          echo "### Desplegado en $URL" >> "$GITHUB_STEP_SUMMARY"
