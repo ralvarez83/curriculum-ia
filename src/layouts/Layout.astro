@@ -1,7 +1,9 @@
 ---
+import { getImage } from 'astro:assets';
 import '../styles/globals.css';
 import type { Locale } from '../i18n/utils';
 import { getAlternateUrl, getTranslations } from '../i18n/utils';
+import { getImageAsset } from '../utils/images';
 
 interface Props {
   locale: Locale;
@@ -13,6 +15,10 @@ const alternateLocale: Locale = locale === 'es' ? 'en' : 'es';
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const alternateUrl = new URL(getAlternateUrl(Astro.url, alternateLocale), Astro.site);
+
+// Para las tarjetas de redes sociales se genera un JPEG aparte: no todos los
+// rastreadores entienden el WebP que se sirve en la página.
+const ogImage = await getImage({ src: getImageAsset(t.photo), format: 'jpeg' });
 
 const personSchema = {
   '@context': 'https://schema.org',
@@ -27,10 +33,21 @@ const personSchema = {
 ---
 
 <!doctype html>
-<!-- data-theme selecciona la variante del sistema de diseño: "friki" (por
-     defecto) o "serious". Ver docs/design-tokens.md. -->
-<html lang={locale} data-theme="friki">
+<html lang={locale}>
   <head>
+    {/* Antes que nada: fija el tema para que la página no parpadee del claro
+        al oscuro. Respeta lo que el usuario eligió y, si no ha elegido, la
+        preferencia del navegador. Sin JavaScript no se ejecuta, pero la hoja
+        de estilos cubre ese caso con una media query. */}
+    <script is:inline>
+      (() => {
+        const guardado = localStorage.getItem('cv-theme');
+        const oscuro = guardado
+          ? guardado === 'dark'
+          : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = oscuro ? 'dark' : 'light';
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{t.meta.title}</title>
@@ -45,7 +62,7 @@ const personSchema = {
     <meta property="og:title" content={t.meta.title} />
     <meta property="og:description" content={t.meta.description} />
     <meta property="og:url" content={canonicalUrl.href} />
-    <meta property="og:image" content={new URL(t.photo, Astro.site).href} />
+    <meta property="og:image" content={new URL(ogImage.src, Astro.site).href} />
     <meta property="og:locale" content={locale === 'es' ? 'es_ES' : 'en_US'} />
     <meta property="og:locale:alternate" content={locale === 'es' ? 'en_US' : 'es_ES'} />
 

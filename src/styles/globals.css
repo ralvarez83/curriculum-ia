@@ -8,6 +8,13 @@
    ───────────────────────────────────────────────────────────────────────── */
 
 @theme {
+  /* ── Tema "friki": la cabecera es un terminal, el cuerpo un IDE en claro ──
+     Los bloques oscuros conservan el verde de fósforo. Para los bloques claros
+     no vale un verde neón: sobre blanco se lava y no cumple contraste. Se usa
+     entonces la paleta de sintaxis de VS Code Light+ (light_vs.json y
+     light_plus.json), que es lo que uno ve en un editor con tema claro y donde
+     todos los colores superan 4,5:1 sobre blanco. */
+
   /* Tipografía */
   --font-base: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
@@ -17,14 +24,20 @@
   --color-surface: #ffffff;
   --color-surface-muted: #f3f4f6;
 
-  /* Cabecera */
+  /* Cabecera: bloque oscuro, verde de fósforo */
   --color-header-bg: #1f2937;
   --color-header-text: #ffffff;
 
-  /* Color de marca */
-  --color-primary: #22c55e;
-  --color-primary-hover: #16a34a;
+  /* Marca. En los bloques claros no hay verde a propósito: en un tema claro de
+     IDE el verde es el color de los comentarios, es decir, de lo que el editor
+     atenúa. Para lo prominente esos temas usan azul, morado y teal; se elige el
+     teal de tipos, que deja el azul libre para su papel natural de enlace. El
+     verde de fósforo se queda donde sí significa algo: la cabecera. */
+  --color-primary: #267f99;
+  --color-primary-hover: #1d6376;
   --color-primary-contrast: #ffffff;
+  --color-primary-on-dark: #22c55e;
+  --color-link: #0451a5;
 
   /* Texto */
   --color-text: #1f2937;
@@ -32,24 +45,25 @@
   --color-text-muted: #4b5563;
 
   /* Bordes y separadores */
-  --color-border: #22c55e;
+  --color-border: #267f99;
   --color-divider: #e5e7eb;
 
   /* Etiquetas de habilidades */
   --color-tag-bg: #e5e7eb;
   --color-tag-text: #374151;
 
-  /* Botones de acción de los proyectos */
-  --color-action-source: #6b7280;
-  --color-action-source-hover: #4b5563;
-  --color-action-docker: #3b82f6;
-  --color-action-docker-hover: #2563eb;
+  /* Botones: marrón de función y azul de constante, de la misma paleta. */
+  --color-action-source: #795e26;
+  --color-action-source-hover: #5d491d;
+  --color-action-docker: #0070c1;
+  --color-action-docker-hover: #005596;
 
-  /* Niveles de idioma */
-  --color-level-basic: #bfdbfe;
-  --color-level-intermediate: #bbf7d0;
-  --color-level-advanced: #fef08a;
-  --color-level-native: #fecaca;
+  /* Niveles de idioma: los mismos colores de sintaxis aclarados hacia el
+     blanco hasta pasar de 4,5:1 con el texto oscuro encima. */
+  --color-level-basic: #5c9fb3;
+  --color-level-intermediate: #4d9bd4;
+  --color-level-advanced: #a89672;
+  --color-level-native: #cc7e7e;
 
   /* Radios */
   --radius-sm: 4px;
@@ -67,48 +81,122 @@
   --container-cv: 72rem;
 }
 
-/* ── Variante "serious": sobreescribe SÓLO los tokens que cambian ──
-   Se activa con <html data-theme="serious">. Ningún componente se toca. */
-[data-theme='serious'] {
-  --font-base: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Helvetica, Arial, sans-serif;
+/* ── Modo oscuro ──
+   Los mismos tokens con la paleta de un IDE oscuro. Se aplica de dos maneras:
+   por elección explícita del usuario (data-theme) y, si no ha elegido, por la
+   preferencia del navegador. El bloque está duplicado porque CSS no permite
+   compartir una lista de declaraciones entre un selector y una media query;
+   una prueba comprueba que ambos caminos dan exactamente los mismos valores. */
 
-  --color-background: #f5f5f5;
-  --color-surface: #ffffff;
-  --color-surface-muted: #fafafa;
+:root[data-theme='dark'] {
+  color-scheme: dark;
 
-  --color-header-bg: #2c3e50;
-  --color-header-text: #ffffff;
+  /* Superficies */
+  --color-background: #0d1117;
+  --color-surface: #161b22;
+  --color-surface-muted: #0d1117;
 
-  --color-primary: #3498db;
-  --color-primary-hover: #2c3e50;
-  --color-primary-contrast: #ffffff;
+  /* Cabecera elevada. En claro destaca por ser más oscura que su entorno; en
+     oscuro lo equivalente es que destaque por ser más clara, siguiendo la
+     convención de elevación. Invertirla del todo a un bloque claro deslumbra,
+     que es justo lo que el modo oscuro trata de evitar. */
+  --color-header-bg: #2d333b;
+  --color-header-text: #f0f6fc;
 
-  --color-text: #333333;
-  --color-text-secondary: #4a4a4a;
-  --color-text-muted: #6b6b6b;
+  /* Marca: con todo el documento en oscuro, el verde de fósforo ya funciona
+     en cualquier bloque (7,59:1 sobre la tarjeta). */
+  --color-primary: #22c55e;
+  --color-primary-hover: #4ade80;
+  --color-primary-contrast: #0d1117;
+  --color-primary-on-dark: #22c55e;
+  --color-link: #58a6ff;
 
-  --color-border: #e0e0e0;
-  --color-divider: #e0e0e0;
+  /* Texto */
+  --color-text: #e6edf3;
+  --color-text-secondary: #c9d1d9;
+  --color-text-muted: #8b949e;
 
-  --color-tag-bg: #34495e;
-  --color-tag-text: #ffffff;
+  /* Bordes y separadores */
+  --color-border: #22c55e;
+  --color-divider: #30363d;
 
-  --color-action-source: #34495e;
-  --color-action-source-hover: #2c3e50;
-  --color-action-docker: #3498db;
-  --color-action-docker-hover: #2c3e50;
+  /* Etiquetas */
+  --color-tag-bg: #21262d;
+  --color-tag-text: #c9d1d9;
 
-  --radius-sm: 3px;
-  --radius-md: 3px;
-  --radius-lg: 3px;
+  /* Botones */
+  --color-action-source: #d29922;
+  --color-action-source-hover: #e3ad3c;
+  --color-action-docker: #39c5cf;
+  --color-action-docker-hover: #56d4dd;
 
-  --shadow-card: 0 0 10px rgb(0 0 0 / 0.1);
+  /* Niveles de idioma */
+  --color-level-basic: #58a6ff;
+  --color-level-intermediate: #3fb950;
+  --color-level-advanced: #d29922;
+  --color-level-native: #f85149;
+}
 
-  --container-cv: 50rem;
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+  color-scheme: dark;
+
+  /* Superficies */
+  --color-background: #0d1117;
+  --color-surface: #161b22;
+  --color-surface-muted: #0d1117;
+
+  /* Cabecera elevada. En claro destaca por ser más oscura que su entorno; en
+     oscuro lo equivalente es que destaque por ser más clara, siguiendo la
+     convención de elevación. Invertirla del todo a un bloque claro deslumbra,
+     que es justo lo que el modo oscuro trata de evitar. */
+  --color-header-bg: #2d333b;
+  --color-header-text: #f0f6fc;
+
+  /* Marca: con todo el documento en oscuro, el verde de fósforo ya funciona
+     en cualquier bloque (7,59:1 sobre la tarjeta). */
+  --color-primary: #22c55e;
+  --color-primary-hover: #4ade80;
+  --color-primary-contrast: #0d1117;
+  --color-primary-on-dark: #22c55e;
+  --color-link: #58a6ff;
+
+  /* Texto */
+  --color-text: #e6edf3;
+  --color-text-secondary: #c9d1d9;
+  --color-text-muted: #8b949e;
+
+  /* Bordes y separadores */
+  --color-border: #22c55e;
+  --color-divider: #30363d;
+
+  /* Etiquetas */
+  --color-tag-bg: #21262d;
+  --color-tag-text: #c9d1d9;
+
+  /* Botones */
+  --color-action-source: #d29922;
+  --color-action-source-hover: #e3ad3c;
+  --color-action-docker: #39c5cf;
+  --color-action-docker-hover: #56d4dd;
+
+  /* Niveles de idioma */
+  --color-level-basic: #58a6ff;
+  --color-level-intermediate: #3fb950;
+  --color-level-advanced: #d29922;
+  --color-level-native: #f85149;
+  }
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
 }
 
 @layer base {
+  :root {
+    color-scheme: light;
+  }
+
   body {
     font-family: var(--font-base);
     background-color: var(--color-background);
@@ -182,7 +270,7 @@
 }
 
 .md a {
-  color: var(--color-primary);
+  color: var(--color-link);
   text-decoration: underline;
   text-underline-offset: 2px;
 }

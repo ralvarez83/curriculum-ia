@@ -11,9 +11,9 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'list',
-  // El sistema operativo va en la ruta: las capturas dependen de cómo dibuje
-  // las fuentes cada entorno, así que cada plataforma guarda su propio juego.
-  snapshotPathTemplate: '{testDir}/__screenshots__/{platform}/{arg}{ext}',
+  // Navegador y sistema operativo van en la ruta: las capturas dependen de
+  // ambos, así que cada combinación guarda su propio juego.
+  snapshotPathTemplate: '{testDir}/__screenshots__/{projectName}-{platform}/{arg}{ext}',
 
   use: {
     baseURL,
@@ -36,6 +36,15 @@ export default defineConfig({
           ? { launchOptions: { executablePath: process.env.CHROMIUM_PATH } }
           : {}),
       },
+    },
+    {
+      // WebKit es el motor de Safari, donde se coló el fallo de las imágenes
+      // que no cargaban. Sin este proyecto la suite no lo habría detectado.
+      // Se excluyen las pruebas visuales: sus capturas se generan en el mismo
+      // entorno donde se ejecutan y aquí sólo hay Chromium disponible.
+      name: 'webkit',
+      grepInvert: /@visual/,
+      use: { ...devices['Desktop Safari'] },
     },
   ],
 

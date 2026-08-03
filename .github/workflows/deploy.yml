@@ -30,7 +30,9 @@ jobs:
         run: npm run check
 
       - name: Navegadores de Playwright
-        run: npx playwright install --with-deps chromium
+        # WebKit además de Chromium: es el motor de Safari, donde se coló el
+        # fallo de las imágenes que una suite sólo-Chromium no detectó.
+        run: npx playwright install --with-deps chromium webkit
 
       - name: Pruebas end-to-end
         # Se excluyen las de regresión visual (@visual): las capturas dependen
@@ -39,6 +41,12 @@ jobs:
 
       - name: Construir
         run: npm run build
+
+      - name: Auditoría Lighthouse
+        # Falla si rendimiento, accesibilidad, buenas prácticas o SEO bajan de
+        # 100. Antes se comprobaba a mano, así que nada impedía que una
+        # regresión llegase a producción.
+        run: npm run audit:lighthouse
 
       - uses: actions/upload-artifact@v4
         with:

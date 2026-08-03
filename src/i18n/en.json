@@ -14,6 +14,13 @@
     "projects": "Projects",
     "languages": "Languages"
   },
+  "theme": {
+    "toDark": "Switch to dark theme",
+    "toLight": "Switch to light theme"
+  },
+  "print": {
+    "label": "Download as PDF"
+  },
   "profile": "I enjoy **software product development** and love working to the best of my ability, applying the **best practices** I know. I enjoy finding **new and better ways to do things**. I am always looking for **innovations** that can improve my work and the products I develop. I strive to **learn and adapt** to new technologies and methodologies. I am motivated by facing **challenges** that allow me to **grow professionally** and contribute significantly to the projects I am involved in. I greatly value **collaboration with my colleagues** as I believe that **teamwork improves results**. I strive every day to **improve my skills and knowledge** to make the most of the tools and technologies available to me.",
   "skills": [
     ".Net Core",

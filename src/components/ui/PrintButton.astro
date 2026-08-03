@@ -1,0 +1,31 @@
+---
+import { FileDown } from '@lucide/astro';
+import type { Locale } from '../../i18n/utils';
+import { getTranslations } from '../../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+---
+
+{/* No genera ningún PDF: abre el diálogo de impresión, que en cualquier
+    navegador permite guardar como PDF. La hoja de estilos ya tiene una vista
+    de impresión pensada para eso, pero hasta ahora nada la anunciaba. */}
+<button
+  type="button"
+  data-print
+  aria-label={t.print.label}
+  title={t.print.label}
+  class="text-text-muted hover:text-primary transition-colors p-2 rounded-md"
+>
+  <FileDown class="w-5 h-5" aria-hidden="true" />
+</button>
+
+<script>
+  document
+    .querySelector<HTMLButtonElement>('[data-print]')
+    ?.addEventListener('click', () => window.print());
+</script>

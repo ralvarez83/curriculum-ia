@@ -1,0 +1,55 @@
+---
+import { Sun, Moon } from '@lucide/astro';
+import type { Locale } from '../../i18n/utils';
+import { getTranslations } from '../../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+---
+
+{/* El icono que se ve es el del tema al que se cambiaría, no el actual. */}
+<button
+  type="button"
+  data-theme-toggle
+  data-label-to-dark={t.theme.toDark}
+  data-label-to-light={t.theme.toLight}
+  class="text-text-muted hover:text-primary transition-colors p-2 rounded-md"
+>
+  <Moon class="w-5 h-5" data-theme-icon="dark" aria-hidden="true" />
+  <Sun class="w-5 h-5" data-theme-icon="light" aria-hidden="true" />
+</button>
+
+<style>
+  /* El tema activo lo fija un script en <head> antes de pintar, así que
+     siempre hay un data-theme del que depender. */
+  :global(:root[data-theme='dark']) [data-theme-icon='dark'],
+  :global(:root[data-theme='light']) [data-theme-icon='light'] {
+    display: none;
+  }
+</style>
+
+<script>
+  const KEY = 'cv-theme';
+  const root = document.documentElement;
+  const button = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+
+  function syncLabel() {
+    if (!button) return;
+    const irA = root.dataset.theme === 'dark' ? 'to-light' : 'to-dark';
+    const label = button.dataset[irA === 'to-light' ? 'labelToLight' : 'labelToDark'];
+    if (label) button.setAttribute('aria-label', label);
+  }
+
+  button?.addEventListener('click', () => {
+    const siguiente = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = siguiente;
+    localStorage.setItem(KEY, siguiente);
+    syncLabel();
+  });
+
+  syncLabel();
+</script>

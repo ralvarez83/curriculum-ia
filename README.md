@@ -12,10 +12,13 @@ de contenido.
 - Sitio estático: sin JavaScript de framework en el navegador
 - Diseño moderno y responsivo, con estilos de impresión
 - Español e inglés, cada uno con su propia URL indexable
+- Tema claro y oscuro, según el navegador o a golpe de botón
 - Sistema de diseño por *tokens*: cambiar el aspecto no obliga a tocar componentes
 - Sección de proyectos con imágenes y enlaces
 - Contenido en Markdown, renderizado durante el build
-- Tipado con TypeScript y verificado con pruebas end-to-end
+- Botón para guardar el CV en PDF, aprovechando los estilos de impresión
+- Tipado con TypeScript y verificado con pruebas end-to-end en Chromium y WebKit
+- Lighthouse en 100 en las cinco categorías, comprobado en cada despliegue
 
 ## 🛠️ Tecnologías
 
@@ -40,10 +43,17 @@ npm run dev      # servidor de desarrollo en http://localhost:4321
 | `npm run check` | Comprueba tipos y plantillas Astro |
 | `npm test` | Pruebas end-to-end (compila y arranca el sitio solo) |
 | `npm run test:ui` | Las mismas pruebas en modo interactivo |
+| `npm run audit:lighthouse` | Audita el sitio construido y falla si baja de 100 |
 
 Las pruebas necesitan los navegadores de Playwright (`npx playwright install`
-la primera vez). En entornos que ya traen Chromium se puede evitar la descarga
-con `CHROMIUM_PATH=/ruta/al/chrome npm test`.
+la primera vez). Se ejecutan en Chromium y en **WebKit**, el motor de Safari:
+un fallo de carga de imágenes que sólo se daba ahí se coló en su día por probar
+únicamente en Chromium. Las de regresión visual sólo corren en Chromium, porque
+sus capturas dependen del entorno que las genera.
+
+En entornos que ya traen Chromium se puede evitar la descarga con
+`CHROMIUM_PATH=/ruta/al/chrome npm test`. La auditoría de Lighthouse admite
+`CHROME_PATH` de la misma manera.
 
 ## ✏️ Editar el contenido
 
@@ -58,6 +68,20 @@ traducen.
 Los textos admiten Markdown en línea (`**negrita**`, `*cursiva*`, enlaces), que
 se convierte a HTML durante el build.
 
+### Imágenes
+
+Van en `src/assets/` (las de proyectos, en `src/assets/projects/`), no en
+`public/`. Astro las procesa durante el build: las convierte a WebP, genera
+varios tamaños y sirve el que corresponda a cada pantalla.
+
+En los diccionarios se siguen nombrando por su fichero, como
+`"image": "/cloud-monitor.png"`; basta con dejar el archivo en
+`src/assets/projects/` con ese nombre. Si no aparece, el build falla en vez de
+publicar una imagen rota.
+
+En `public/` solo queda el favicon, porque debe servirse tal cual y sin
+renombrar.
+
 ## 🌍 Añadir un idioma
 
 1. Crea `src/i18n/<código>.json` copiando la estructura de `es.json`.
@@ -68,20 +92,30 @@ se convierte a HTML durante el build.
 El español vive en la raíz (`/`) y el resto de idiomas bajo su prefijo
 (`/en/`). El selector recuerda la elección en `localStorage`.
 
-## 🎨 Cambiar el aspecto
+## 🎨 Tema claro y oscuro
+
+La web sigue la preferencia del navegador y añade un botón para cambiar de tema,
+que recuerda la elección. En claro, el cuerpo usa la paleta de un IDE con tema
+claro y la cabecera conserva su verde de terminal; en oscuro, ese verde pasa a
+ser la marca de toda la página.
 
 El color, la tipografía, los radios y las sombras salen de los tokens de
-`src/styles/globals.css`. Hay dos variantes de tema listas (`friki`, la de por
-defecto, y `serious`), que se eligen con el atributo `data-theme` del `<html>`
-en `src/layouts/Layout.astro`.
+`src/styles/globals.css`.
 
 Ver [`docs/design-tokens.md`](docs/design-tokens.md) para la lista completa de
 tokens y cómo crear un tema nuevo.
 
 ## 🚀 Despliegue
 
-Netlify compila y publica automáticamente en cada push. La configuración está
-en `netlify.toml`; no hay certificados que renovar a mano.
+El sitio se compila en GitHub Actions y se sube ya construido a Netlify con su
+CLI (`.github/workflows/deploy.yml`). Nada se publica si fallan los tipos, las
+pruebas o la auditoría de Lighthouse. Los push a `main` van a producción y el
+resto de ramas generan una previsualización.
+
+`netlify.toml` fija las cabeceras de seguridad, incluida una Content-Security-
+Policy, y el cacheado de los recursos con huella en el nombre.
+
+Dependabot revisa las dependencias cada semana y las de GitHub Actions cada mes.
 
 ## 📖 Documentación
 

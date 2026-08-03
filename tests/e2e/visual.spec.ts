@@ -33,4 +33,19 @@ for (const { locale, path } of PAGES) {
       });
     });
   }
+
+  test(`aspecto oscuro [${locale}]`, { tag: '@visual' }, async ({ browser }) => {
+    const ctx = await browser.newContext({
+      viewport: { width: 1440, height: 900 },
+      colorScheme: 'dark',
+    });
+    const page = await ctx.newPage();
+    await page.goto(path, { waitUntil: 'networkidle' });
+
+    await expect(page).toHaveScreenshot(`oscuro-${locale}.png`, {
+      fullPage: true,
+      animations: 'disabled',
+    });
+    await ctx.close();
+  });
 }
