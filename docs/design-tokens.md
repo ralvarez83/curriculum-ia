@@ -32,25 +32,31 @@ El tema activo se elige con el atributo `data-theme` del `<html>`, en
 
 ## Tokens disponibles
 
-### La idea: un terminal tiene dos caras
+### La idea: los colores ANSI cambian con el fondo
 
-Los temas de terminal (Solarized, Gruvbox, One) se distribuyen siempre en
-variante clara y oscura, y **cada una trae su propio juego de acentos**, porque
-ningún acento se comporta igual sobre los dos fondos. El tema `friki` hace lo
-mismo: el cuerpo del documento usa la paleta clara — los acentos de
-[Gruvbox Light](https://github.com/morhetz/gruvbox) — mientras la cabecera
-conserva su verde de fósforo sobre oscuro.
+Un terminal no usa la misma paleta sobre fondo negro que sobre fondo blanco.
+VS Code, por ejemplo, define dos juegos de colores ANSI en su registro de color
+del terminal, y para tema claro oscurece los que quedarían ilegibles:
 
-Por eso el guiño al terminal no depende de un verde concreto: depende de que
-cada superficie use los colores que ese tema usaría ahí.
+| ANSI | Tema oscuro | Tema claro |
+| --- | --- | --- |
+| Verde | `#0DBC79` | `#107C10` |
+| Azul | `#2472c8` | `#0451a5` |
+| Amarillo | `#e5e510` | `#949800` |
+| Cian | `#11a8cd` | `#0598bc` |
+
+El tema `friki` hace lo mismo: el documento, que es claro, usa los ANSI de tema
+claro; la cabecera, que es oscura, conserva su verde de fósforo. Así el guiño al
+terminal no depende de un color concreto sino de usar en cada superficie los
+colores que un terminal usaría ahí.
 
 ### Superficies
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-background` | `#ebdbb2` | `#f5f5f5` | Fondo de la página |
-| `--color-surface` | `#fbf1c7` | `#ffffff` | Tarjeta principal del CV |
-| `--color-surface-muted` | `#ebdbb2` | `#fafafa` | Paneles interiores |
+| `--color-background` | `#f3f4f6` | `#f5f5f5` | Fondo de la página |
+| `--color-surface` | `#ffffff` | `#ffffff` | Tarjeta principal del CV |
+| `--color-surface-muted` | `#f3f4f6` | `#fafafa` | Paneles interiores |
 
 ### Cabecera
 
@@ -63,57 +69,55 @@ cada superficie use los colores que ese tema usaría ahí.
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-primary` | `#79740e` | `#2471a3` | Marca sobre superficie clara |
-| `--color-primary-hover` | `#5f5b0b` | `#1a5f8a` | *Hover* de lo anterior |
+| `--color-primary` | `#107c10` | `#2471a3` | Marca sobre superficie clara |
+| `--color-primary-hover` | `#0d640d` | `#1a5f8a` | *Hover* de lo anterior |
 | `--color-primary-contrast` | `#ffffff` | `#ffffff` | Texto sobre el relleno de marca |
 | `--color-primary-on-dark` | `#22c55e` | `#5dade2` | Marca dentro de la cabecera |
-| `--color-link` | `#076678` | `#1a5f8a` | Enlaces dentro del contenido |
+| `--color-link` | `#0451a5` | `#1a5f8a` | Enlaces dentro del contenido |
 
-El verde cambia de tono según el fondo: `#79740e` da 4,86:1 sobre la tarjeta
-clara y el verde de fósforo `#22c55e` da 6,44:1 dentro de la cabecera oscura.
-Ningún valor único cumpliría en los dos sitios.
+El verde ANSI claro da 5,37:1 sobre la tarjeta blanca; el de fósforo da 6,44:1
+sobre la cabecera. Ningún valor único cumpliría en los dos sitios.
 
 ### Texto
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-text` | `#3c3836` | `#333333` | Texto principal y titulares |
-| `--color-text-secondary` | `#504945` | `#4a4a4a` | Cuerpo de las tarjetas |
-| `--color-text-muted` | `#665c54` | `#6b6b6b` | Subtítulos, descripciones |
+| `--color-text` | `#1f2937` | `#333333` | Texto principal y titulares |
+| `--color-text-secondary` | `#374151` | `#4a4a4a` | Cuerpo de las tarjetas |
+| `--color-text-muted` | `#4b5563` | `#6b6b6b` | Subtítulos, descripciones |
 
 ### Bordes
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-border` | `#79740e` | `#e0e0e0` | Borde del contenedor del CV |
-| `--color-divider` | `#d5c4a1` | `#e0e0e0` | Separadores |
+| `--color-border` | `#107c10` | `#e0e0e0` | Borde del contenedor del CV |
+| `--color-divider` | `#e5e7eb` | `#e0e0e0` | Separadores |
 
 ### Etiquetas y acciones
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-tag-bg` | `#d5c4a1` | `#34495e` | Fondo de las etiquetas de habilidades |
-| `--color-tag-text` | `#3c3836` | `#ffffff` | Texto de las etiquetas |
-| `--color-action-source` | `#af3a03` | `#34495e` | Botón "Source" de los proyectos |
-| `--color-action-docker` | `#076678` | `#2471a3` | Botón "Docker" de los proyectos |
+| `--color-tag-bg` | `#e5e7eb` | `#34495e` | Fondo de las etiquetas de habilidades |
+| `--color-tag-text` | `#374151` | `#ffffff` | Texto de las etiquetas |
+| `--color-action-source` | `#555555` | `#34495e` | Botón "Source" de los proyectos |
+| `--color-action-docker` | `#0451a5` | `#2471a3` | Botón "Docker" de los proyectos |
 
 Cada botón tiene además su `--color-action-*-hover`.
 
-En friki los rellenos usan naranja y azul de la paleta clara de Gruvbox, con
-texto blanco encima: 6,12:1 y 6,60:1.
+En friki los rellenos usan el gris y el azul ANSI de tema claro, con texto
+blanco encima: 7,46:1 y 7,71:1.
 
 ### Niveles de idioma
 
 | Token | Valor | Uso |
 | --- | --- | --- |
-| `--color-level-basic` | `#8eb0a1` | Distintivo de nivel básico |
-| `--color-level-intermediate` | `#aca93d` | Nivel intermedio |
-| `--color-level-advanced` | `#d79921` | Nivel avanzado |
-| `--color-level-native` | `#e6957a` | Nivel nativo |
+| `--color-level-basic` | `#6897c9` | Distintivo de nivel básico |
+| `--color-level-intermediate` | `#58a358` | Nivel intermedio |
+| `--color-level-advanced` | `#949800` | Nivel avanzado |
+| `--color-level-native` | `#df7979` | Nivel nativo |
 
-Son los acentos neutros de Gruvbox aclarados hacia el fondo hasta pasar de
-4,5:1 con el texto oscuro encima. Los "bright" de la paleta oscura no valen
-aquí: el rojo `#fb4934` se queda en 3,37:1 sobre superficie clara.
+Son los mismos ANSI de tema claro aclarados hacia el blanco hasta pasar de
+4,5:1 con el texto oscuro encima.
 
 El color depende del nivel, no del idioma: al añadir un idioma nuevo se pinta
 solo.

@@ -8,61 +8,59 @@
    ───────────────────────────────────────────────────────────────────────── */
 
 @theme {
-  /* ── Tema "friki": un terminal, con sus dos caras ──
-     Los temas de terminal (Solarized, Gruvbox, One) se distribuyen en variante
-     clara y oscura, cada una con SU juego de acentos, porque ningún acento
-     funciona igual sobre los dos fondos. Aquí se hace lo mismo: el cuerpo del
-     documento usa una paleta clara de terminal (Gruvbox Light) y la cabecera
-     conserva su verde de fósforo sobre oscuro. */
+  /* ── Tema "friki": referencia al terminal, con su paleta por fondo ──
+     Los terminales cambian el juego de colores ANSI según el fondo. Los
+     valores de aquí son los que VS Code usa en tema claro (ansiColorMap del
+     registro de color del terminal): verde #107C10 en lugar del #0DBC79 del
+     tema oscuro, azul #0451a5 en lugar de #2472c8, etc. La cabecera, al ser
+     oscura, conserva su verde de fósforo. */
 
   /* Tipografía */
   --font-base: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     'Liberation Mono', 'Courier New', monospace;
 
-  /* Superficies claras — Gruvbox Light */
-  --color-background: #ebdbb2;
-  --color-surface: #fbf1c7;
-  --color-surface-muted: #ebdbb2;
+  /* Superficies */
+  --color-background: #f3f4f6;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f3f4f6;
 
-  /* Cabecera: se queda como estaba, con el verde de fósforo sobre oscuro. */
+  /* Cabecera */
   --color-header-bg: #1f2937;
   --color-header-text: #ffffff;
 
-  /* Marca. Dos tonos según el fondo: el verde apagado de la paleta clara para
-     el cuerpo del documento (4,86:1 sobre la tarjeta) y el verde de fósforo de
-     siempre dentro de la cabecera oscura (6,44:1). */
-  --color-primary: #79740e;
-  --color-primary-hover: #5f5b0b;
+  /* Marca: verde ANSI de tema claro sobre el documento (5,37:1 en blanco) y
+     verde de fósforo dentro de la cabecera oscura (6,44:1). */
+  --color-primary: #107c10;
+  --color-primary-hover: #0d640d;
   --color-primary-contrast: #ffffff;
   --color-primary-on-dark: #22c55e;
-  --color-link: #076678;
+  --color-link: #0451a5;
 
-  /* Texto sobre claro */
-  --color-text: #3c3836;
-  --color-text-secondary: #504945;
-  --color-text-muted: #665c54;
+  /* Texto */
+  --color-text: #1f2937;
+  --color-text-secondary: #374151;
+  --color-text-muted: #4b5563;
 
   /* Bordes y separadores */
-  --color-border: #79740e;
-  --color-divider: #d5c4a1;
+  --color-border: #107c10;
+  --color-divider: #e5e7eb;
 
   /* Etiquetas de habilidades */
-  --color-tag-bg: #d5c4a1;
-  --color-tag-text: #3c3836;
+  --color-tag-bg: #e5e7eb;
+  --color-tag-text: #374151;
 
-  /* Botones de acción: naranja y azul de la paleta clara, con texto blanco. */
-  --color-action-source: #af3a03;
-  --color-action-source-hover: #8f2f02;
-  --color-action-docker: #076678;
-  --color-action-docker-hover: #05505e;
+  /* Botones de acción: gris y azul ANSI de tema claro, con texto blanco. */
+  --color-action-source: #555555;
+  --color-action-source-hover: #3f3f3f;
+  --color-action-docker: #0451a5;
+  --color-action-docker-hover: #033b78;
 
-  /* Niveles de idioma. Son distintivos sobre superficie clara y con texto
-     oscuro encima, así que se usan los acentos neutros aclarados hacia el
-     fondo hasta pasar de 4,5:1, no los "bright" de la paleta oscura. */
-  --color-level-basic: #8eb0a1;
-  --color-level-intermediate: #aca93d;
-  --color-level-advanced: #d79921;
-  --color-level-native: #e6957a;
+  /* Niveles de idioma: los mismos ANSI aclarados hacia el blanco hasta pasar
+     de 4,5:1 con el texto oscuro encima. */
+  --color-level-basic: #6897c9;
+  --color-level-intermediate: #58a358;
+  --color-level-advanced: #949800;
+  --color-level-native: #df7979;
 
   /* Radios */
   --radius-sm: 4px;
@@ -71,7 +69,7 @@
   --radius-full: 9999px;
 
   /* Sombras */
-  --shadow-card: 0 10px 15px -3px rgb(60 56 54 / 0.15), 0 4px 6px -4px rgb(60 56 54 / 0.15);
+  --shadow-card: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 
   /* Transiciones */
   --transition-fast: 150ms ease-in-out;
