@@ -51,9 +51,17 @@ El tema activo se elige con el atributo `data-theme` del `<html>`, en
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-primary` | `#22c55e` | `#3498db` | Acento: iconos, bordes, botón de idioma |
+| `--color-primary` | `#22c55e` | `#3498db` | Acento sobre fondo claro: iconos, bordes, detalles |
 | `--color-primary-hover` | `#16a34a` | `#2c3e50` | Estado *hover* del acento |
+| `--color-primary-strong` | `#15803d` | `#2471a3` | Relleno de botones con texto blanco |
+| `--color-primary-strong-hover` | `#166534` | `#1a5f8a` | *Hover* de esos botones |
 | `--color-primary-contrast` | `#ffffff` | `#ffffff` | Texto sobre el acento |
+
+Hay dos tonos de marca a propósito. El acento vivo funciona sobre fondo claro,
+pero no como relleno de un botón con texto blanco encima: sólo alcanza 2,28:1 y
+la norma WCAG AA pide 4,5:1 para texto. `--color-primary-strong` es la versión
+oscurecida que sí cumple (5,02:1). Si defines un tema nuevo, comprueba el
+contraste de este token contra `--color-primary-contrast`.
 
 ### Texto
 
@@ -77,7 +85,7 @@ El tema activo se elige con el atributo `data-theme` del `<html>`, en
 | `--color-tag-bg` | `#e5e7eb` | `#34495e` | Fondo de las etiquetas de habilidades |
 | `--color-tag-text` | `#374151` | `#ffffff` | Texto de las etiquetas |
 | `--color-action-source` | `#6b7280` | `#34495e` | Botón "Source" de los proyectos |
-| `--color-action-docker` | `#3b82f6` | `#3498db` | Botón "Docker" de los proyectos |
+| `--color-action-docker` | `#2563eb` | `#2471a3` | Botón "Docker" de los proyectos |
 
 Cada botón tiene además su `--color-action-*-hover`.
 

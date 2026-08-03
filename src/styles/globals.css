@@ -21,9 +21,15 @@
   --color-header-bg: #1f2937;
   --color-header-text: #ffffff;
 
-  /* Color de marca */
+  /* Color de marca.
+     `primary` se usa donde el color va sobre fondo claro: bordes, iconos,
+     detalles. Para rellenar un botón con texto blanco encima hace falta una
+     versión más oscura: el verde de marca sólo da 2,28:1 y la norma AA pide
+     4,5:1 para texto. De ahí `primary-strong`. */
   --color-primary: #22c55e;
   --color-primary-hover: #16a34a;
+  --color-primary-strong: #15803d;
+  --color-primary-strong-hover: #166534;
   --color-primary-contrast: #ffffff;
 
   /* Texto */
@@ -42,8 +48,8 @@
   /* Botones de acción de los proyectos */
   --color-action-source: #6b7280;
   --color-action-source-hover: #4b5563;
-  --color-action-docker: #3b82f6;
-  --color-action-docker-hover: #2563eb;
+  --color-action-docker: #2563eb;
+  --color-action-docker-hover: #1d4ed8;
 
   /* Niveles de idioma */
   --color-level-basic: #bfdbfe;
@@ -82,6 +88,8 @@
 
   --color-primary: #3498db;
   --color-primary-hover: #2c3e50;
+  --color-primary-strong: #2471a3;
+  --color-primary-strong-hover: #1a5f8a;
   --color-primary-contrast: #ffffff;
 
   --color-text: #333333;
@@ -96,8 +104,8 @@
 
   --color-action-source: #34495e;
   --color-action-source-hover: #2c3e50;
-  --color-action-docker: #3498db;
-  --color-action-docker-hover: #2c3e50;
+  --color-action-docker: #2471a3;
+  --color-action-docker-hover: #1a5f8a;
 
   --radius-sm: 3px;
   --radius-md: 3px;
