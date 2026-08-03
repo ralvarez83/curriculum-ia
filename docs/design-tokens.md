@@ -51,25 +51,33 @@ El tema activo se elige con el atributo `data-theme` del `<html>`, en
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-primary` | `#15803d` | `#2471a3` | Marca sobre fondo claro: iconos, bordes, rellenos |
-| `--color-primary-hover` | `#166534` | `#1a5f8a` | *Hover* de lo anterior |
+| `--color-primary` | `#22c55e` | `#2471a3` | Marca: iconos, bordes, rellenos |
+| `--color-primary-hover` | `#4ade80` | `#1a5f8a` | *Hover* de lo anterior |
+| `--color-primary-contrast` | `#1f2937` | `#ffffff` | Texto sobre el relleno de marca |
 | `--color-primary-on-dark` | `#22c55e` | `#5dade2` | Marca dentro de la cabecera |
-| `--color-primary-contrast` | `#ffffff` | `#ffffff` | Texto sobre el relleno de marca |
+| `--color-link` | `#15803d` | `#1a5f8a` | Enlaces dentro del contenido |
 
-Hay dos tonos de marca, y **lo que los separa es el fondo sobre el que van, no
-el elemento que pintan**. Ningún valor único sirve para ambos:
+### Por qué el verde no se oscurece
 
-| | Sobre cabecera oscura | Sobre superficie clara |
-| --- | --- | --- |
-| Verde vivo `#22c55e` | 6,44:1 | 2,28:1 ✗ |
-| Verde oscuro `#15803d` | 2,93:1 ✗ | 5,02:1 |
+El verde de fósforo es la referencia al terminal: oscurecerlo para cumplir
+contraste resolvería la métrica y rompería el diseño. Y es innecesario, porque
+el problema no era el verde sino **el texto blanco encima**:
 
-El mínimo es 4,5:1 para texto y 3:1 para elementos no textuales. Por eso
-`--color-primary` es el tono de fondo claro, que cubre casi todo el documento,
-y `--color-primary-on-dark` se reserva para la cabecera.
+| Sobre el verde `#22c55e` | Contraste |
+| --- | --- |
+| Texto blanco | 2,28:1 ✗ |
+| Texto oscuro `#1f2937` | 6,44:1 ✓ |
 
-Al definir un tema nuevo hay que comprobar los dos: `primary` contra
-`surface`, y `primary-on-dark` contra `header-bg`.
+Escribir en oscuro sobre el color vivo es justo lo que hace un terminal al
+resaltar una celda: vídeo invertido. Por eso `--color-primary-contrast` es
+oscuro en el tema friki y blanco en serious, cuyos rellenos sí son oscuros.
+
+Los bordes de tarjeta, los iconos de sección y el aro de la foto se quedan en
+verde vivo. Son decorativos —el texto que acompañan ya comunica el
+significado—, así que quedan fuera del criterio de contraste no textual.
+
+Un enlace, en cambio, sí es texto: para eso está `--color-link`, con un verde
+más oscuro que llega a 4,5:1 sobre fondo claro.
 
 ### Texto
 
@@ -83,7 +91,7 @@ Al definir un tema nuevo hay que comprobar los dos: `primary` contra
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-border` | `#15803d` | `#e0e0e0` | Borde del contenedor del CV |
+| `--color-border` | `#22c55e` | `#e0e0e0` | Borde del contenedor del CV |
 | `--color-divider` | `#e5e7eb` | `#e0e0e0` | Separadores |
 
 ### Etiquetas y acciones
@@ -92,10 +100,14 @@ Al definir un tema nuevo hay que comprobar los dos: `primary` contra
 | --- | --- | --- | --- |
 | `--color-tag-bg` | `#e5e7eb` | `#34495e` | Fondo de las etiquetas de habilidades |
 | `--color-tag-text` | `#374151` | `#ffffff` | Texto de las etiquetas |
-| `--color-action-source` | `#6b7280` | `#34495e` | Botón "Source" de los proyectos |
-| `--color-action-docker` | `#2563eb` | `#2471a3` | Botón "Docker" de los proyectos |
+| `--color-action-source` | `#fbbf24` | `#34495e` | Botón "Source" de los proyectos |
+| `--color-action-docker` | `#22d3ee` | `#2471a3` | Botón "Docker" de los proyectos |
 
 Cada botón tiene además su `--color-action-*-hover`.
+
+En el tema friki los tres botones son verde, ámbar y cian: los colores de una
+paleta ANSI. Refuerzan la referencia al terminal en vez de romperla, y con
+texto oscuro encima dan 6,44:1, 8,79:1 y 8,12:1.
 
 ### Niveles de idioma
 

@@ -21,16 +21,20 @@
   --color-header-bg: #1f2937;
   --color-header-text: #ffffff;
 
-  /* Color de marca.
-     Hay dos tonos, y la diferencia es sobre qué fondo van, no qué elemento
-     pintan. El mismo verde no puede servir para ambos: el vivo da 6,44:1
-     sobre la cabecera oscura pero sólo 2,28:1 sobre blanco, y el oscuro al
-     revés. `primary` es el de fondo claro, que es casi todo el documento;
-     `primary-on-dark` sólo se usa dentro de la cabecera. */
-  --color-primary: #15803d;
-  --color-primary-hover: #166534;
+  /* Color de marca: el verde de fósforo del terminal.
+     No se oscurece para cumplir contraste, porque oscurecerlo mataría la
+     referencia. Lo que se invierte es el texto que va encima: sobre el verde
+     vivo se escribe en oscuro, no en blanco. Da 6,44:1 y es justo como un
+     terminal pinta una celda seleccionada (vídeo invertido). */
+  --color-primary: #22c55e;
+  --color-primary-hover: #4ade80;
+  --color-primary-contrast: #1f2937;
+  /* Mismo verde dentro de la cabecera oscura, donde ya daba 6,44:1. Existe
+     como token aparte porque otros temas sí necesitan un tono distinto ahí. */
   --color-primary-on-dark: #22c55e;
-  --color-primary-contrast: #ffffff;
+  /* Un enlace es texto, y el verde vivo sobre fondo claro se queda en 2,28:1.
+     Los enlaces dentro del contenido usan este tono, que sí llega a 4,5:1. */
+  --color-link: #15803d;
 
   /* Texto */
   --color-text: #1f2937;
@@ -38,18 +42,21 @@
   --color-text-muted: #4b5563;
 
   /* Bordes y separadores */
-  --color-border: #15803d;
+  --color-border: #22c55e;
   --color-divider: #e5e7eb;
 
   /* Etiquetas de habilidades */
   --color-tag-bg: #e5e7eb;
   --color-tag-text: #374151;
 
-  /* Botones de acción de los proyectos */
-  --color-action-source: #6b7280;
-  --color-action-source-hover: #4b5563;
-  --color-action-docker: #2563eb;
-  --color-action-docker-hover: #1d4ed8;
+  /* Botones de acción de los proyectos.
+     Ámbar y cian son, junto al verde, los colores de una paleta ANSI, así que
+     refuerzan la referencia al terminal en lugar de romperla. Todos llevan
+     texto oscuro encima, igual que el verde. */
+  --color-action-source: #fbbf24;
+  --color-action-source-hover: #fcd34d;
+  --color-action-docker: #22d3ee;
+  --color-action-docker-hover: #67e8f9;
 
   /* Niveles de idioma */
   --color-level-basic: #bfdbfe;
@@ -88,8 +95,9 @@
 
   --color-primary: #2471a3;
   --color-primary-hover: #1a5f8a;
-  --color-primary-on-dark: #5dade2;
   --color-primary-contrast: #ffffff;
+  --color-primary-on-dark: #5dade2;
+  --color-link: #1a5f8a;
 
   --color-text: #333333;
   --color-text-secondary: #4a4a4a;
@@ -189,7 +197,7 @@
 }
 
 .md a {
-  color: var(--color-primary);
+  color: var(--color-link);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
