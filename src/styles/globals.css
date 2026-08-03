@@ -8,12 +8,12 @@
    ───────────────────────────────────────────────────────────────────────── */
 
 @theme {
-  /* ── Tema "friki": referencia al terminal, con su paleta por fondo ──
-     Los terminales cambian el juego de colores ANSI según el fondo. Los
-     valores de aquí son los que VS Code usa en tema claro (ansiColorMap del
-     registro de color del terminal): verde #107C10 en lugar del #0DBC79 del
-     tema oscuro, azul #0451a5 en lugar de #2472c8, etc. La cabecera, al ser
-     oscura, conserva su verde de fósforo. */
+  /* ── Tema "friki": la cabecera es un terminal, el cuerpo un IDE en claro ──
+     Los bloques oscuros conservan el verde de fósforo. Para los bloques claros
+     no vale un verde neón: sobre blanco se lava y no cumple contraste. Se usa
+     entonces la paleta de sintaxis de VS Code Light+ (light_vs.json y
+     light_plus.json), que es lo que uno ve en un editor con tema claro y donde
+     todos los colores superan 4,5:1 sobre blanco. */
 
   /* Tipografía */
   --font-base: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
@@ -24,17 +24,17 @@
   --color-surface: #ffffff;
   --color-surface-muted: #f3f4f6;
 
-  /* Cabecera */
+  /* Cabecera: bloque oscuro, verde de fósforo */
   --color-header-bg: #1f2937;
   --color-header-text: #ffffff;
 
-  /* Marca: verde ANSI de tema claro sobre el documento (5,37:1 en blanco) y
-     verde de fósforo dentro de la cabecera oscura (6,44:1). */
-  --color-primary: #107c10;
-  --color-primary-hover: #0d640d;
+  /* Marca: verde de comentario del tema claro (5,14:1 sobre blanco) en el
+     cuerpo, verde de fósforo (6,44:1) dentro de la cabecera. */
+  --color-primary: #008000;
+  --color-primary-hover: #006400;
   --color-primary-contrast: #ffffff;
   --color-primary-on-dark: #22c55e;
-  --color-link: #0451a5;
+  --color-link: #0070c1;
 
   /* Texto */
   --color-text: #1f2937;
@@ -42,25 +42,25 @@
   --color-text-muted: #4b5563;
 
   /* Bordes y separadores */
-  --color-border: #107c10;
+  --color-border: #008000;
   --color-divider: #e5e7eb;
 
   /* Etiquetas de habilidades */
   --color-tag-bg: #e5e7eb;
   --color-tag-text: #374151;
 
-  /* Botones de acción: gris y azul ANSI de tema claro, con texto blanco. */
-  --color-action-source: #555555;
-  --color-action-source-hover: #3f3f3f;
-  --color-action-docker: #0451a5;
-  --color-action-docker-hover: #033b78;
+  /* Botones: marrón de función y azul de constante de la misma paleta. */
+  --color-action-source: #795e26;
+  --color-action-source-hover: #5d491d;
+  --color-action-docker: #0070c1;
+  --color-action-docker-hover: #005596;
 
-  /* Niveles de idioma: los mismos ANSI aclarados hacia el blanco hasta pasar
-     de 4,5:1 con el texto oscuro encima. */
-  --color-level-basic: #6897c9;
-  --color-level-intermediate: #58a358;
-  --color-level-advanced: #949800;
-  --color-level-native: #df7979;
+  /* Niveles de idioma: los mismos colores de sintaxis aclarados hacia el
+     blanco hasta pasar de 4,5:1 con el texto oscuro encima. */
+  --color-level-basic: #4d9bd4;
+  --color-level-intermediate: #4da64d;
+  --color-level-advanced: #a89672;
+  --color-level-native: #cc7e7e;
 
   /* Radios */
   --radius-sm: 4px;

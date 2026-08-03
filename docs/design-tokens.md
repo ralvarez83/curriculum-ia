@@ -32,23 +32,28 @@ El tema activo se elige con el atributo `data-theme` del `<html>`, en
 
 ## Tokens disponibles
 
-### La idea: los colores ANSI cambian con el fondo
+### La idea: terminal en lo oscuro, IDE claro en lo claro
 
-Un terminal no usa la misma paleta sobre fondo negro que sobre fondo blanco.
-VS Code, por ejemplo, define dos juegos de colores ANSI en su registro de color
-del terminal, y para tema claro oscurece los que quedarían ilegibles:
+La cabecera es un bloque oscuro y ahí el verde de fósforo funciona: da 6,44:1 y
+se lee como un terminal.
 
-| ANSI | Tema oscuro | Tema claro |
+En los bloques claros ese mismo verde no vale. Sobre blanco baja a 2,28:1: no
+cumple contraste y, sobre todo, se lava y deja de parecer neón. Por eso la zona
+clara usa la paleta de sintaxis de **VS Code Light+**, que es lo que se ve en un
+editor con tema claro y donde todos los colores pasan de 4,5:1 sobre blanco:
+
+| Elemento de sintaxis | Hex | Sobre blanco |
 | --- | --- | --- |
-| Verde | `#0DBC79` | `#107C10` |
-| Azul | `#2472c8` | `#0451a5` |
-| Amarillo | `#e5e510` | `#949800` |
-| Cian | `#11a8cd` | `#0598bc` |
+| Comentario (verde) | `#008000` | 5,14:1 |
+| Número | `#098658` | 4,60:1 |
+| Cadena (rojo) | `#a31515` | 7,85:1 |
+| Palabra clave (azul) | `#0000ff` | 8,59:1 |
+| Función (marrón) | `#795e26` | 6,10:1 |
+| Tipo (teal) | `#267f99` | 4,59:1 |
+| Constante (azul) | `#0070c1` | 5,14:1 |
 
-El tema `friki` hace lo mismo: el documento, que es claro, usa los ANSI de tema
-claro; la cabecera, que es oscura, conserva su verde de fósforo. Así el guiño al
-terminal no depende de un color concreto sino de usar en cada superficie los
-colores que un terminal usaría ahí.
+El guiño, entonces, no está en repetir un color: está en que cada bloque use la
+paleta que le corresponde según su fondo.
 
 ### Superficies
 
@@ -69,14 +74,14 @@ colores que un terminal usaría ahí.
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-primary` | `#107c10` | `#2471a3` | Marca sobre superficie clara |
-| `--color-primary-hover` | `#0d640d` | `#1a5f8a` | *Hover* de lo anterior |
+| `--color-primary` | `#008000` | `#2471a3` | Marca sobre superficie clara |
+| `--color-primary-hover` | `#006400` | `#1a5f8a` | *Hover* de lo anterior |
 | `--color-primary-contrast` | `#ffffff` | `#ffffff` | Texto sobre el relleno de marca |
 | `--color-primary-on-dark` | `#22c55e` | `#5dade2` | Marca dentro de la cabecera |
-| `--color-link` | `#0451a5` | `#1a5f8a` | Enlaces dentro del contenido |
+| `--color-link` | `#0070c1` | `#1a5f8a` | Enlaces dentro del contenido |
 
-El verde ANSI claro da 5,37:1 sobre la tarjeta blanca; el de fósforo da 6,44:1
-sobre la cabecera. Ningún valor único cumpliría en los dos sitios.
+El verde de comentario da 5,14:1 sobre la tarjeta blanca; el de fósforo da
+6,44:1 sobre la cabecera. Ningún valor único cumpliría en los dos sitios.
 
 ### Texto
 
@@ -90,7 +95,7 @@ sobre la cabecera. Ningún valor único cumpliría en los dos sitios.
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-border` | `#107c10` | `#e0e0e0` | Borde del contenedor del CV |
+| `--color-border` | `#008000` | `#e0e0e0` | Borde del contenedor del CV |
 | `--color-divider` | `#e5e7eb` | `#e0e0e0` | Separadores |
 
 ### Etiquetas y acciones
@@ -99,24 +104,24 @@ sobre la cabecera. Ningún valor único cumpliría en los dos sitios.
 | --- | --- | --- | --- |
 | `--color-tag-bg` | `#e5e7eb` | `#34495e` | Fondo de las etiquetas de habilidades |
 | `--color-tag-text` | `#374151` | `#ffffff` | Texto de las etiquetas |
-| `--color-action-source` | `#555555` | `#34495e` | Botón "Source" de los proyectos |
-| `--color-action-docker` | `#0451a5` | `#2471a3` | Botón "Docker" de los proyectos |
+| `--color-action-source` | `#795e26` | `#34495e` | Botón "Source" de los proyectos |
+| `--color-action-docker` | `#0070c1` | `#2471a3` | Botón "Docker" de los proyectos |
 
 Cada botón tiene además su `--color-action-*-hover`.
 
-En friki los rellenos usan el gris y el azul ANSI de tema claro, con texto
-blanco encima: 7,46:1 y 7,71:1.
+En friki los rellenos usan el marrón de función y el azul de constante de la
+misma paleta de sintaxis, con texto blanco encima: 6,10:1 y 5,14:1.
 
 ### Niveles de idioma
 
 | Token | Valor | Uso |
 | --- | --- | --- |
-| `--color-level-basic` | `#6897c9` | Distintivo de nivel básico |
-| `--color-level-intermediate` | `#58a358` | Nivel intermedio |
-| `--color-level-advanced` | `#949800` | Nivel avanzado |
-| `--color-level-native` | `#df7979` | Nivel nativo |
+| `--color-level-basic` | `#4d9bd4` | Distintivo de nivel básico |
+| `--color-level-intermediate` | `#4da64d` | Nivel intermedio |
+| `--color-level-advanced` | `#a89672` | Nivel avanzado |
+| `--color-level-native` | `#cc7e7e` | Nivel nativo |
 
-Son los mismos ANSI de tema claro aclarados hacia el blanco hasta pasar de
+Son los mismos colores de sintaxis aclarados hacia el blanco hasta pasar de
 4,5:1 con el texto oscuro encima.
 
 El color depende del nivel, no del idioma: al añadir un idioma nuevo se pinta
