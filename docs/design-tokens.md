@@ -60,10 +60,10 @@ teal, y de ahí sale la paleta de esta zona, tomada de **VS Code Light+**
 
 | Elemento de sintaxis | Hex | Sobre blanco | Uso aquí |
 | --- | --- | --- | --- |
-| Constante (azul) | `#0070c1` | 5,14:1 | Marca: iconos, bordes, botón View |
+| Tipo (teal) | `#267f99` | 4,59:1 | Marca: iconos, bordes, botón View |
 | Palabra clave (azul) | `#0451a5` | 7,71:1 | Enlaces |
 | Función (marrón) | `#795e26` | 6,10:1 | Botón Source |
-| Tipo (teal) | `#267f99` | 4,59:1 | Botón Docker |
+| Constante (azul) | `#0070c1` | 5,14:1 | Botón Docker |
 | Cadena (rojo) | `#a31515` | 7,85:1 | Distintivo de nivel nativo |
 | Comentario (verde) | `#008000` | 5,14:1 | *Sin usar: es el color de lo atenuado* |
 
@@ -81,24 +81,31 @@ claro donde es claro.
 
 ### Cabecera
 
+En claro la cabecera destaca por ser **más oscura** que su entorno. En oscuro lo
+equivalente no es volverla clara —un bloque claro grande deslumbra, que es justo
+lo que el modo oscuro evita— sino que destaque por ser **más clara que el resto**,
+siguiendo la convención de elevación: lo que está por encima se aclara.
+
 | Token | claro | oscuro | Uso |
 | --- | --- | --- | --- |
-| `--color-header-bg` | `#1f2937` | `#010409` | Fondo de la cabecera |
-| `--color-header-text` | `#ffffff` | `#e6edf3` | Texto sobre la cabecera |
+| `--color-header-bg` | `#1f2937` | `#2d333b` | Fondo de la cabecera |
+| `--color-header-text` | `#ffffff` | `#f0f6fc` | Texto sobre la cabecera |
 
 ### Marca
 
 | Token | claro | oscuro | Uso |
 | --- | --- | --- | --- |
-| `--color-primary` | `#0070c1` | `#22c55e` | Marca sobre superficie clara |
-| `--color-primary-hover` | `#005596` | `#4ade80` | *Hover* de lo anterior |
+| `--color-primary` | `#267f99` | `#22c55e` | Marca sobre superficie clara |
+| `--color-primary-hover` | `#1d6376` | `#4ade80` | *Hover* de lo anterior |
 | `--color-primary-contrast` | `#ffffff` | `#0d1117` | Texto sobre el relleno de marca |
 | `--color-primary-on-dark` | `#22c55e` | `#22c55e` | Marca dentro de la cabecera |
 | `--color-link` | `#0451a5` | `#58a6ff` | Enlaces dentro del contenido |
 
-El azul de constante da 5,14:1 sobre la tarjeta blanca; el verde de fósforo da
-6,44:1 sobre la cabecera. Son paletas distintas a propósito, no dos versiones
-del mismo color.
+Se elige el teal de tipos como dominante y no el azul: el azul es el color más
+genérico de la web y además ya tiene su papel natural en los enlaces, así que
+usarlo para las dos cosas los haría competir. El teal da 4,59:1 sobre la tarjeta
+blanca —cumple, aunque sin holgura— y el verde de fósforo da 6,44:1 sobre la
+cabecera. Son paletas distintas a propósito, no dos versiones del mismo color.
 
 En modo oscuro esa tensión desaparece: con todo el documento sobre fondo
 oscuro, el verde de fósforo pasa a ser la marca de toda la página (7,59:1 sobre
@@ -116,7 +123,7 @@ la tarjeta) y el CV entero se lee como un terminal.
 
 | Token | claro | oscuro | Uso |
 | --- | --- | --- | --- |
-| `--color-border` | `#0070c1` | `#22c55e` | Borde del contenedor del CV |
+| `--color-border` | `#267f99` | `#22c55e` | Borde del contenedor del CV |
 | `--color-divider` | `#e5e7eb` | `#30363d` | Separadores |
 
 ### Etiquetas y acciones
@@ -126,12 +133,12 @@ la tarjeta) y el CV entero se lee como un terminal.
 | `--color-tag-bg` | `#e5e7eb` | `#21262d` | Fondo de las etiquetas de habilidades |
 | `--color-tag-text` | `#374151` | `#c9d1d9` | Texto de las etiquetas |
 | `--color-action-source` | `#795e26` | `#d29922` | Botón "Source" de los proyectos |
-| `--color-action-docker` | `#267f99` | `#39c5cf` | Botón "Docker" de los proyectos |
+| `--color-action-docker` | `#0070c1` | `#39c5cf` | Botón "Docker" de los proyectos |
 
 Cada botón tiene además su `--color-action-*-hover`.
 
-En friki los rellenos usan el marrón de función y el teal de tipo de la misma
-paleta de sintaxis, con texto blanco encima: 6,10:1 y 4,59:1.
+En claro los rellenos usan el marrón de función y el azul de constante de la
+misma paleta de sintaxis, con texto blanco encima: 6,10:1 y 5,14:1.
 
 ### Niveles de idioma
 

@@ -30,11 +30,11 @@
 
   /* Marca. En los bloques claros no hay verde a propósito: en un tema claro de
      IDE el verde es el color de los comentarios, es decir, de lo que el editor
-     atenúa. Para lo prominente esos temas usan azul, morado y teal, y de ahí
-     sale el azul de constante. El verde de fósforo se queda donde sí significa
-     algo: el bloque oscuro de la cabecera. */
-  --color-primary: #0070c1;
-  --color-primary-hover: #005596;
+     atenúa. Para lo prominente esos temas usan azul, morado y teal; se elige el
+     teal de tipos, que deja el azul libre para su papel natural de enlace. El
+     verde de fósforo se queda donde sí significa algo: la cabecera. */
+  --color-primary: #267f99;
+  --color-primary-hover: #1d6376;
   --color-primary-contrast: #ffffff;
   --color-primary-on-dark: #22c55e;
   --color-link: #0451a5;
@@ -45,18 +45,18 @@
   --color-text-muted: #4b5563;
 
   /* Bordes y separadores */
-  --color-border: #0070c1;
+  --color-border: #267f99;
   --color-divider: #e5e7eb;
 
   /* Etiquetas de habilidades */
   --color-tag-bg: #e5e7eb;
   --color-tag-text: #374151;
 
-  /* Botones: marrón de función y teal de tipo, de la misma paleta. */
+  /* Botones: marrón de función y azul de constante, de la misma paleta. */
   --color-action-source: #795e26;
   --color-action-source-hover: #5d491d;
-  --color-action-docker: #267f99;
-  --color-action-docker-hover: #1d6376;
+  --color-action-docker: #0070c1;
+  --color-action-docker-hover: #005596;
 
   /* Niveles de idioma: los mismos colores de sintaxis aclarados hacia el
      blanco hasta pasar de 4,5:1 con el texto oscuro encima. */
@@ -96,9 +96,12 @@
   --color-surface: #161b22;
   --color-surface-muted: #0d1117;
 
-  /* Cabecera: el bloque más oscuro, sigue siendo el terminal */
-  --color-header-bg: #010409;
-  --color-header-text: #e6edf3;
+  /* Cabecera elevada. En claro destaca por ser más oscura que su entorno; en
+     oscuro lo equivalente es que destaque por ser más clara, siguiendo la
+     convención de elevación. Invertirla del todo a un bloque claro deslumbra,
+     que es justo lo que el modo oscuro trata de evitar. */
+  --color-header-bg: #2d333b;
+  --color-header-text: #f0f6fc;
 
   /* Marca: con todo el documento en oscuro, el verde de fósforo ya funciona
      en cualquier bloque (7,59:1 sobre la tarjeta). */
@@ -143,9 +146,12 @@
   --color-surface: #161b22;
   --color-surface-muted: #0d1117;
 
-  /* Cabecera: el bloque más oscuro, sigue siendo el terminal */
-  --color-header-bg: #010409;
-  --color-header-text: #e6edf3;
+  /* Cabecera elevada. En claro destaca por ser más oscura que su entorno; en
+     oscuro lo equivalente es que destaque por ser más clara, siguiendo la
+     convención de elevación. Invertirla del todo a un bloque claro deslumbra,
+     que es justo lo que el modo oscuro trata de evitar. */
+  --color-header-bg: #2d333b;
+  --color-header-text: #f0f6fc;
 
   /* Marca: con todo el documento en oscuro, el verde de fósforo ya funciona
      en cualquier bloque (7,59:1 sobre la tarjeta). */
