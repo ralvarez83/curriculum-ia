@@ -16,7 +16,9 @@ de contenido.
 - Sistema de diseño por *tokens*: cambiar el aspecto no obliga a tocar componentes
 - Sección de proyectos con imágenes y enlaces
 - Contenido en Markdown, renderizado durante el build
-- Tipado con TypeScript y verificado con pruebas end-to-end
+- Botón para guardar el CV en PDF, aprovechando los estilos de impresión
+- Tipado con TypeScript y verificado con pruebas end-to-end en Chromium y WebKit
+- Lighthouse en 100 en las cinco categorías, comprobado en cada despliegue
 
 ## 🛠️ Tecnologías
 
@@ -41,10 +43,17 @@ npm run dev      # servidor de desarrollo en http://localhost:4321
 | `npm run check` | Comprueba tipos y plantillas Astro |
 | `npm test` | Pruebas end-to-end (compila y arranca el sitio solo) |
 | `npm run test:ui` | Las mismas pruebas en modo interactivo |
+| `npm run audit:lighthouse` | Audita el sitio construido y falla si baja de 100 |
 
 Las pruebas necesitan los navegadores de Playwright (`npx playwright install`
-la primera vez). En entornos que ya traen Chromium se puede evitar la descarga
-con `CHROMIUM_PATH=/ruta/al/chrome npm test`.
+la primera vez). Se ejecutan en Chromium y en **WebKit**, el motor de Safari:
+un fallo de carga de imágenes que sólo se daba ahí se coló en su día por probar
+únicamente en Chromium. Las de regresión visual sólo corren en Chromium, porque
+sus capturas dependen del entorno que las genera.
+
+En entornos que ya traen Chromium se puede evitar la descarga con
+`CHROMIUM_PATH=/ruta/al/chrome npm test`. La auditoría de Lighthouse admite
+`CHROME_PATH` de la misma manera.
 
 ## ✏️ Editar el contenido
 
@@ -98,8 +107,15 @@ tokens y cómo crear un tema nuevo.
 
 ## 🚀 Despliegue
 
-Netlify compila y publica automáticamente en cada push. La configuración está
-en `netlify.toml`; no hay certificados que renovar a mano.
+El sitio se compila en GitHub Actions y se sube ya construido a Netlify con su
+CLI (`.github/workflows/deploy.yml`). Nada se publica si fallan los tipos, las
+pruebas o la auditoría de Lighthouse. Los push a `main` van a producción y el
+resto de ramas generan una previsualización.
+
+`netlify.toml` fija las cabeceras de seguridad, incluida una Content-Security-
+Policy, y el cacheado de los recursos con huella en el nombre.
+
+Dependabot revisa las dependencias cada semana y las de GitHub Actions cada mes.
 
 ## 📖 Documentación
 

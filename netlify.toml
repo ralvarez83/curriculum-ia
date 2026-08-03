@@ -11,6 +11,13 @@
     X-Frame-Options = "DENY"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    # El sitio no carga nada de terceros, así que todo se restringe al propio
+    # origen. Nota honesta sobre 'unsafe-inline' en script-src: Astro incrusta
+    # sus scripts de módulo en el HTML y su contenido cambia en cada build, así
+    # que no se pueden fijar hashes sin montar un paso extra de build. Lo que sí
+    # aportan las demás directivas es real: nada de iframes, ni plugins, ni
+    # reescritura de <base>, ni envío de formularios a ningún sitio.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests"
 
 # Los recursos con huella en el nombre no cambian nunca: se cachean para siempre.
 [[headers]]

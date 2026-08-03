@@ -167,3 +167,32 @@ for (const { locale, path, t } of LOCALES) {
     });
   });
 }
+
+test.describe('controles de la interfaz', () => {
+  test('el botón de PDF abre el diálogo de impresión', async ({ page }) => {
+    await page.goto('/');
+
+    // window.print abre un diálogo nativo que bloquearía la prueba, así que se
+    // sustituye para comprobar únicamente que el botón lo invoca.
+    await page.evaluate(() => {
+      (window as unknown as { __impreso: boolean }).__impreso = false;
+      window.print = () => {
+        (window as unknown as { __impreso: boolean }).__impreso = true;
+      };
+    });
+
+    await page.locator('[data-print]').click();
+    expect(await page.evaluate(() => (window as unknown as { __impreso: boolean }).__impreso)).toBe(
+      true,
+    );
+  });
+
+  test('robots.txt apunta al sitemap', async ({ request }) => {
+    const res = await request.get('/robots.txt');
+    expect(res.status()).toBe(200);
+
+    const cuerpo = await res.text();
+    expect(cuerpo).toContain('Sitemap:');
+    expect(cuerpo).toContain('sitemap-index.xml');
+  });
+});
