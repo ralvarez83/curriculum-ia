@@ -22,14 +22,14 @@
   --color-header-text: #ffffff;
 
   /* Color de marca.
-     `primary` se usa donde el color va sobre fondo claro: bordes, iconos,
-     detalles. Para rellenar un botón con texto blanco encima hace falta una
-     versión más oscura: el verde de marca sólo da 2,28:1 y la norma AA pide
-     4,5:1 para texto. De ahí `primary-strong`. */
-  --color-primary: #22c55e;
-  --color-primary-hover: #16a34a;
-  --color-primary-strong: #15803d;
-  --color-primary-strong-hover: #166534;
+     Hay dos tonos, y la diferencia es sobre qué fondo van, no qué elemento
+     pintan. El mismo verde no puede servir para ambos: el vivo da 6,44:1
+     sobre la cabecera oscura pero sólo 2,28:1 sobre blanco, y el oscuro al
+     revés. `primary` es el de fondo claro, que es casi todo el documento;
+     `primary-on-dark` sólo se usa dentro de la cabecera. */
+  --color-primary: #15803d;
+  --color-primary-hover: #166534;
+  --color-primary-on-dark: #22c55e;
   --color-primary-contrast: #ffffff;
 
   /* Texto */
@@ -38,7 +38,7 @@
   --color-text-muted: #4b5563;
 
   /* Bordes y separadores */
-  --color-border: #22c55e;
+  --color-border: #15803d;
   --color-divider: #e5e7eb;
 
   /* Etiquetas de habilidades */
@@ -86,10 +86,9 @@
   --color-header-bg: #2c3e50;
   --color-header-text: #ffffff;
 
-  --color-primary: #3498db;
-  --color-primary-hover: #2c3e50;
-  --color-primary-strong: #2471a3;
-  --color-primary-strong-hover: #1a5f8a;
+  --color-primary: #2471a3;
+  --color-primary-hover: #1a5f8a;
+  --color-primary-on-dark: #5dade2;
   --color-primary-contrast: #ffffff;
 
   --color-text: #333333;

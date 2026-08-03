@@ -18,7 +18,7 @@ const alternateUrl = getAlternateUrl(Astro.url, alternateLocale);
   hreflang={alternateLocale}
   lang={alternateLocale}
   aria-label={locale === 'es' ? 'Switch to English' : 'Cambiar a español'}
-  class="bg-primary-strong text-primary-contrast px-4 py-2 rounded-md hover:bg-primary-strong-hover transition-colors"
+  class="bg-primary text-primary-contrast px-4 py-2 rounded-md hover:bg-primary-hover transition-colors"
 >
   {alternateLocale.toUpperCase()}
 </a>

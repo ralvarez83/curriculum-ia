@@ -14,14 +14,14 @@ const portrait = getImageAsset(photo);
 ---
 
 <header class="bg-header-bg text-header-text p-6">
-  <div class="flex items-center border-b-2 border-primary pb-4 mb-4">
+  <div class="flex items-center border-b-2 border-primary-on-dark pb-4 mb-4">
     <Image
       src={portrait}
       alt={name}
       width={96}
       height={96}
       loading="eager"
-      class="w-24 h-24 rounded-full border-2 border-primary mr-6 object-cover"
+      class="w-24 h-24 rounded-full border-2 border-primary-on-dark mr-6 object-cover"
     />
     <div>
       <h1 class="text-4xl font-bold mb-2">{name}</h1>
@@ -33,11 +33,11 @@ const portrait = getImageAsset(photo);
     {
       contacts.map(({ icon: Icon, text, href }) => (
         <div class="flex items-center mb-2">
-          <Icon class="w-5 h-5 mr-2 text-primary shrink-0" aria-hidden="true" />
+          <Icon class="w-5 h-5 mr-2 text-primary-on-dark shrink-0" aria-hidden="true" />
           {href ? (
             <a
               href={href}
-              class="text-header-text hover:text-primary transition-colors"
+              class="text-header-text hover:text-primary-on-dark transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >

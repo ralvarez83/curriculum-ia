@@ -51,17 +51,25 @@ El tema activo se elige con el atributo `data-theme` del `<html>`, en
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-primary` | `#22c55e` | `#3498db` | Acento sobre fondo claro: iconos, bordes, detalles |
-| `--color-primary-hover` | `#16a34a` | `#2c3e50` | Estado *hover* del acento |
-| `--color-primary-strong` | `#15803d` | `#2471a3` | Relleno de botones con texto blanco |
-| `--color-primary-strong-hover` | `#166534` | `#1a5f8a` | *Hover* de esos botones |
-| `--color-primary-contrast` | `#ffffff` | `#ffffff` | Texto sobre el acento |
+| `--color-primary` | `#15803d` | `#2471a3` | Marca sobre fondo claro: iconos, bordes, rellenos |
+| `--color-primary-hover` | `#166534` | `#1a5f8a` | *Hover* de lo anterior |
+| `--color-primary-on-dark` | `#22c55e` | `#5dade2` | Marca dentro de la cabecera |
+| `--color-primary-contrast` | `#ffffff` | `#ffffff` | Texto sobre el relleno de marca |
 
-Hay dos tonos de marca a propósito. El acento vivo funciona sobre fondo claro,
-pero no como relleno de un botón con texto blanco encima: sólo alcanza 2,28:1 y
-la norma WCAG AA pide 4,5:1 para texto. `--color-primary-strong` es la versión
-oscurecida que sí cumple (5,02:1). Si defines un tema nuevo, comprueba el
-contraste de este token contra `--color-primary-contrast`.
+Hay dos tonos de marca, y **lo que los separa es el fondo sobre el que van, no
+el elemento que pintan**. Ningún valor único sirve para ambos:
+
+| | Sobre cabecera oscura | Sobre superficie clara |
+| --- | --- | --- |
+| Verde vivo `#22c55e` | 6,44:1 | 2,28:1 ✗ |
+| Verde oscuro `#15803d` | 2,93:1 ✗ | 5,02:1 |
+
+El mínimo es 4,5:1 para texto y 3:1 para elementos no textuales. Por eso
+`--color-primary` es el tono de fondo claro, que cubre casi todo el documento,
+y `--color-primary-on-dark` se reserva para la cabecera.
+
+Al definir un tema nuevo hay que comprobar los dos: `primary` contra
+`surface`, y `primary-on-dark` contra `header-bg`.
 
 ### Texto
 
@@ -75,7 +83,7 @@ contraste de este token contra `--color-primary-contrast`.
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-border` | `#22c55e` | `#e0e0e0` | Borde del contenedor del CV |
+| `--color-border` | `#15803d` | `#e0e0e0` | Borde del contenedor del CV |
 | `--color-divider` | `#e5e7eb` | `#e0e0e0` | Separadores |
 
 ### Etiquetas y acciones
