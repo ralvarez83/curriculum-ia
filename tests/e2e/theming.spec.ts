@@ -1,62 +1,124 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 
-const THEMES = ['friki', 'serious'] as const;
+const KEY = 'cv-theme';
 
-/**
- * El aspecto se controla solo con tokens: cambiar `data-theme` en <html> debe
- * repintar la página sin romper la maquetación ni tocar ningún componente.
- * Ver docs/design-tokens.md.
- */
-test.describe('sistema de temas', () => {
-  test('el tema por defecto es friki', async ({ page }) => {
-    await page.goto('/');
-    await expect(page.locator('html')).toHaveAttribute('data-theme', 'friki');
+/** Tokens que deben cambiar de valor entre claro y oscuro. */
+const TOKENS = ['--color-background', '--color-surface', '--color-text', '--color-primary'];
+
+function leerTokens(page: Page) {
+  return page.evaluate((tokens) => {
+    const s = getComputedStyle(document.documentElement);
+    return Object.fromEntries(tokens.map((t) => [t, s.getPropertyValue(t).trim()]));
+  }, TOKENS);
+}
+
+test.describe('tema claro y oscuro', () => {
+  test('sigue la preferencia del navegador cuando no se ha elegido', async ({ browser }) => {
+    for (const scheme of ['light', 'dark'] as const) {
+      const ctx = await browser.newContext({ colorScheme: scheme });
+      const page = await ctx.newPage();
+      await page.goto('/');
+      await expect(page.locator('html')).toHaveAttribute('data-theme', scheme);
+      await ctx.close();
+    }
   });
 
-  for (const theme of THEMES) {
-    test(`el tema "${theme}" se aplica y mantiene el layout`, async ({ page }) => {
+  test('el botón cambia el tema y la elección manda sobre el navegador', async ({ browser }) => {
+    const ctx = await browser.newContext({ colorScheme: 'light' });
+    const page = await ctx.newPage();
+    await page.goto('/');
+
+    const claro = await leerTokens(page);
+    await page.locator('[data-theme-toggle]').click();
+
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    const oscuro = await leerTokens(page);
+    for (const token of TOKENS) {
+      expect(oscuro[token], `${token} debería cambiar al pasar a oscuro`).not.toBe(claro[token]);
+    }
+
+    // Recargar con el navegador en claro: la elección guardada tiene prioridad.
+    await page.reload();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    expect(await page.evaluate((k) => localStorage.getItem(k), KEY)).toBe('dark');
+
+    await ctx.close();
+  });
+
+  test('el icono ofrece siempre el tema contrario', async ({ browser }) => {
+    const ctx = await browser.newContext({ colorScheme: 'light' });
+    const page = await ctx.newPage();
+    await page.goto('/');
+
+    // En claro se ofrece pasar a oscuro: se ve la luna.
+    await expect(page.locator('[data-theme-icon="dark"]')).toBeVisible();
+    await expect(page.locator('[data-theme-icon="light"]')).toBeHidden();
+
+    await page.locator('[data-theme-toggle]').click();
+
+    await expect(page.locator('[data-theme-icon="light"]')).toBeVisible();
+    await expect(page.locator('[data-theme-icon="dark"]')).toBeHidden();
+
+    await ctx.close();
+  });
+
+  test('el botón se anuncia con el tema al que lleva', async ({ browser }) => {
+    const ctx = await browser.newContext({ colorScheme: 'light' });
+    const page = await ctx.newPage();
+    await page.goto('/');
+
+    const boton = page.locator('[data-theme-toggle]');
+    await expect(boton).toHaveAttribute('aria-label', 'Cambiar a tema oscuro');
+    await boton.click();
+    await expect(boton).toHaveAttribute('aria-label', 'Cambiar a tema claro');
+
+    await ctx.close();
+  });
+
+  /**
+   * El bloque de tokens oscuros está escrito dos veces en globals.css —una para
+   * la elección explícita y otra para la media query— porque CSS no permite
+   * compartirlo. Esta prueba impide que se separen: sin JavaScript sólo actúa
+   * la media query, así que ambos caminos tienen que dar lo mismo.
+   */
+  test('con y sin JavaScript el modo oscuro da los mismos valores', async ({ browser }) => {
+    const conJs = await browser.newContext({ colorScheme: 'dark' });
+    const p1 = await conJs.newPage();
+    await p1.goto('/');
+    await expect(p1.locator('html')).toHaveAttribute('data-theme', 'dark');
+    const viaScript = await leerTokens(p1);
+    await conJs.close();
+
+    const sinJs = await browser.newContext({ colorScheme: 'dark', javaScriptEnabled: false });
+    const p2 = await sinJs.newPage();
+    await p2.goto('/');
+    const viaMediaQuery = await p2.evaluate((tokens) => {
+      const s = getComputedStyle(document.documentElement);
+      return Object.fromEntries(tokens.map((t) => [t, s.getPropertyValue(t).trim()]));
+    }, TOKENS);
+    await sinJs.close();
+
+    expect(viaMediaQuery).toEqual(viaScript);
+  });
+
+  for (const tema of ['light', 'dark'] as const) {
+    test(`el tema "${tema}" mantiene el layout y define todos los tokens`, async ({ page }) => {
       await page.goto('/');
-      await page.evaluate((t) => document.documentElement.setAttribute('data-theme', t), theme);
+      await page.evaluate((t) => document.documentElement.setAttribute('data-theme', t), tema);
 
-      const container = page.locator('.cv-container');
-      await expect(container).toBeVisible();
+      await expect(page.locator('.cv-container')).toBeVisible();
 
-      // Sin desbordamiento horizontal.
-      const overflows = await page.evaluate(
+      const desborda = await page.evaluate(
         () => document.documentElement.scrollWidth > window.innerWidth + 1,
       );
-      expect(overflows, `el tema ${theme} provoca scroll horizontal`).toBe(false);
+      expect(desborda, `el tema ${tema} provoca scroll horizontal`).toBe(false);
 
-      // Los tokens de color deben tener valor resuelto.
-      const tokens = await page.evaluate(() => {
-        const s = getComputedStyle(document.documentElement);
-        return {
-          background: s.getPropertyValue('--color-background').trim(),
-          primary: s.getPropertyValue('--color-primary').trim(),
-          headerBg: s.getPropertyValue('--color-header-bg').trim(),
-          text: s.getPropertyValue('--color-text').trim(),
-        };
-      });
-      for (const [name, value] of Object.entries(tokens)) {
-        expect(value, `el token ${name} no está definido en el tema ${theme}`).not.toBe('');
+      const tokens = await leerTokens(page);
+      for (const [nombre, valor] of Object.entries(tokens)) {
+        expect(valor, `${nombre} sin valor en el tema ${tema}`).not.toBe('');
       }
     });
   }
-
-  test('los temas producen paletas distintas', async ({ page }) => {
-    await page.goto('/');
-
-    const readPrimary = () =>
-      page.evaluate(() =>
-        getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim(),
-      );
-
-    const friki = await readPrimary();
-    await page.evaluate(() => document.documentElement.setAttribute('data-theme', 'serious'));
-    const serious = await readPrimary();
-
-    expect(friki).not.toBe(serious);
-  });
 });
 
 /**
@@ -69,6 +131,7 @@ test.describe('impresión', () => {
     await page.emulateMedia({ media: 'print' });
 
     await expect(page.locator('[data-language-toggle]')).toBeHidden();
+    await expect(page.locator('[data-theme-toggle]')).toBeHidden();
     await expect(page.locator('.print-only').first()).toBeVisible();
     await expect(page.locator('.screen-only').first()).toBeHidden();
     await expect(

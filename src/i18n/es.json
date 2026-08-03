@@ -14,6 +14,10 @@
     "projects": "Proyectos",
     "languages": "Idiomas"
   },
+  "theme": {
+    "toDark": "Cambiar a tema oscuro",
+    "toLight": "Cambiar a tema claro"
+  },
   "profile": "Me gusta el **desarrollo de productos de software** y me encanta trabajar lo mejor que puedo, aplicando las **mejores prácticas** que conozco. Disfruto buscando **nuevas y mejores maneras de hacer las cosas**. Siempre estoy en busca de **innovaciones** que puedan mejorar mi trabajo y los productos que desarrollo. Me esfuerzo por **aprender y adaptarme** a nuevas tecnologías y metodologías. Me motiva enfrentar **desafíos** que me permitan **crecer profesionalmente** y contribuir de manera significativa a los proyectos en los que participo. Valoro mucho la **colaboración con mis compañeros**, ya que creo que el **trabajo en equipo mejora los resultados**. Me esfuerzo cada día por **mejorar mis habilidades y conocimientos** para poder aprovechar las herramientas y tecnologías que tengo a mi alcance.",
   "skills": [
     ".Net Core",

@@ -33,10 +33,21 @@ const personSchema = {
 ---
 
 <!doctype html>
-<!-- data-theme selecciona la variante del sistema de diseño: "friki" (por
-     defecto) o "serious". Ver docs/design-tokens.md. -->
-<html lang={locale} data-theme="friki">
+<html lang={locale}>
   <head>
+    {/* Antes que nada: fija el tema para que la página no parpadee del claro
+        al oscuro. Respeta lo que el usuario eligió y, si no ha elegido, la
+        preferencia del navegador. Sin JavaScript no se ejecuta, pero la hoja
+        de estilos cubre ese caso con una media query. */}
+    <script is:inline>
+      (() => {
+        const guardado = localStorage.getItem('cv-theme');
+        const oscuro = guardado
+          ? guardado === 'dark'
+          : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = oscuro ? 'dark' : 'light';
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{t.meta.title}</title>

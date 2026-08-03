@@ -10,6 +10,7 @@ import Skills from './Skills.astro';
 import LanguageSkills from './LanguageSkills.astro';
 import ProjectCard from './ProjectCard.astro';
 import LanguageSelector from './ui/LanguageSelector.astro';
+import ThemeToggle from './ui/ThemeToggle.astro';
 
 interface Props {
   locale: Locale;
@@ -23,7 +24,8 @@ const t = getTranslations(locale);
   <div
     class="cv-container max-w-(--container-cv) mx-auto bg-surface shadow-card rounded-lg overflow-hidden border border-border"
   >
-    <div class="flex justify-end p-4 screen-only">
+    <div class="flex justify-end items-center gap-2 p-4 screen-only">
+      <ThemeToggle locale={locale} />
       <LanguageSelector locale={locale} />
     </div>
 

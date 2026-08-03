@@ -12,6 +12,7 @@ de contenido.
 - Sitio estático: sin JavaScript de framework en el navegador
 - Diseño moderno y responsivo, con estilos de impresión
 - Español e inglés, cada uno con su propia URL indexable
+- Tema claro y oscuro, según el navegador o a golpe de botón
 - Sistema de diseño por *tokens*: cambiar el aspecto no obliga a tocar componentes
 - Sección de proyectos con imágenes y enlaces
 - Contenido en Markdown, renderizado durante el build
@@ -82,12 +83,15 @@ renombrar.
 El español vive en la raíz (`/`) y el resto de idiomas bajo su prefijo
 (`/en/`). El selector recuerda la elección en `localStorage`.
 
-## 🎨 Cambiar el aspecto
+## 🎨 Tema claro y oscuro
+
+La web sigue la preferencia del navegador y añade un botón para cambiar de tema,
+que recuerda la elección. En claro, el cuerpo usa la paleta de un IDE con tema
+claro y la cabecera conserva su verde de terminal; en oscuro, ese verde pasa a
+ser la marca de toda la página.
 
 El color, la tipografía, los radios y las sombras salen de los tokens de
-`src/styles/globals.css`. Hay dos variantes de tema listas (`friki`, la de por
-defecto, y `serious`), que se eligen con el atributo `data-theme` del `<html>`
-en `src/layouts/Layout.astro`.
+`src/styles/globals.css`.
 
 Ver [`docs/design-tokens.md`](docs/design-tokens.md) para la lista completa de
 tokens y cómo crear un tema nuevo.
