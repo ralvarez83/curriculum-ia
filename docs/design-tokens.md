@@ -32,91 +32,88 @@ El tema activo se elige con el atributo `data-theme` del `<html>`, en
 
 ## Tokens disponibles
 
+### La idea: un terminal tiene dos caras
+
+Los temas de terminal (Solarized, Gruvbox, One) se distribuyen siempre en
+variante clara y oscura, y **cada una trae su propio juego de acentos**, porque
+ningún acento se comporta igual sobre los dos fondos. El tema `friki` hace lo
+mismo: el cuerpo del documento usa la paleta clara y la cabecera la oscura, con
+los valores de [Gruvbox](https://github.com/morhetz/gruvbox) — *faded* para lo
+claro, *bright* para lo oscuro.
+
+Por eso el guiño al terminal no depende de un verde concreto: depende de que
+cada superficie use los colores que ese tema usaría ahí.
+
 ### Superficies
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-background` | `#f3f4f6` | `#f5f5f5` | Fondo de la página |
-| `--color-surface` | `#ffffff` | `#ffffff` | Tarjeta principal del CV |
-| `--color-surface-muted` | `#f3f4f6` | `#fafafa` | Paneles interiores (perfil, tarjetas) |
+| `--color-background` | `#ebdbb2` | `#f5f5f5` | Fondo de la página |
+| `--color-surface` | `#fbf1c7` | `#ffffff` | Tarjeta principal del CV |
+| `--color-surface-muted` | `#ebdbb2` | `#fafafa` | Paneles interiores |
 
 ### Cabecera
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-header-bg` | `#1f2937` | `#2c3e50` | Fondo de la cabecera |
-| `--color-header-text` | `#ffffff` | `#ffffff` | Texto sobre la cabecera |
+| `--color-header-bg` | `#282828` | `#2c3e50` | Fondo de la cabecera |
+| `--color-header-text` | `#ebdbb2` | `#ffffff` | Texto sobre la cabecera |
 
 ### Marca
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-primary` | `#22c55e` | `#2471a3` | Marca: iconos, bordes, rellenos |
-| `--color-primary-hover` | `#4ade80` | `#1a5f8a` | *Hover* de lo anterior |
-| `--color-primary-contrast` | `#1f2937` | `#ffffff` | Texto sobre el relleno de marca |
-| `--color-primary-on-dark` | `#22c55e` | `#5dade2` | Marca dentro de la cabecera |
-| `--color-link` | `#15803d` | `#1a5f8a` | Enlaces dentro del contenido |
+| `--color-primary` | `#79740e` | `#2471a3` | Marca sobre superficie clara |
+| `--color-primary-hover` | `#5f5b0b` | `#1a5f8a` | *Hover* de lo anterior |
+| `--color-primary-contrast` | `#ffffff` | `#ffffff` | Texto sobre el relleno de marca |
+| `--color-primary-on-dark` | `#b8bb26` | `#5dade2` | Marca dentro de la cabecera |
+| `--color-link` | `#076678` | `#1a5f8a` | Enlaces dentro del contenido |
 
-### Por qué el verde no se oscurece
-
-El verde de fósforo es la referencia al terminal: oscurecerlo para cumplir
-contraste resolvería la métrica y rompería el diseño. Y es innecesario, porque
-el problema no era el verde sino **el texto blanco encima**:
-
-| Sobre el verde `#22c55e` | Contraste |
-| --- | --- |
-| Texto blanco | 2,28:1 ✗ |
-| Texto oscuro `#1f2937` | 6,44:1 ✓ |
-
-Escribir en oscuro sobre el color vivo es justo lo que hace un terminal al
-resaltar una celda: vídeo invertido. Por eso `--color-primary-contrast` es
-oscuro en el tema friki y blanco en serious, cuyos rellenos sí son oscuros.
-
-Los bordes de tarjeta, los iconos de sección y el aro de la foto se quedan en
-verde vivo. Son decorativos —el texto que acompañan ya comunica el
-significado—, así que quedan fuera del criterio de contraste no textual.
-
-Un enlace, en cambio, sí es texto: para eso está `--color-link`, con un verde
-más oscuro que llega a 4,5:1 sobre fondo claro.
+El verde cambia de tono según el fondo, igual que en el tema original: `#79740e`
+da 4,86:1 sobre la tarjeta clara y `#b8bb26` da 7,14:1 sobre la cabecera. Ningún
+valor único cumpliría en los dos sitios.
 
 ### Texto
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-text` | `#1f2937` | `#333333` | Texto principal y titulares |
-| `--color-text-secondary` | `#374151` | `#4a4a4a` | Cuerpo de las tarjetas |
-| `--color-text-muted` | `#4b5563` | `#6b6b6b` | Subtítulos, descripciones |
+| `--color-text` | `#3c3836` | `#333333` | Texto principal y titulares |
+| `--color-text-secondary` | `#504945` | `#4a4a4a` | Cuerpo de las tarjetas |
+| `--color-text-muted` | `#665c54` | `#6b6b6b` | Subtítulos, descripciones |
 
 ### Bordes
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-border` | `#22c55e` | `#e0e0e0` | Borde del contenedor del CV |
-| `--color-divider` | `#e5e7eb` | `#e0e0e0` | Separadores |
+| `--color-border` | `#79740e` | `#e0e0e0` | Borde del contenedor del CV |
+| `--color-divider` | `#d5c4a1` | `#e0e0e0` | Separadores |
 
 ### Etiquetas y acciones
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-tag-bg` | `#e5e7eb` | `#34495e` | Fondo de las etiquetas de habilidades |
-| `--color-tag-text` | `#374151` | `#ffffff` | Texto de las etiquetas |
-| `--color-action-source` | `#fbbf24` | `#34495e` | Botón "Source" de los proyectos |
-| `--color-action-docker` | `#22d3ee` | `#2471a3` | Botón "Docker" de los proyectos |
+| `--color-tag-bg` | `#d5c4a1` | `#34495e` | Fondo de las etiquetas de habilidades |
+| `--color-tag-text` | `#3c3836` | `#ffffff` | Texto de las etiquetas |
+| `--color-action-source` | `#af3a03` | `#34495e` | Botón "Source" de los proyectos |
+| `--color-action-docker` | `#076678` | `#2471a3` | Botón "Docker" de los proyectos |
 
 Cada botón tiene además su `--color-action-*-hover`.
 
-En el tema friki los tres botones son verde, ámbar y cian: los colores de una
-paleta ANSI. Refuerzan la referencia al terminal en vez de romperla, y con
-texto oscuro encima dan 6,44:1, 8,79:1 y 8,12:1.
+En friki los rellenos usan naranja y azul de la paleta clara de Gruvbox, con
+texto blanco encima: 6,12:1 y 6,60:1.
 
 ### Niveles de idioma
 
 | Token | Valor | Uso |
 | --- | --- | --- |
-| `--color-level-basic` | `#bfdbfe` | Distintivo de nivel básico |
-| `--color-level-intermediate` | `#bbf7d0` | Nivel intermedio |
-| `--color-level-advanced` | `#fef08a` | Nivel avanzado |
-| `--color-level-native` | `#fecaca` | Nivel nativo |
+| `--color-level-basic` | `#8eb0a1` | Distintivo de nivel básico |
+| `--color-level-intermediate` | `#aca93d` | Nivel intermedio |
+| `--color-level-advanced` | `#d79921` | Nivel avanzado |
+| `--color-level-native` | `#e6957a` | Nivel nativo |
+
+Son los acentos neutros de Gruvbox aclarados hacia el fondo hasta pasar de
+4,5:1 con el texto oscuro encima. Los "bright" de la paleta oscura no valen
+aquí: el rojo `#fb4934` se queda en 3,37:1 sobre superficie clara.
 
 El color depende del nivel, no del idioma: al añadir un idioma nuevo se pinta
 solo.
