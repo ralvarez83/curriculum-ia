@@ -28,13 +28,16 @@
   --color-header-bg: #1f2937;
   --color-header-text: #ffffff;
 
-  /* Marca: verde de comentario del tema claro (5,14:1 sobre blanco) en el
-     cuerpo, verde de fósforo (6,44:1) dentro de la cabecera. */
-  --color-primary: #008000;
-  --color-primary-hover: #006400;
+  /* Marca. En los bloques claros no hay verde a propósito: en un tema claro de
+     IDE el verde es el color de los comentarios, es decir, de lo que el editor
+     atenúa. Para lo prominente esos temas usan azul, morado y teal, y de ahí
+     sale el azul de constante. El verde de fósforo se queda donde sí significa
+     algo: el bloque oscuro de la cabecera. */
+  --color-primary: #0070c1;
+  --color-primary-hover: #005596;
   --color-primary-contrast: #ffffff;
   --color-primary-on-dark: #22c55e;
-  --color-link: #0070c1;
+  --color-link: #0451a5;
 
   /* Texto */
   --color-text: #1f2937;
@@ -42,23 +45,23 @@
   --color-text-muted: #4b5563;
 
   /* Bordes y separadores */
-  --color-border: #008000;
+  --color-border: #0070c1;
   --color-divider: #e5e7eb;
 
   /* Etiquetas de habilidades */
   --color-tag-bg: #e5e7eb;
   --color-tag-text: #374151;
 
-  /* Botones: marrón de función y azul de constante de la misma paleta. */
+  /* Botones: marrón de función y teal de tipo, de la misma paleta. */
   --color-action-source: #795e26;
   --color-action-source-hover: #5d491d;
-  --color-action-docker: #0070c1;
-  --color-action-docker-hover: #005596;
+  --color-action-docker: #267f99;
+  --color-action-docker-hover: #1d6376;
 
   /* Niveles de idioma: los mismos colores de sintaxis aclarados hacia el
      blanco hasta pasar de 4,5:1 con el texto oscuro encima. */
-  --color-level-basic: #4d9bd4;
-  --color-level-intermediate: #4da64d;
+  --color-level-basic: #5c9fb3;
+  --color-level-intermediate: #4d9bd4;
   --color-level-advanced: #a89672;
   --color-level-native: #cc7e7e;
 

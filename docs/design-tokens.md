@@ -37,23 +37,25 @@ El tema activo se elige con el atributo `data-theme` del `<html>`, en
 La cabecera es un bloque oscuro y ahí el verde de fósforo funciona: da 6,44:1 y
 se lee como un terminal.
 
-En los bloques claros ese mismo verde no vale. Sobre blanco baja a 2,28:1: no
-cumple contraste y, sobre todo, se lava y deja de parecer neón. Por eso la zona
-clara usa la paleta de sintaxis de **VS Code Light+**, que es lo que se ve en un
-editor con tema claro y donde todos los colores pasan de 4,5:1 sobre blanco:
+Los bloques claros **no llevan verde, y es deliberado**. En un tema claro de IDE
+el verde existe, pero es el color de los comentarios: lo que el editor atenúa
+por ser secundario. Usarlo para iconos, bordes y botones —el papel de marca—
+contradice esa semántica. Para lo prominente esos temas usan azul, morado y
+teal, y de ahí sale la paleta de esta zona, tomada de **VS Code Light+**
+(`light_vs.json` y `light_plus.json`):
 
-| Elemento de sintaxis | Hex | Sobre blanco |
-| --- | --- | --- |
-| Comentario (verde) | `#008000` | 5,14:1 |
-| Número | `#098658` | 4,60:1 |
-| Cadena (rojo) | `#a31515` | 7,85:1 |
-| Palabra clave (azul) | `#0000ff` | 8,59:1 |
-| Función (marrón) | `#795e26` | 6,10:1 |
-| Tipo (teal) | `#267f99` | 4,59:1 |
-| Constante (azul) | `#0070c1` | 5,14:1 |
+| Elemento de sintaxis | Hex | Sobre blanco | Uso aquí |
+| --- | --- | --- | --- |
+| Constante (azul) | `#0070c1` | 5,14:1 | Marca: iconos, bordes, botón View |
+| Palabra clave (azul) | `#0451a5` | 7,71:1 | Enlaces |
+| Función (marrón) | `#795e26` | 6,10:1 | Botón Source |
+| Tipo (teal) | `#267f99` | 4,59:1 | Botón Docker |
+| Cadena (rojo) | `#a31515` | 7,85:1 | Distintivo de nivel nativo |
+| Comentario (verde) | `#008000` | 5,14:1 | *Sin usar: es el color de lo atenuado* |
 
-El guiño, entonces, no está en repetir un color: está en que cada bloque use la
-paleta que le corresponde según su fondo.
+El guiño no está en repetir un color por toda la página, sino en que cada bloque
+use la paleta que le corresponde: terminal donde el fondo es oscuro, editor
+claro donde es claro.
 
 ### Superficies
 
@@ -74,14 +76,15 @@ paleta que le corresponde según su fondo.
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-primary` | `#008000` | `#2471a3` | Marca sobre superficie clara |
-| `--color-primary-hover` | `#006400` | `#1a5f8a` | *Hover* de lo anterior |
+| `--color-primary` | `#0070c1` | `#2471a3` | Marca sobre superficie clara |
+| `--color-primary-hover` | `#005596` | `#1a5f8a` | *Hover* de lo anterior |
 | `--color-primary-contrast` | `#ffffff` | `#ffffff` | Texto sobre el relleno de marca |
 | `--color-primary-on-dark` | `#22c55e` | `#5dade2` | Marca dentro de la cabecera |
-| `--color-link` | `#0070c1` | `#1a5f8a` | Enlaces dentro del contenido |
+| `--color-link` | `#0451a5` | `#1a5f8a` | Enlaces dentro del contenido |
 
-El verde de comentario da 5,14:1 sobre la tarjeta blanca; el de fósforo da
-6,44:1 sobre la cabecera. Ningún valor único cumpliría en los dos sitios.
+El azul de constante da 5,14:1 sobre la tarjeta blanca; el verde de fósforo da
+6,44:1 sobre la cabecera. Son paletas distintas a propósito, no dos versiones
+del mismo color.
 
 ### Texto
 
@@ -95,7 +98,7 @@ El verde de comentario da 5,14:1 sobre la tarjeta blanca; el de fósforo da
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-border` | `#008000` | `#e0e0e0` | Borde del contenedor del CV |
+| `--color-border` | `#0070c1` | `#e0e0e0` | Borde del contenedor del CV |
 | `--color-divider` | `#e5e7eb` | `#e0e0e0` | Separadores |
 
 ### Etiquetas y acciones
@@ -105,19 +108,19 @@ El verde de comentario da 5,14:1 sobre la tarjeta blanca; el de fósforo da
 | `--color-tag-bg` | `#e5e7eb` | `#34495e` | Fondo de las etiquetas de habilidades |
 | `--color-tag-text` | `#374151` | `#ffffff` | Texto de las etiquetas |
 | `--color-action-source` | `#795e26` | `#34495e` | Botón "Source" de los proyectos |
-| `--color-action-docker` | `#0070c1` | `#2471a3` | Botón "Docker" de los proyectos |
+| `--color-action-docker` | `#267f99` | `#2471a3` | Botón "Docker" de los proyectos |
 
 Cada botón tiene además su `--color-action-*-hover`.
 
-En friki los rellenos usan el marrón de función y el azul de constante de la
-misma paleta de sintaxis, con texto blanco encima: 6,10:1 y 5,14:1.
+En friki los rellenos usan el marrón de función y el teal de tipo de la misma
+paleta de sintaxis, con texto blanco encima: 6,10:1 y 4,59:1.
 
 ### Niveles de idioma
 
 | Token | Valor | Uso |
 | --- | --- | --- |
-| `--color-level-basic` | `#4d9bd4` | Distintivo de nivel básico |
-| `--color-level-intermediate` | `#4da64d` | Nivel intermedio |
+| `--color-level-basic` | `#5c9fb3` | Distintivo de nivel básico |
+| `--color-level-intermediate` | `#4d9bd4` | Nivel intermedio |
 | `--color-level-advanced` | `#a89672` | Nivel avanzado |
 | `--color-level-native` | `#cc7e7e` | Nivel nativo |
 
