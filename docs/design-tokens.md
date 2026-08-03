@@ -37,9 +37,9 @@ El tema activo se elige con el atributo `data-theme` del `<html>`, en
 Los temas de terminal (Solarized, Gruvbox, One) se distribuyen siempre en
 variante clara y oscura, y **cada una trae su propio juego de acentos**, porque
 ningún acento se comporta igual sobre los dos fondos. El tema `friki` hace lo
-mismo: el cuerpo del documento usa la paleta clara y la cabecera la oscura, con
-los valores de [Gruvbox](https://github.com/morhetz/gruvbox) — *faded* para lo
-claro, *bright* para lo oscuro.
+mismo: el cuerpo del documento usa la paleta clara — los acentos de
+[Gruvbox Light](https://github.com/morhetz/gruvbox) — mientras la cabecera
+conserva su verde de fósforo sobre oscuro.
 
 Por eso el guiño al terminal no depende de un verde concreto: depende de que
 cada superficie use los colores que ese tema usaría ahí.
@@ -56,8 +56,8 @@ cada superficie use los colores que ese tema usaría ahí.
 
 | Token | friki | serious | Uso |
 | --- | --- | --- | --- |
-| `--color-header-bg` | `#282828` | `#2c3e50` | Fondo de la cabecera |
-| `--color-header-text` | `#ebdbb2` | `#ffffff` | Texto sobre la cabecera |
+| `--color-header-bg` | `#1f2937` | `#2c3e50` | Fondo de la cabecera |
+| `--color-header-text` | `#ffffff` | `#ffffff` | Texto sobre la cabecera |
 
 ### Marca
 
@@ -66,12 +66,12 @@ cada superficie use los colores que ese tema usaría ahí.
 | `--color-primary` | `#79740e` | `#2471a3` | Marca sobre superficie clara |
 | `--color-primary-hover` | `#5f5b0b` | `#1a5f8a` | *Hover* de lo anterior |
 | `--color-primary-contrast` | `#ffffff` | `#ffffff` | Texto sobre el relleno de marca |
-| `--color-primary-on-dark` | `#b8bb26` | `#5dade2` | Marca dentro de la cabecera |
+| `--color-primary-on-dark` | `#22c55e` | `#5dade2` | Marca dentro de la cabecera |
 | `--color-link` | `#076678` | `#1a5f8a` | Enlaces dentro del contenido |
 
-El verde cambia de tono según el fondo, igual que en el tema original: `#79740e`
-da 4,86:1 sobre la tarjeta clara y `#b8bb26` da 7,14:1 sobre la cabecera. Ningún
-valor único cumpliría en los dos sitios.
+El verde cambia de tono según el fondo: `#79740e` da 4,86:1 sobre la tarjeta
+clara y el verde de fósforo `#22c55e` da 6,44:1 dentro de la cabecera oscura.
+Ningún valor único cumpliría en los dos sitios.
 
 ### Texto
 

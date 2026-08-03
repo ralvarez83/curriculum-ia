@@ -12,8 +12,8 @@
      Los temas de terminal (Solarized, Gruvbox, One) se distribuyen en variante
      clara y oscura, cada una con SU juego de acentos, porque ningún acento
      funciona igual sobre los dos fondos. Aquí se hace lo mismo: el cuerpo del
-     documento usa la paleta clara y la cabecera la oscura. Los valores vienen
-     de Gruvbox (morhetz/gruvbox): faded para lo claro, bright para lo oscuro. */
+     documento usa una paleta clara de terminal (Gruvbox Light) y la cabecera
+     conserva su verde de fósforo sobre oscuro. */
 
   /* Tipografía */
   --font-base: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
@@ -24,16 +24,17 @@
   --color-surface: #fbf1c7;
   --color-surface-muted: #ebdbb2;
 
-  /* Cabecera: la cara oscura del mismo terminal — Gruvbox Dark */
-  --color-header-bg: #282828;
-  --color-header-text: #ebdbb2;
+  /* Cabecera: se queda como estaba, con el verde de fósforo sobre oscuro. */
+  --color-header-bg: #1f2937;
+  --color-header-text: #ffffff;
 
-  /* Marca. El verde cambia de tono según el fondo, igual que en el tema real:
-     faded sobre claro (4,86:1 como texto), bright sobre oscuro (7,14:1). */
+  /* Marca. Dos tonos según el fondo: el verde apagado de la paleta clara para
+     el cuerpo del documento (4,86:1 sobre la tarjeta) y el verde de fósforo de
+     siempre dentro de la cabecera oscura (6,44:1). */
   --color-primary: #79740e;
   --color-primary-hover: #5f5b0b;
   --color-primary-contrast: #ffffff;
-  --color-primary-on-dark: #b8bb26;
+  --color-primary-on-dark: #22c55e;
   --color-link: #076678;
 
   /* Texto sobre claro */
