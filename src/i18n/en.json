@@ -23,26 +23,22 @@
   },
   "profile": "I lead **product development at Uniendo Nodos** with AI-assisted **Spec Driven Development (SDD)**: the AI implements and people steer the cycle — specify, design, review, validate and ship. This is not a hunch: we **measure it against our own repositories** and we budget from those numbers. And that method ships **real product to production and to the app stores**, not prototypes. I bring almost twenty years split between **hands-on development**, the **technical leadership** of two companies I co-founded and **agile coaching** — exactly the mix this moment calls for, because the bottleneck is no longer typing code but **deciding well, slicing work into shippable pieces and verifying what gets delivered**. I work with **solid practices** — TDD, DDD, continuous delivery — and I enjoy looking for **better ways to do things**; today that means steering the definition of the **harness** (rules, agents and automations) that lets the team move faster without losing control.",
   "skills": [
-    "Spec Driven Development (SDD)",
-    "OpenSpec",
-    "Claude Code",
+    "Spec Driven Development",
+    "Technical product leadership",
+    "DDD and hexagonal architecture",
+    "Continuous delivery and automated quality",
+    "Multi-tenant SaaS",
+    "Smartsheet ecosystem",
+    "Technical training and mentoring"
+  ],
+  "stacksLabel": "Delivered on:",
+  "stacks": [
     "TypeScript",
-    "Node.js",
-    "React",
-    "Next.js",
-    "Flutter",
-    "DDD",
-    "Hexagonal Architecture",
-    "TDD",
-    "CI/CD",
-    "Google Cloud Platform",
-    "PostgreSQL",
-    "Supabase",
-    "Smartsheet",
-    "Docker",
-    "n8n",
     ".NET",
-    "Scrum"
+    "Flutter",
+    "React",
+    "PostgreSQL",
+    "Google Cloud"
   ],
   "languageLevels": {
     "basic": "Basic",
@@ -89,13 +85,11 @@
       "period": "Sept. 2024 - Present",
       "responsibilities": [
         "I lead the company's product development — **architect and lead developer**, with a team — mainly within the **Smartsheet** ecosystem, where Uniendo Nodos is a **partner**.",
-        "Development cycle under **Spec Driven Development (SDD)** with **OpenSpec** and **Claude Code**: every change goes through *explore → propose → apply → verify → publish*, with **human review of each artefact before a line of code is written**. The AI implements; the team steers, reviews and decides.",
-        "**Klonup**: a **backup SaaS for Smartsheet** in commercial operation. **TypeScript** monorepo on **Node** with **DDD and hexagonal architecture** — 7 *bounded contexts* and over 100 use cases — persistence on **Firestore** and **PostgreSQL**, subscriptions with a payment gateway and tax invoicing.",
-        "Designed the **multi-phase execution engine** behind the backups —asynchronous dispatch with **Google Cloud Tasks**, in-house *rate limiting* against the Smartsheet API and cleanup phases with **partial and full rollback**— and the **CI/CD on Google Cloud Build** that ships it: parallelised pipelines, tests as a gate, automated migrations to **Cloud Run** and semantic versioning from *Conventional Commits*.",
-        "I sustain a measurable quality culture: **over 6,500 tests** (Jest, Vitest, Playwright) under **mandatory TDD**, **22 blocking architecture rules** and **141 ADRs** the team consults before implementing.",
-        "**162 changes specified, tested and deployed in a single quarter, with 18% corrective work**, by a two-person team — including a junior developer in their first job, whom I train and supervise. I budget from those same measured figures instead of guessing.",
-        "Architect and lead developer of a **multi-tenant SaaS platform** (**Next.js**, **React**, **Supabase**, **Inngest**): per-organisation isolation with **Row Level Security** on PostgreSQL, **passwordless access via Magic Link**, multi-currency plans with *entitlements* and per-role limits, and a full free-trial lifecycle with reminders and grace-period deactivation.",
-        "Steered the definition of the **AI-assisted engineering harness** the organisation runs on —rules that auto-load based on the file being touched, *skills*, sub-agents and workflow commands versioned in the repository and shared across tools— and designed a **delivery control plane** that dispatches headless agents in an **ephemeral sandbox**, stack-agnostic, with a **dedicated GitHub App, service account impersonation and managed secrets**: zero long-lived credentials."
+        "We work with **Spec Driven Development**: every change is specified, designed and reviewed before a line is written. **The AI implements; we decide, review and answer for the result.**",
+        "**162 changes specified, tested and deployed in a single quarter, with 18% corrective work**, by a small team. I budget from those same measured figures instead of guessing.",
+        "**Klonup**, a backup SaaS for Smartsheet in commercial operation: I designed its **multi-phase execution engine**, with call limits against the API and **partial and full rollback** on failure, and the **continuous delivery** that ships it with tests as a gate.",
+        "Architect and lead developer of a **multi-tenant SaaS platform**: per-organisation isolation in the database itself, passwordless access, multi-currency plans and a full free-trial lifecycle.",
+        "Steered the definition of the **engineering harness** the organisation works with —architecture rules, *skills* and agents versioned alongside the code— and designed a **control plane** that runs agents in ephemeral environments **with zero long-lived credentials**. Backed by **mandatory TDD** and over **6,500 automated tests**."
       ]
     },
     {

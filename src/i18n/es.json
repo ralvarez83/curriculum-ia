@@ -23,26 +23,22 @@
   },
   "profile": "Dirijo el **desarrollo de producto en Uniendo Nodos** con **Spec Driven Development (SDD)** asistido por IA: la IA implementa y las personas dirigimos el ciclo — especificar, diseñar, revisar, validar y publicar. No es una intuición, lo **medimos sobre nuestros propios repositorios** y presupuestamos con esos datos. Y con ese método sale **producto real a producción y a las tiendas de aplicaciones**, no prototipos. Vengo de casi veinte años repartidos entre el **desarrollo**, la **dirección técnica** de dos empresas que cofundé y la **agilidad**, y esa mezcla es justo la que hace falta ahora: el cuello de botella ya no es teclear código, sino **decidir bien, cortar el trabajo en piezas entregables y verificar lo que se entrega**. Trabajo con **buenas prácticas** — TDD, DDD, despliegue continuo — y disfruto buscando **mejores maneras de hacer las cosas**; hoy eso significa dirigir la definición del **arnés** (reglas, agentes y automatizaciones) que permite al equipo ir más rápido sin perder el control.",
   "skills": [
-    "Spec Driven Development (SDD)",
-    "OpenSpec",
-    "Claude Code",
+    "Spec Driven Development",
+    "Dirección técnica de producto",
+    "Arquitectura DDD y hexagonal",
+    "Entrega continua y calidad automatizada",
+    "SaaS multi-tenant",
+    "Ecosistema Smartsheet",
+    "Formación y mentoría técnica"
+  ],
+  "stacksLabel": "Entregado sobre:",
+  "stacks": [
     "TypeScript",
-    "Node.js",
-    "React",
-    "Next.js",
-    "Flutter",
-    "DDD",
-    "Arquitectura Hexagonal",
-    "TDD",
-    "CI/CD",
-    "Google Cloud Platform",
-    "PostgreSQL",
-    "Supabase",
-    "Smartsheet",
-    "Docker",
-    "n8n",
     ".NET",
-    "Scrum"
+    "Flutter",
+    "React",
+    "PostgreSQL",
+    "Google Cloud"
   ],
   "languageLevels": {
     "basic": "Básico",
@@ -89,13 +85,11 @@
       "period": "Sept. 2024 - Actualidad",
       "responsibilities": [
         "Dirijo el desarrollo de producto de la compañía — **arquitecto y desarrollador principal**, con equipo —, principalmente en el ecosistema **Smartsheet**, del que Uniendo Nodos es **partner**.",
-        "Ciclo de desarrollo bajo **Spec Driven Development (SDD)** con **OpenSpec** y **Claude Code**: cada cambio pasa por *explore → propose → apply → verify → publish*, con **revisión humana de cada artefacto antes de escribir código**. La IA implementa; el equipo dirige, revisa y decide.",
-        "**Klonup**: SaaS de **backup para Smartsheet** en explotación comercial. Monorepo **TypeScript** sobre **Node** con **DDD y arquitectura hexagonal** — 7 *bounded contexts* y más de 100 casos de uso — persistencia en **Firestore** y **PostgreSQL**, suscripciones con pasarela de pago y facturación fiscal.",
-        "Diseñé el **motor de ejecución multi-fase** de los backups —despacho asíncrono con **Google Cloud Tasks**, *rate limiting* propio contra la API de Smartsheet y fases de limpieza con **rollback parcial y total**— y el **CI/CD en Google Cloud Build** que lo despliega: pipelines paralelizados, pruebas como puerta, migraciones automatizadas a **Cloud Run** y versionado semántico desde *Conventional Commits*.",
-        "Sostengo una cultura de calidad medible: **más de 6.500 pruebas** (Jest, Vitest, Playwright) con **TDD obligatorio**, **22 reglas de arquitectura bloqueantes** y **141 ADRs** que el equipo consulta antes de implementar.",
-        "**162 cambios especificados, probados y desplegados en un trimestre, con un 18 % de trabajo correctivo**, por un equipo de dos personas — incluido un desarrollador junior en su primer empleo, al que formo y superviso. Presupuesto con esos mismos datos medidos en lugar de estimar a ojo.",
-        "Arquitecto y desarrollador principal de una **plataforma SaaS multi-tenant** (**Next.js**, **React**, **Supabase**, **Inngest**): aislamiento por organización con **Row Level Security** en PostgreSQL, **acceso sin contraseña por Magic Link**, planes multi-divisa con *entitlements* y límites por rol, y ciclo completo de prueba gratuita con recordatorios y desactivación con periodo de gracia.",
-        "Dirigí la definición del **arnés de ingeniería asistida por IA** que usa la organización —reglas que se autocargan según el fichero tocado, *skills*, sub-agentes y comandos de flujo versionados en el repositorio y compartidos entre herramientas— y diseñé un **plano de control de entrega** que despacha agentes headless en **sandbox efímero**, agnóstico del stack, con **GitHub App propia, *service account* por impersonación y secretos gestionados**: cero credenciales de larga duración."
+        "Trabajamos con **Spec Driven Development**: cada cambio se especifica, se diseña y se revisa antes de escribir una línea. **La IA implementa; nosotros decidimos, revisamos y respondemos del resultado.**",
+        "**162 cambios especificados, probados y desplegados en un trimestre, con un 18 % de trabajo correctivo**, por un equipo pequeño. Presupuesto con esos mismos datos medidos en lugar de estimar a ojo.",
+        "**Klonup**, SaaS de backup para Smartsheet en explotación comercial: diseñé su **motor de ejecución multi-fase**, con límites de llamada contra la API y **rollback parcial y total** ante fallo, y el **despliegue continuo** que lo sostiene con las pruebas como puerta.",
+        "Arquitecto y desarrollador principal de una **plataforma SaaS multi-tenant**: aislamiento por organización en la propia base de datos, acceso sin contraseña, planes multi-divisa y ciclo completo de prueba gratuita.",
+        "Dirigí la definición del **arnés de ingeniería** con el que trabaja la organización —reglas de arquitectura, *skills* y agentes versionados junto al código— y diseñé un **plano de control** que ejecuta agentes en entornos efímeros **sin credenciales de larga duración**. Con **TDD obligatorio** y más de **6.500 pruebas automáticas** como red."
       ]
     },
     {
