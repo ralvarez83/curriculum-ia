@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "CV - Rubén Álvarez",
-    "description": "Currículum de Rubén Álvarez, Head of Software Development en Madrid. Desarrollo de producto asistido por IA con OpenSpec, TypeScript, DDD y arquitectura hexagonal."
+    "description": "Currículum de Rubén Álvarez, Head of Software Development en Madrid. Desarrollo de producto con Spec Driven Development asistido por IA: OpenSpec, TypeScript, Flutter, DDD y ecosistema Smartsheet."
   },
   "name": "Rubén Álvarez",
   "title": "Head of Software Development · Desarrollo asistido por IA",
@@ -21,25 +21,27 @@
   "print": {
     "label": "Descargar en PDF"
   },
-  "profile": "Dirijo el **desarrollo de producto en Uniendo Nodos** con un flujo **spec-driven asistido por IA**: la IA implementa y las personas dirigimos el ciclo — especificar, diseñar, revisar, validar y publicar. No es una intuición, lo **medimos sobre nuestro propio histórico** y presupuestamos con esos datos. Vengo de casi veinte años repartidos entre el **desarrollo**, la **dirección técnica** de dos empresas que cofundé y la **agilidad**, y esa mezcla es justo la que hace falta ahora: el cuello de botella ya no es teclear código, sino **decidir bien, cortar el trabajo en piezas entregables y verificar lo que se entrega**. Trabajo con **buenas prácticas** — TDD, DDD, despliegue continuo — y disfruto buscando **mejores maneras de hacer las cosas**; hoy eso significa construir el **arnés** (reglas, agentes y automatizaciones) que permite al equipo ir más rápido sin perder el control.",
+  "profile": "Dirijo el **desarrollo de producto en Uniendo Nodos** con **Spec Driven Development (SDD)** asistido por IA: la IA implementa y las personas dirigimos el ciclo — especificar, diseñar, revisar, validar y publicar. No es una intuición, lo **medimos sobre nuestros propios repositorios** y presupuestamos con esos datos. Y con ese método sale **producto real a producción y a las tiendas de aplicaciones**, no prototipos. Vengo de casi veinte años repartidos entre el **desarrollo**, la **dirección técnica** de dos empresas que cofundé y la **agilidad**, y esa mezcla es justo la que hace falta ahora: el cuello de botella ya no es teclear código, sino **decidir bien, cortar el trabajo en piezas entregables y verificar lo que se entrega**. Trabajo con **buenas prácticas** — TDD, DDD, despliegue continuo — y disfruto buscando **mejores maneras de hacer las cosas**; hoy eso significa dirigir la definición del **arnés** (reglas, agentes y automatizaciones) que permite al equipo ir más rápido sin perder el control.",
   "skills": [
-    "Desarrollo asistido por IA",
-    "OpenSpec (spec-driven)",
+    "Spec Driven Development (SDD)",
+    "OpenSpec",
     "Claude Code",
     "Servidores MCP",
     "TypeScript",
     "Node.js",
     "Angular",
+    "Flutter",
     "DDD",
     "Arquitectura Hexagonal",
     "TDD",
     "CI/CD",
     "Google Cloud Platform",
+    "Smartsheet",
+    "SaaS multi-tenant",
     "Docker",
     "n8n",
     ".Net Core",
-    "Scrum",
-    "SAFe"
+    "Scrum"
   ],
   "languageLevels": {
     "basic": "Básico",
@@ -59,26 +61,10 @@
   ],
   "projects": [
     {
-      "title": "Cloud Monitor",
-      "shortDescription": "Aplicación de aprendizaje para mostrar el estado de los servidores en la nube. Desarrollada con **DotNet Core 8** en el backend, siguiendo una arquitectura de **microservicios**, **arquitectura hexagonal** y **patrones DDD, Repository y Criteria**. Implementa con **TDD**, primero una prueba y luego el código que la supere.",
-      "image": "/cloud-monitor.png",
-      "sourceLink": "https://github.com/ralvarez83/clouds-monitor"
-    },
-    {
-      "title": "Movi-info",
-      "shortDescription": "Aplicación de aprendizaje para gestión de información de películas. Desarrollada con **React** y **TypeScript** en el frontend, **DotNet Core 8** en el backend, siguiendo una arquitectura hexagonal y patrones DDD, Repository y Criteria. Implementa pruebas automáticas y está containerizada con **Docker**.",
-      "image": "/movi-info.png",
-      "projectLink": "https://movie-info.rubenalvarezgonzalez.eu",
-      "sourceLink": "https://github.com/ralvarez83/movi-info",
-      "dockerLink": "https://hub.docker.com/repository/docker/rubenag83/movi-info-react-dotnet-frontend"
-    },
-    {
-      "title": "Datos de Auto-Evaluaciones",
-      "shortDescription": "Aplicación web para procesar y visualizar datos de auto-evaluaciones de agilidad organizacional. Desarrollada con **ReactJs**, implementando parcialmente una **arquitectura Hexagonal**. Procesa archivos Excel de Microsoft Forms y genera visualizaciones gráficas. **Dockerizada** y desplegada en un servidor web.",
-      "image": "/graficas-auto-evaluacion.png",
-      "projectLink": "https://datos-auto-evaluacion.rubenalvarezgonzalez.eu",
-      "sourceLink": "https://github.com/ralvarez83/selft-assesment-charts",
-      "dockerLink": "https://hub.docker.com/r/rubenag83/selft-assesment-charts"
+      "title": "OwnAutoCare",
+      "shortDescription": "App de historial de mantenimiento de vehículos para **iPhone, iPad, Mac y Android**, publicada en **App Store** y **Google Play**. Construida con **Flutter** y **sin servidor propio**: los datos se guardan en el Google Drive, iCloud u OneDrive del propio usuario, sin cuentas adicionales ni base de datos intermedia — la privacidad es una decisión de arquitectura, no una promesa. Registro de servicios, facturas adjuntas, control de gastos y exportación del historial completo. Desarrollada íntegramente con **Spec Driven Development** y **OpenSpec**.",
+      "image": "/ownautocare.png",
+      "projectLink": "https://ownautocare.com"
     }
   ],
   "experience": [
@@ -87,13 +73,14 @@
       "company": "Uniendo Nodos",
       "period": "Sept. 2024 - Actualidad",
       "responsibilities": [
-        "Dirijo el desarrollo de producto con un flujo **spec-driven asistido por IA** (**OpenSpec** + **Claude Code**): la IA implementa y el equipo dirige el ciclo — especificación, diseño, revisión, validación y *release*.",
-        "**160 changes entregados en 12,7 semanas** con ~1,25 personas (**2,8 – 3,5 h por change**), entre **3 y 4 veces** el ritmo de la codificación manual equivalente. Son datos medidos sobre nuestro propio repositorio, no una estimación.",
-        "Construí el **arnés de ingeniería** que lo sostiene: reglas, *skills* y agentes propios, pruebas automáticas, CI/CD y despliegue continuo, reutilizable de un proyecto al siguiente.",
-        "Producto propio **Klonup** en **TypeScript** (Angular y **Node.js**) con **DDD** y arquitectura hexagonal sobre **Google Cloud Platform**: facturación con dos pasarelas de pago externas y motor de ejecución por fases.",
-        "**Servidores MCP** y automatizaciones (**n8n**) propios que llevan el mismo enfoque a ventas y operaciones: prospección por ICP, campañas, *scoring* de leads y publicación de contenido.",
-        "Integraciones con sistemas de cliente: extensiones **AL** de ERP, **Smartsheet** y SSO con **Entra ID**.",
-        "Presupuesto y defino el alcance con **datos medidos** del histórico propio — tarifa por *change*, proporción de correctivos y contingencia explícita — en lugar de estimar a ojo."
+        "Dirijo el desarrollo de producto de la compañía — **arquitecto y desarrollador principal**, con equipo —, principalmente en el ecosistema **Smartsheet**, del que Uniendo Nodos es **partner**.",
+        "**Klonup**: solución de backup para Smartsheet en explotación comercial, con clientes empresariales. Planes de suscripción, límites por *workspace*, pasarela de pago y motor de ejecución por fases.",
+        "Plataforma **SaaS multi-tenant** para la contratación de nuestros productos: organizaciones, planes, periodos de prueba, acceso sin contraseña y flujo de alta comercial.",
+        "Flujo **Spec Driven Development (SDD)** asistido por IA con **OpenSpec** y **Claude Code**: la IA implementa y el equipo dirige el ciclo — especificación, diseño, revisión, validación y *release*.",
+        "**160 changes entregados en 12,7 semanas** — unos **12-13 por semana** con poco más de una persona a tiempo completo. Cada *change*: especificado, implementado con pruebas y desplegado. Datos medidos sobre nuestros propios repositorios.",
+        "**Dirigí la definición del arnés de ingeniería** que lo sostiene: reglas, *skills* y agentes, apoyados en **CLIs** (gcloud y otras) y algún servidor **MCP** para seguridad, con pruebas automáticas, CI/CD y despliegue continuo, reutilizable de un proyecto al siguiente.",
+        "Integraciones de cliente sobre Smartsheet: sincronización con **ERPs**, firma electrónica y datos geoespaciales. Consultoría de IA a clientes y formación interna del equipo.",
+        "Presupuesto y defino el alcance con **datos medidos** del histórico propio — ritmo de *changes* por sprint, proporción de correctivos y contingencia explícita — en lugar de estimar a ojo."
       ]
     },
     {

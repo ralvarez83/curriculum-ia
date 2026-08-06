@@ -112,7 +112,14 @@ for (const { locale, path, t } of LOCALES) {
         const stem = project.image.split('/').pop()!.replace(/\.[^.]+$/, '');
         await expect(card.locator('img')).toHaveAttribute('src', new RegExp(stem));
 
-        for (const href of [project.projectLink, project.sourceLink, project.dockerLink]) {
+        // Los enlaces son opcionales y TypeScript infiere el tipo del JSON, así
+        // que sólo existen como propiedad si algún proyecto los usa. Se leen de
+        // forma laxa para que la prueba siga valiendo con cualquier combinación.
+        const links = project as Partial<
+          Record<'projectLink' | 'sourceLink' | 'dockerLink', string>
+        >;
+
+        for (const href of [links.projectLink, links.sourceLink, links.dockerLink]) {
           if (!href) continue;
           await expect(
             card.locator(`a[href="${href}"]`),

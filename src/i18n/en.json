@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "CV - Ruben Alvarez",
-    "description": "Résumé of Ruben Alvarez, Head of Software Development based in Madrid. AI-assisted product delivery with OpenSpec, TypeScript, DDD and hexagonal architecture."
+    "description": "Résumé of Ruben Alvarez, Head of Software Development based in Madrid. Product delivery with AI-assisted Spec Driven Development: OpenSpec, TypeScript, Flutter, DDD and the Smartsheet ecosystem."
   },
   "name": "Ruben Alvarez",
   "title": "Head of Software Development · AI-assisted delivery",
@@ -21,25 +21,27 @@
   "print": {
     "label": "Download as PDF"
   },
-  "profile": "I lead **product development at Uniendo Nodos** with an **AI-assisted, spec-driven** workflow: the AI implements and people steer the cycle — specify, design, review, validate and ship. This is not a hunch: we **measure it against our own track record** and we budget from those numbers. I bring almost twenty years split between **hands-on development**, the **technical leadership** of two companies I co-founded and **agile coaching** — exactly the mix this moment calls for, because the bottleneck is no longer typing code but **deciding well, slicing work into shippable pieces and verifying what gets delivered**. I work with **solid practices** — TDD, DDD, continuous delivery — and I enjoy looking for **better ways to do things**; today that means building the **harness** (rules, agents and automations) that lets the team move faster without losing control.",
+  "profile": "I lead **product development at Uniendo Nodos** with AI-assisted **Spec Driven Development (SDD)**: the AI implements and people steer the cycle — specify, design, review, validate and ship. This is not a hunch: we **measure it against our own repositories** and we budget from those numbers. And that method ships **real product to production and to the app stores**, not prototypes. I bring almost twenty years split between **hands-on development**, the **technical leadership** of two companies I co-founded and **agile coaching** — exactly the mix this moment calls for, because the bottleneck is no longer typing code but **deciding well, slicing work into shippable pieces and verifying what gets delivered**. I work with **solid practices** — TDD, DDD, continuous delivery — and I enjoy looking for **better ways to do things**; today that means steering the definition of the **harness** (rules, agents and automations) that lets the team move faster without losing control.",
   "skills": [
-    "AI-assisted development",
-    "OpenSpec (spec-driven)",
+    "Spec Driven Development (SDD)",
+    "OpenSpec",
     "Claude Code",
     "MCP servers",
     "TypeScript",
     "Node.js",
     "Angular",
+    "Flutter",
     "DDD",
     "Hexagonal Architecture",
     "TDD",
     "CI/CD",
     "Google Cloud Platform",
+    "Smartsheet",
+    "Multi-tenant SaaS",
     "Docker",
     "n8n",
     ".Net Core",
-    "Scrum",
-    "SAFe"
+    "Scrum"
   ],
   "languageLevels": {
     "basic": "Basic",
@@ -59,26 +61,10 @@
   ],
   "projects": [
     {
-      "title": "Cloud Monitor",
-      "shortDescription": "Learning application to display the status of cloud servers. Developed using **DotNet Core 8** on the backend, following a **microservices architecture**, **hexagonal architecture**, and **DDD, Repository, and Criteria patterns**. Implemented with **TDD** (Test-Driven Development), starting with a test and then writing the code to pass it.",
-      "image": "/cloud-monitor.png",
-      "sourceLink": "https://github.com/ralvarez83/clouds-monitor"
-    },
-    {
-      "title": "Movi-info",
-      "shortDescription": "Learning application for movie information management. Developed with **React** and **TypeScript** for the frontend, **DotNet Core 8** for the backend, following a hexagonal architecture and DDD, Repository, and Criteria patterns. It implements automated tests and is containerized with **Docker**.",
-      "image": "/movi-info.png",
-      "projectLink": "https://movie-info.rubenalvarezgonzalez.eu",
-      "sourceLink": "https://github.com/ralvarez83/movi-info",
-      "dockerLink": "https://hub.docker.com/repository/docker/rubenag83/movi-info-react-dotnet-frontend"
-    },
-    {
-      "title": "Self-Assessment Data",
-      "shortDescription": "Web application for processing and visualizing organizational agility self-assessment data. Developed with **ReactJs**, partially implementing a **Hexagonal architecture**. Processes Microsoft Forms Excel files and generates graphical visualizations. **Dockerized** and deployed on a web server.",
-      "image": "/graficas-auto-evaluacion.png",
-      "projectLink": "https://self-assessment-data.rubenalvarezgonzalez.eu",
-      "sourceLink": "https://github.com/ralvarez83/selft-assesment-charts",
-      "dockerLink": "https://hub.docker.com/r/rubenag83/selft-assesment-charts"
+      "title": "OwnAutoCare",
+      "shortDescription": "Vehicle maintenance history app for **iPhone, iPad, Mac and Android**, published on the **App Store** and **Google Play**. Built with **Flutter** and with **no backend of our own**: data lives in the user's own Google Drive, iCloud or OneDrive, with no extra accounts and no intermediate database — privacy is an architectural decision, not a promise. Service log, attached invoices, cost tracking and full history export. Built end to end with **Spec Driven Development** and **OpenSpec**.",
+      "image": "/ownautocare.png",
+      "projectLink": "https://ownautocare.com"
     }
   ],
   "experience": [
@@ -87,13 +73,14 @@
       "company": "Uniendo Nodos",
       "period": "Sept. 2024 - Present",
       "responsibilities": [
-        "I lead product development with an **AI-assisted, spec-driven** workflow (**OpenSpec** + **Claude Code**): the AI implements and the team steers the cycle — specification, design, review, validation and release.",
-        "**160 changes delivered in 12.7 weeks** with ~1.25 people (**2.8 – 3.5 h per change**), between **3 and 4 times** the pace of the equivalent hand-written code. These are figures measured on our own repository, not an estimate.",
-        "Built the **engineering harness** behind it: in-house rules, *skills* and agents, automated tests, CI/CD and continuous delivery, reusable from one project to the next.",
-        "In-house product **Klonup**, built in **TypeScript** (Angular and **Node.js**) with **DDD** and hexagonal architecture on **Google Cloud Platform**: billing with two external payment gateways and a phased execution engine.",
-        "In-house **MCP servers** and automations (**n8n**) that bring the same approach to sales and operations: ICP-based prospecting, campaigns, lead *scoring* and content publishing.",
-        "Integrations with client systems: ERP **AL** extensions, **Smartsheet** and **Entra ID** SSO.",
-        "I budget and scope projects from **measured data** on our own track record — hours per *change*, share of corrective work and an explicit contingency line — instead of guessing."
+        "I lead the company's product development — **architect and lead developer**, with a team — mainly within the **Smartsheet** ecosystem, where Uniendo Nodos is a **partner**.",
+        "**Klonup**: a backup solution for Smartsheet in commercial operation, with enterprise customers. Subscription plans, per-*workspace* limits, payment gateway and a phased execution engine.",
+        "**Multi-tenant SaaS platform** for contracting our products: organisations, plans, trial periods, passwordless access and a commercial sign-up flow.",
+        "AI-assisted **Spec Driven Development (SDD)** with **OpenSpec** and **Claude Code**: the AI implements and the team steers the cycle — specification, design, review, validation and release.",
+        "**160 changes delivered in 12.7 weeks** — around **12-13 per week** with just over one full-time person. Every *change*: specified, implemented with tests and deployed. Figures measured on our own repositories.",
+        "**Steered the definition of the engineering harness** behind it: rules, *skills* and agents, backed by **CLIs** (gcloud and others) and an **MCP** server for security, with automated tests, CI/CD and continuous delivery, reusable from one project to the next.",
+        "Client integrations on top of Smartsheet: **ERP** synchronisation, electronic signature and geospatial data. AI consultancy for clients and internal training for the team.",
+        "I budget and scope projects from **measured data** on our own track record — *changes* per sprint, share of corrective work and an explicit contingency line — instead of guessing."
       ]
     },
     {

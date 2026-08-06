@@ -135,7 +135,7 @@ test.describe('impresión', () => {
     await expect(page.locator('.print-only').first()).toBeVisible();
     await expect(page.locator('.screen-only').first()).toBeHidden();
     await expect(
-      page.locator('.print-only').filter({ hasText: 'https://movie-info' }).first(),
+      page.locator('.print-only').filter({ hasText: 'https://ownautocare.com' }).first(),
     ).toBeVisible();
   });
 });
