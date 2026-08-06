@@ -1,10 +1,10 @@
 {
   "meta": {
     "title": "CV - Ruben Alvarez",
-    "description": "Résumé of Ruben Alvarez, back-end developer based in Madrid. Experience with .Net Core, hexagonal architecture, DDD and agile."
+    "description": "Résumé of Ruben Alvarez, Head of Software Development based in Madrid. AI-assisted product delivery with OpenSpec, TypeScript, DDD and hexagonal architecture."
   },
   "name": "Ruben Alvarez",
-  "title": "Back-end Developer",
+  "title": "Head of Software Development · AI-assisted delivery",
   "photo": "/photo.jpg",
   "sections": {
     "profile": "Profile",
@@ -21,18 +21,23 @@
   "print": {
     "label": "Download as PDF"
   },
-  "profile": "I enjoy **software product development** and love working to the best of my ability, applying the **best practices** I know. I enjoy finding **new and better ways to do things**. I am always looking for **innovations** that can improve my work and the products I develop. I strive to **learn and adapt** to new technologies and methodologies. I am motivated by facing **challenges** that allow me to **grow professionally** and contribute significantly to the projects I am involved in. I greatly value **collaboration with my colleagues** as I believe that **teamwork improves results**. I strive every day to **improve my skills and knowledge** to make the most of the tools and technologies available to me.",
+  "profile": "I lead **product development at Uniendo Nodos** with an **AI-assisted, spec-driven** workflow: the AI implements and people steer the cycle — specify, design, review, validate and ship. This is not a hunch: we **measure it against our own track record** and we budget from those numbers. I bring almost twenty years split between **hands-on development**, the **technical leadership** of two companies I co-founded and **agile coaching** — exactly the mix this moment calls for, because the bottleneck is no longer typing code but **deciding well, slicing work into shippable pieces and verifying what gets delivered**. I work with **solid practices** — TDD, DDD, continuous delivery — and I enjoy looking for **better ways to do things**; today that means building the **harness** (rules, agents and automations) that lets the team move faster without losing control.",
   "skills": [
-    ".Net Core",
-    "API REST",
-    "Dockers",
+    "AI-assisted development",
+    "OpenSpec (spec-driven)",
+    "Claude Code",
+    "MCP servers",
+    "TypeScript",
+    "Node.js",
+    "Angular",
     "DDD",
-    "CQRS",
     "Hexagonal Architecture",
-    "xUnit",
-    "Azure",
-    "React",
-    "Jest",
+    "TDD",
+    "CI/CD",
+    "Google Cloud Platform",
+    "Docker",
+    "n8n",
+    ".Net Core",
     "Scrum",
     "SAFe"
   ],
@@ -82,9 +87,13 @@
       "company": "Uniendo Nodos",
       "period": "Sept. 2024 - Present",
       "responsibilities": [
-        "Developed digital products using **Angular** and **Node.js**.",
-        "Implemented serverless architectures on **Google Cloud Platform**.",
-        "Contributed to the company's strategic, tactical, and operational efficiency through agile methodologies and automation."
+        "I lead product development with an **AI-assisted, spec-driven** workflow (**OpenSpec** + **Claude Code**): the AI implements and the team steers the cycle — specification, design, review, validation and release.",
+        "**160 changes delivered in 12.7 weeks** with ~1.25 people (**2.8 – 3.5 h per change**), between **3 and 4 times** the pace of the equivalent hand-written code. These are figures measured on our own repository, not an estimate.",
+        "Built the **engineering harness** behind it: in-house rules, *skills* and agents, automated tests, CI/CD and continuous delivery, reusable from one project to the next.",
+        "In-house product **Klonup**, built in **TypeScript** (Angular and **Node.js**) with **DDD** and hexagonal architecture on **Google Cloud Platform**: billing with two external payment gateways and a phased execution engine.",
+        "In-house **MCP servers** and automations (**n8n**) that bring the same approach to sales and operations: ICP-based prospecting, campaigns, lead *scoring* and content publishing.",
+        "Integrations with client systems: ERP **AL** extensions, **Smartsheet** and **Entra ID** SSO.",
+        "I budget and scope projects from **measured data** on our own track record — hours per *change*, share of corrective work and an explicit contingency line — instead of guessing."
       ]
     },
     {

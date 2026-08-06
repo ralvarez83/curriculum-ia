@@ -1,10 +1,10 @@
 {
   "meta": {
     "title": "CV - Rubén Álvarez",
-    "description": "Currículum de Rubén Álvarez, desarrollador back-end en Madrid. Experiencia en .Net Core, arquitectura hexagonal, DDD y agilidad."
+    "description": "Currículum de Rubén Álvarez, Head of Software Development en Madrid. Desarrollo de producto asistido por IA con OpenSpec, TypeScript, DDD y arquitectura hexagonal."
   },
   "name": "Rubén Álvarez",
-  "title": "Desarrollador Back-end",
+  "title": "Head of Software Development · Desarrollo asistido por IA",
   "photo": "/photo.jpg",
   "sections": {
     "profile": "Perfil",
@@ -21,18 +21,23 @@
   "print": {
     "label": "Descargar en PDF"
   },
-  "profile": "Me gusta el **desarrollo de productos de software** y me encanta trabajar lo mejor que puedo, aplicando las **mejores prácticas** que conozco. Disfruto buscando **nuevas y mejores maneras de hacer las cosas**. Siempre estoy en busca de **innovaciones** que puedan mejorar mi trabajo y los productos que desarrollo. Me esfuerzo por **aprender y adaptarme** a nuevas tecnologías y metodologías. Me motiva enfrentar **desafíos** que me permitan **crecer profesionalmente** y contribuir de manera significativa a los proyectos en los que participo. Valoro mucho la **colaboración con mis compañeros**, ya que creo que el **trabajo en equipo mejora los resultados**. Me esfuerzo cada día por **mejorar mis habilidades y conocimientos** para poder aprovechar las herramientas y tecnologías que tengo a mi alcance.",
+  "profile": "Dirijo el **desarrollo de producto en Uniendo Nodos** con un flujo **spec-driven asistido por IA**: la IA implementa y las personas dirigimos el ciclo — especificar, diseñar, revisar, validar y publicar. No es una intuición, lo **medimos sobre nuestro propio histórico** y presupuestamos con esos datos. Vengo de casi veinte años repartidos entre el **desarrollo**, la **dirección técnica** de dos empresas que cofundé y la **agilidad**, y esa mezcla es justo la que hace falta ahora: el cuello de botella ya no es teclear código, sino **decidir bien, cortar el trabajo en piezas entregables y verificar lo que se entrega**. Trabajo con **buenas prácticas** — TDD, DDD, despliegue continuo — y disfruto buscando **mejores maneras de hacer las cosas**; hoy eso significa construir el **arnés** (reglas, agentes y automatizaciones) que permite al equipo ir más rápido sin perder el control.",
   "skills": [
-    ".Net Core",
-    "API REST",
-    "Dockers",
+    "Desarrollo asistido por IA",
+    "OpenSpec (spec-driven)",
+    "Claude Code",
+    "Servidores MCP",
+    "TypeScript",
+    "Node.js",
+    "Angular",
     "DDD",
-    "CQRS",
     "Arquitectura Hexagonal",
-    "xUnit",
-    "Azure",
-    "React",
-    "Jest",
+    "TDD",
+    "CI/CD",
+    "Google Cloud Platform",
+    "Docker",
+    "n8n",
+    ".Net Core",
     "Scrum",
     "SAFe"
   ],
@@ -82,9 +87,13 @@
       "company": "Uniendo Nodos",
       "period": "Sept. 2024 - Actualidad",
       "responsibilities": [
-        "Desarrollo de productos digitales utilizando **Angular** y **NodeJs**.",
-        "Implementación de arquitecturas *serverless* en **Google Cloud Platform**.",
-        "Ayudar a eficientar la empresa desde el punto de vista estratégico, táctico y de operaciones mediante técnicas ágiles y automatizaciones."
+        "Dirijo el desarrollo de producto con un flujo **spec-driven asistido por IA** (**OpenSpec** + **Claude Code**): la IA implementa y el equipo dirige el ciclo — especificación, diseño, revisión, validación y *release*.",
+        "**160 changes entregados en 12,7 semanas** con ~1,25 personas (**2,8 – 3,5 h por change**), entre **3 y 4 veces** el ritmo de la codificación manual equivalente. Son datos medidos sobre nuestro propio repositorio, no una estimación.",
+        "Construí el **arnés de ingeniería** que lo sostiene: reglas, *skills* y agentes propios, pruebas automáticas, CI/CD y despliegue continuo, reutilizable de un proyecto al siguiente.",
+        "Producto propio **Klonup** en **TypeScript** (Angular y **Node.js**) con **DDD** y arquitectura hexagonal sobre **Google Cloud Platform**: facturación con dos pasarelas de pago externas y motor de ejecución por fases.",
+        "**Servidores MCP** y automatizaciones (**n8n**) propios que llevan el mismo enfoque a ventas y operaciones: prospección por ICP, campañas, *scoring* de leads y publicación de contenido.",
+        "Integraciones con sistemas de cliente: extensiones **AL** de ERP, **Smartsheet** y SSO con **Entra ID**.",
+        "Presupuesto y defino el alcance con **datos medidos** del histórico propio — tarifa por *change*, proporción de correctivos y contingencia explícita — en lugar de estimar a ojo."
       ]
     },
     {
