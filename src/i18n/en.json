@@ -1,10 +1,10 @@
 {
   "meta": {
     "title": "CV - Ruben Alvarez",
-    "description": "Résumé of Ruben Alvarez, back-end developer based in Madrid. Experience with .Net Core, hexagonal architecture, DDD and agile."
+    "description": "Résumé of Ruben Alvarez, Head of Software Development based in Madrid. Product delivery with AI-assisted Spec Driven Development: OpenSpec, TypeScript, Flutter, DDD and the Smartsheet ecosystem."
   },
   "name": "Ruben Alvarez",
-  "title": "Back-end Developer",
+  "title": "Head of Software Development · AI-assisted delivery",
   "photo": "/photo.jpg",
   "sections": {
     "profile": "Profile",
@@ -21,20 +21,24 @@
   "print": {
     "label": "Download as PDF"
   },
-  "profile": "I enjoy **software product development** and love working to the best of my ability, applying the **best practices** I know. I enjoy finding **new and better ways to do things**. I am always looking for **innovations** that can improve my work and the products I develop. I strive to **learn and adapt** to new technologies and methodologies. I am motivated by facing **challenges** that allow me to **grow professionally** and contribute significantly to the projects I am involved in. I greatly value **collaboration with my colleagues** as I believe that **teamwork improves results**. I strive every day to **improve my skills and knowledge** to make the most of the tools and technologies available to me.",
+  "profile": "I lead **product development at Uniendo Nodos** with AI-assisted **Spec Driven Development (SDD)**: the AI implements and people steer the cycle — specify, design, review, validate and ship. This is not a hunch: we **measure it against our own repositories** and we budget from those numbers. And that method ships **real product to production and to the app stores**, not prototypes. I bring almost twenty years split between **hands-on development**, the **technical leadership** of two companies I co-founded and **agile coaching** — exactly the mix this moment calls for, because the bottleneck is no longer typing code but **deciding well, slicing work into shippable pieces and verifying what gets delivered**. I work with **solid practices** — TDD, DDD, continuous delivery — and I enjoy looking for **better ways to do things**; today that means steering the definition of the **harness** (rules, agents and automations) that lets the team move faster without losing control.",
   "skills": [
-    ".Net Core",
-    "API REST",
-    "Dockers",
-    "DDD",
-    "CQRS",
-    "Hexagonal Architecture",
-    "xUnit",
-    "Azure",
+    "Spec Driven Development",
+    "Technical product leadership",
+    "DDD and hexagonal architecture",
+    "Continuous delivery and automated quality",
+    "Multi-tenant SaaS",
+    "Smartsheet ecosystem",
+    "Technical training and mentoring"
+  ],
+  "stacksLabel": "Delivered on:",
+  "stacks": [
+    "TypeScript",
+    ".NET",
+    "Flutter",
     "React",
-    "Jest",
-    "Scrum",
-    "SAFe"
+    "PostgreSQL",
+    "Google Cloud"
   ],
   "languageLevels": {
     "basic": "Basic",
@@ -54,26 +58,24 @@
   ],
   "projects": [
     {
-      "title": "Cloud Monitor",
-      "shortDescription": "Learning application to display the status of cloud servers. Developed using **DotNet Core 8** on the backend, following a **microservices architecture**, **hexagonal architecture**, and **DDD, Repository, and Criteria patterns**. Implemented with **TDD** (Test-Driven Development), starting with a test and then writing the code to pass it.",
-      "image": "/cloud-monitor.png",
-      "sourceLink": "https://github.com/ralvarez83/clouds-monitor"
+      "title": "OwnAutoCare",
+      "shortDescription": "**My own product**, from the app to the website. Vehicle maintenance history for **iPhone, iPad, Mac and Android**, published on the **App Store** and **Google Play**. Built with **Flutter** and with **no backend at all**: data lives in the user's own Google Drive, iCloud or OneDrive, with no extra accounts and no intermediate database — privacy is an architectural decision, not a promise. Service log, attached invoices, cost tracking and full history export. Built end to end with **Spec Driven Development** and **OpenSpec**. The product website —**Astro**, bilingual, a blog with scheduled publishing and continuous delivery— is mine too.",
+      "image": "/ownautocare.png",
+      "projectLink": "https://ownautocare.com"
+    },
+    {
+      "title": "This very résumé",
+      "shortDescription": "The page you are reading. **Astro** and **Tailwind**, bilingual with an automated check that both dictionaries stay in sync, light and dark themes with browser detection, and a print stylesheet so it downloads as a PDF. End-to-end tests on **Chromium and WebKit** plus visual regression snapshots, and a **Lighthouse audit that fails the build if any category drops below 100**. Continuous delivery to **Netlify** straight from the workflow.",
+      "image": "/curriculum-ia.png",
+      "projectLink": "https://rubenalvarezgonzalez.eu",
+      "sourceLink": "https://github.com/ralvarez83/curriculum-ia"
     },
     {
       "title": "Movi-info",
-      "shortDescription": "Learning application for movie information management. Developed with **React** and **TypeScript** for the frontend, **DotNet Core 8** for the backend, following a hexagonal architecture and DDD, Repository, and Criteria patterns. It implements automated tests and is containerized with **Docker**.",
+      "shortDescription": "Movie information management, used as an architecture testbed. **React 19** with **TypeScript** and **Vite** on the frontend and **.NET 10** on the backend, both with **hexagonal architecture** and the **DDD, Repository, Criteria** patterns plus a **query bus (CQRS)** on MediatR. Tests at four levels: unit, infrastructure against the live API, acceptance with **Gherkin** and accessibility with **jest-axe**. Continuous delivery via **GitHub Actions** to **Netlify** and **Render**, served from a single origin through a reverse proxy.",
       "image": "/movi-info.png",
       "projectLink": "https://movie-info.rubenalvarezgonzalez.eu",
-      "sourceLink": "https://github.com/ralvarez83/movi-info",
-      "dockerLink": "https://hub.docker.com/repository/docker/rubenag83/movi-info-react-dotnet-frontend"
-    },
-    {
-      "title": "Self-Assessment Data",
-      "shortDescription": "Web application for processing and visualizing organizational agility self-assessment data. Developed with **ReactJs**, partially implementing a **Hexagonal architecture**. Processes Microsoft Forms Excel files and generates graphical visualizations. **Dockerized** and deployed on a web server.",
-      "image": "/graficas-auto-evaluacion.png",
-      "projectLink": "https://self-assessment-data.rubenalvarezgonzalez.eu",
-      "sourceLink": "https://github.com/ralvarez83/selft-assesment-charts",
-      "dockerLink": "https://hub.docker.com/r/rubenag83/selft-assesment-charts"
+      "sourceLink": "https://github.com/ralvarez83/movi-info"
     }
   ],
   "experience": [
@@ -82,9 +84,12 @@
       "company": "Uniendo Nodos",
       "period": "Sept. 2024 - Present",
       "responsibilities": [
-        "Developed digital products using **Angular** and **Node.js**.",
-        "Implemented serverless architectures on **Google Cloud Platform**.",
-        "Contributed to the company's strategic, tactical, and operational efficiency through agile methodologies and automation."
+        "I lead the company's product development — **architect and lead developer**, with a team — mainly within the **Smartsheet** ecosystem, where Uniendo Nodos is a **partner**.",
+        "We work with **Spec Driven Development**: every change is specified, designed and reviewed before a line is written. **The AI implements; we decide, review and answer for the result.**",
+        "**162 changes specified, tested and deployed in a single quarter, with 18% corrective work**, by a small team. I budget from those same measured figures instead of guessing.",
+        "**Klonup**, a backup SaaS for Smartsheet in commercial operation: I designed its **multi-phase execution engine**, with call limits against the API and **partial and full rollback** on failure, and the **continuous delivery** that ships it with tests as a gate.",
+        "Architect and lead developer of a **multi-tenant SaaS platform**: per-organisation isolation in the database itself, passwordless access, multi-currency plans and a full free-trial lifecycle.",
+        "Steered the definition of the **engineering harness** the organisation works with —architecture rules, *skills* and agents versioned alongside the code— and designed a **control plane** that runs agents in ephemeral environments **with zero long-lived credentials**. Backed by **mandatory TDD** and over **6,500 automated tests**."
       ]
     },
     {

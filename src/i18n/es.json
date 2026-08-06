@@ -1,10 +1,10 @@
 {
   "meta": {
     "title": "CV - Rubén Álvarez",
-    "description": "Currículum de Rubén Álvarez, desarrollador back-end en Madrid. Experiencia en .Net Core, arquitectura hexagonal, DDD y agilidad."
+    "description": "Currículum de Rubén Álvarez, Head of Software Development en Madrid. Desarrollo de producto con Spec Driven Development asistido por IA: OpenSpec, TypeScript, Flutter, DDD y ecosistema Smartsheet."
   },
   "name": "Rubén Álvarez",
-  "title": "Desarrollador Back-end",
+  "title": "Head of Software Development · Desarrollo asistido por IA",
   "photo": "/photo.jpg",
   "sections": {
     "profile": "Perfil",
@@ -21,20 +21,24 @@
   "print": {
     "label": "Descargar en PDF"
   },
-  "profile": "Me gusta el **desarrollo de productos de software** y me encanta trabajar lo mejor que puedo, aplicando las **mejores prácticas** que conozco. Disfruto buscando **nuevas y mejores maneras de hacer las cosas**. Siempre estoy en busca de **innovaciones** que puedan mejorar mi trabajo y los productos que desarrollo. Me esfuerzo por **aprender y adaptarme** a nuevas tecnologías y metodologías. Me motiva enfrentar **desafíos** que me permitan **crecer profesionalmente** y contribuir de manera significativa a los proyectos en los que participo. Valoro mucho la **colaboración con mis compañeros**, ya que creo que el **trabajo en equipo mejora los resultados**. Me esfuerzo cada día por **mejorar mis habilidades y conocimientos** para poder aprovechar las herramientas y tecnologías que tengo a mi alcance.",
+  "profile": "Dirijo el **desarrollo de producto en Uniendo Nodos** con **Spec Driven Development (SDD)** asistido por IA: la IA implementa y las personas dirigimos el ciclo — especificar, diseñar, revisar, validar y publicar. No es una intuición, lo **medimos sobre nuestros propios repositorios** y presupuestamos con esos datos. Y con ese método sale **producto real a producción y a las tiendas de aplicaciones**, no prototipos. Vengo de casi veinte años repartidos entre el **desarrollo**, la **dirección técnica** de dos empresas que cofundé y la **agilidad**, y esa mezcla es justo la que hace falta ahora: el cuello de botella ya no es teclear código, sino **decidir bien, cortar el trabajo en piezas entregables y verificar lo que se entrega**. Trabajo con **buenas prácticas** — TDD, DDD, despliegue continuo — y disfruto buscando **mejores maneras de hacer las cosas**; hoy eso significa dirigir la definición del **arnés** (reglas, agentes y automatizaciones) que permite al equipo ir más rápido sin perder el control.",
   "skills": [
-    ".Net Core",
-    "API REST",
-    "Dockers",
-    "DDD",
-    "CQRS",
-    "Arquitectura Hexagonal",
-    "xUnit",
-    "Azure",
+    "Spec Driven Development",
+    "Dirección técnica de producto",
+    "Arquitectura DDD y hexagonal",
+    "Entrega continua y calidad automatizada",
+    "SaaS multi-tenant",
+    "Ecosistema Smartsheet",
+    "Formación y mentoría técnica"
+  ],
+  "stacksLabel": "Entregado sobre:",
+  "stacks": [
+    "TypeScript",
+    ".NET",
+    "Flutter",
     "React",
-    "Jest",
-    "Scrum",
-    "SAFe"
+    "PostgreSQL",
+    "Google Cloud"
   ],
   "languageLevels": {
     "basic": "Básico",
@@ -54,26 +58,24 @@
   ],
   "projects": [
     {
-      "title": "Cloud Monitor",
-      "shortDescription": "Aplicación de aprendizaje para mostrar el estado de los servidores en la nube. Desarrollada con **DotNet Core 8** en el backend, siguiendo una arquitectura de **microservicios**, **arquitectura hexagonal** y **patrones DDD, Repository y Criteria**. Implementa con **TDD**, primero una prueba y luego el código que la supere.",
-      "image": "/cloud-monitor.png",
-      "sourceLink": "https://github.com/ralvarez83/clouds-monitor"
+      "title": "OwnAutoCare",
+      "shortDescription": "**Producto propio**, de la app a la web. Historial de mantenimiento de vehículos para **iPhone, iPad, Mac y Android**, publicado en **App Store** y **Google Play**. Construido con **Flutter** y **sin servidor propio**: los datos se guardan en el Google Drive, iCloud u OneDrive del propio usuario, sin cuentas adicionales ni base de datos intermedia — la privacidad es una decisión de arquitectura, no una promesa. Registro de servicios, facturas adjuntas, control de gastos y exportación del historial completo. Desarrollado íntegramente con **Spec Driven Development** y **OpenSpec**. La web del producto —**Astro**, bilingüe, blog con publicación programada y despliegue continuo— también es mía.",
+      "image": "/ownautocare.png",
+      "projectLink": "https://ownautocare.com"
+    },
+    {
+      "title": "Este mismo CV",
+      "shortDescription": "La página que estás leyendo. **Astro** y **Tailwind**, bilingüe con verificación automática de que los dos diccionarios no se descuelgan, tema claro y oscuro con detección del navegador, y hoja de estilos de impresión para descargarlo en PDF. Pruebas end-to-end en **Chromium y WebKit** más capturas de regresión visual, y una **auditoría Lighthouse que rompe el build si alguna categoría baja de 100**. Despliegue continuo a **Netlify** desde el propio workflow.",
+      "image": "/curriculum-ia.png",
+      "projectLink": "https://rubenalvarezgonzalez.eu",
+      "sourceLink": "https://github.com/ralvarez83/curriculum-ia"
     },
     {
       "title": "Movi-info",
-      "shortDescription": "Aplicación de aprendizaje para gestión de información de películas. Desarrollada con **React** y **TypeScript** en el frontend, **DotNet Core 8** en el backend, siguiendo una arquitectura hexagonal y patrones DDD, Repository y Criteria. Implementa pruebas automáticas y está containerizada con **Docker**.",
+      "shortDescription": "Gestión de información de películas, como banco de pruebas de arquitectura. **React 19** con **TypeScript** y **Vite** en el frontend y **.NET 10** en el backend, ambos con **arquitectura hexagonal** y patrones **DDD, Repository, Criteria** y un **bus de consultas (CQRS)** sobre MediatR. Pruebas en cuatro niveles: unitarias, de infraestructura contra la API real, de aceptación con **Gherkin** y de accesibilidad con **jest-axe**. Despliegue continuo con **GitHub Actions** sobre **Netlify** y **Render**, servidos bajo un mismo origen con proxy inverso.",
       "image": "/movi-info.png",
       "projectLink": "https://movie-info.rubenalvarezgonzalez.eu",
-      "sourceLink": "https://github.com/ralvarez83/movi-info",
-      "dockerLink": "https://hub.docker.com/repository/docker/rubenag83/movi-info-react-dotnet-frontend"
-    },
-    {
-      "title": "Datos de Auto-Evaluaciones",
-      "shortDescription": "Aplicación web para procesar y visualizar datos de auto-evaluaciones de agilidad organizacional. Desarrollada con **ReactJs**, implementando parcialmente una **arquitectura Hexagonal**. Procesa archivos Excel de Microsoft Forms y genera visualizaciones gráficas. **Dockerizada** y desplegada en un servidor web.",
-      "image": "/graficas-auto-evaluacion.png",
-      "projectLink": "https://datos-auto-evaluacion.rubenalvarezgonzalez.eu",
-      "sourceLink": "https://github.com/ralvarez83/selft-assesment-charts",
-      "dockerLink": "https://hub.docker.com/r/rubenag83/selft-assesment-charts"
+      "sourceLink": "https://github.com/ralvarez83/movi-info"
     }
   ],
   "experience": [
@@ -82,9 +84,12 @@
       "company": "Uniendo Nodos",
       "period": "Sept. 2024 - Actualidad",
       "responsibilities": [
-        "Desarrollo de productos digitales utilizando **Angular** y **NodeJs**.",
-        "Implementación de arquitecturas *serverless* en **Google Cloud Platform**.",
-        "Ayudar a eficientar la empresa desde el punto de vista estratégico, táctico y de operaciones mediante técnicas ágiles y automatizaciones."
+        "Dirijo el desarrollo de producto de la compañía — **arquitecto y desarrollador principal**, con equipo —, principalmente en el ecosistema **Smartsheet**, del que Uniendo Nodos es **partner**.",
+        "Trabajamos con **Spec Driven Development**: cada cambio se especifica, se diseña y se revisa antes de escribir una línea. **La IA implementa; nosotros decidimos, revisamos y respondemos del resultado.**",
+        "**162 cambios especificados, probados y desplegados en un trimestre, con un 18 % de trabajo correctivo**, por un equipo pequeño. Presupuesto con esos mismos datos medidos en lugar de estimar a ojo.",
+        "**Klonup**, SaaS de backup para Smartsheet en explotación comercial: diseñé su **motor de ejecución multi-fase**, con límites de llamada contra la API y **rollback parcial y total** ante fallo, y el **despliegue continuo** que lo sostiene con las pruebas como puerta.",
+        "Arquitecto y desarrollador principal de una **plataforma SaaS multi-tenant**: aislamiento por organización en la propia base de datos, acceso sin contraseña, planes multi-divisa y ciclo completo de prueba gratuita.",
+        "Dirigí la definición del **arnés de ingeniería** con el que trabaja la organización —reglas de arquitectura, *skills* y agentes versionados junto al código— y diseñé un **plano de control** que ejecuta agentes en entornos efímeros **sin credenciales de larga duración**. Con **TDD obligatorio** y más de **6.500 pruebas automáticas** como red."
       ]
     },
     {
@@ -130,7 +135,7 @@
     {
       "title": "Experiencias anteriores",
       "company": "",
-      "period": "May 2007 - E. 2013",
+      "period": "Mayo 2007 - Ene. 2013",
       "responsibilities": [
         "**Profesor de .Net 4.5** - Innopulse Asesores Tecnológicos: **C#**, **VB**, **Entity Framework**, **LINQ**, **MVC**, **Web Services**, Security, and XML.",
         "**Desarrollador Senior** - Kincubator: Java (API REST), Oauth2, Protege, Jena, SDB)",

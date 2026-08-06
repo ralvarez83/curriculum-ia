@@ -1,9 +1,11 @@
 ---
 interface Props {
   skills: readonly string[];
+  stacks: readonly string[];
+  stacksLabel: string;
 }
 
-const { skills } = Astro.props;
+const { skills, stacks, stacksLabel } = Astro.props;
 ---
 
 <ul class="flex flex-wrap gap-2 list-none p-0 m-0">
@@ -15,3 +17,11 @@ const { skills } = Astro.props;
     ))
   }
 </ul>
+
+{/* Las tecnologías van aparte y en segundo plano a propósito: son el terreno
+    donde se ha entregado, no la competencia que se reclama. Mezclarlas con las
+    capacidades las pondría al mismo nivel. */}
+<p class="mt-4 text-sm text-text-muted">
+  <span class="font-medium">{stacksLabel}</span>{' '}
+  <span>{stacks.join(' · ')}</span>
+</p>

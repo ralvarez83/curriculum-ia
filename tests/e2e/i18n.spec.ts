@@ -62,16 +62,13 @@ test.describe('idiomas y rutas', () => {
     await expect(page.locator('link[hreflang="x-default"]')).toHaveCount(1);
   });
 
-  test('el enlace de proyecto específico de cada idioma es el correcto', async ({ page }) => {
-    // Auto-Evaluaciones se sirve en un subdominio distinto por idioma.
-    await page.goto('/');
-    await expect(
-      page.locator('a[href="https://datos-auto-evaluacion.rubenalvarezgonzalez.eu"]'),
-    ).toHaveCount(1);
-
-    await page.goto('/en/');
-    await expect(
-      page.locator('a[href="https://self-assessment-data.rubenalvarezgonzalez.eu"]'),
-    ).toHaveCount(1);
+  test('el enlace del proyecto llega a los dos idiomas', async ({ page }) => {
+    // Hubo un proyecto que se servía en un subdominio distinto por idioma y
+    // aquí se comprobaba esa diferencia. Ya no hay ninguno así, pero sigue
+    // mereciendo la pena verificar que el enlace se renderiza en ambas rutas.
+    for (const path of ['/', '/en/']) {
+      await page.goto(path);
+      await expect(page.locator('a[href="https://ownautocare.com"]')).toHaveCount(1);
+    }
   });
 });

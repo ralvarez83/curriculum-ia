@@ -63,6 +63,14 @@ for (const { locale, path, t } of LOCALES) {
         await expect(page.getByRole('listitem').filter({ hasText: skill }).first()).toBeVisible();
       }
 
+      // Los stacks van en una línea aparte, fuera de la lista de capacidades:
+      // se comprueba que se rendericen todos y bajo su etiqueta.
+      const stacks = page.locator('p').filter({ hasText: t.stacksLabel }).first();
+      await expect(stacks).toBeVisible();
+      for (const stack of t.stacks) {
+        await expect(stacks).toContainText(stack);
+      }
+
       for (const { name, level } of t.languages) {
         const label = t.languageLevels[level as keyof typeof t.languageLevels];
         const row = page.getByRole('listitem').filter({ hasText: name }).first();
@@ -112,7 +120,14 @@ for (const { locale, path, t } of LOCALES) {
         const stem = project.image.split('/').pop()!.replace(/\.[^.]+$/, '');
         await expect(card.locator('img')).toHaveAttribute('src', new RegExp(stem));
 
-        for (const href of [project.projectLink, project.sourceLink, project.dockerLink]) {
+        // Los enlaces son opcionales y TypeScript infiere el tipo del JSON, así
+        // que sólo existen como propiedad si algún proyecto los usa. Se leen de
+        // forma laxa para que la prueba siga valiendo con cualquier combinación.
+        const links = project as Partial<
+          Record<'projectLink' | 'sourceLink' | 'dockerLink', string>
+        >;
+
+        for (const href of [links.projectLink, links.sourceLink, links.dockerLink]) {
           if (!href) continue;
           await expect(
             card.locator(`a[href="${href}"]`),

@@ -29,22 +29,26 @@ const portrait = getImageAsset(photo);
     </div>
   </div>
 
+  {/* min-w-0 y break-words en cada contacto: sin ellos, en móvil las URLs
+      largas (LinkedIn) se salían del ancho de la pantalla y se quedaban
+      cortadas, porque un hijo de flex no encoge por debajo de su contenido y el
+      documento no hace scroll horizontal. */}
   <address class="not-italic grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
     {
       contacts.map(({ icon: Icon, text, href }) => (
-        <div class="flex items-center mb-2">
+        <div class="flex items-center mb-2 min-w-0">
           <Icon class="w-5 h-5 mr-2 text-primary-on-dark shrink-0" aria-hidden="true" />
           {href ? (
             <a
               href={href}
-              class="text-header-text hover:text-primary-on-dark transition-colors"
+              class="text-header-text hover:text-primary-on-dark transition-colors min-w-0 break-words"
               target="_blank"
               rel="noopener noreferrer"
             >
               {text}
             </a>
           ) : (
-            <span class="text-header-text">{text}</span>
+            <span class="text-header-text min-w-0 break-words">{text}</span>
           )}
         </div>
       ))
