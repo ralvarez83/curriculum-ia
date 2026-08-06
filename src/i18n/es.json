@@ -62,7 +62,7 @@
   "projects": [
     {
       "title": "OwnAutoCare",
-      "shortDescription": "App de historial de mantenimiento de vehículos para **iPhone, iPad, Mac y Android**, publicada en **App Store** y **Google Play**. Construida con **Flutter** y **sin servidor propio**: los datos se guardan en el Google Drive, iCloud u OneDrive del propio usuario, sin cuentas adicionales ni base de datos intermedia — la privacidad es una decisión de arquitectura, no una promesa. Registro de servicios, facturas adjuntas, control de gastos y exportación del historial completo. Desarrollada íntegramente con **Spec Driven Development** y **OpenSpec**.",
+      "shortDescription": "**Producto propio**, de la app a la web. Historial de mantenimiento de vehículos para **iPhone, iPad, Mac y Android**, publicado en **App Store** y **Google Play**. Construido con **Flutter** y **sin servidor propio**: los datos se guardan en el Google Drive, iCloud u OneDrive del propio usuario, sin cuentas adicionales ni base de datos intermedia — la privacidad es una decisión de arquitectura, no una promesa. Registro de servicios, facturas adjuntas, control de gastos y exportación del historial completo. Desarrollado íntegramente con **Spec Driven Development** y **OpenSpec**. La web del producto —**Astro**, bilingüe, blog con publicación programada y despliegue continuo— también es mía.",
       "image": "/ownautocare.png",
       "projectLink": "https://ownautocare.com"
     }

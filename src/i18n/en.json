@@ -62,7 +62,7 @@
   "projects": [
     {
       "title": "OwnAutoCare",
-      "shortDescription": "Vehicle maintenance history app for **iPhone, iPad, Mac and Android**, published on the **App Store** and **Google Play**. Built with **Flutter** and with **no backend of our own**: data lives in the user's own Google Drive, iCloud or OneDrive, with no extra accounts and no intermediate database — privacy is an architectural decision, not a promise. Service log, attached invoices, cost tracking and full history export. Built end to end with **Spec Driven Development** and **OpenSpec**.",
+      "shortDescription": "**My own product**, from the app to the website. Vehicle maintenance history for **iPhone, iPad, Mac and Android**, published on the **App Store** and **Google Play**. Built with **Flutter** and with **no backend at all**: data lives in the user's own Google Drive, iCloud or OneDrive, with no extra accounts and no intermediate database — privacy is an architectural decision, not a promise. Service log, attached invoices, cost tracking and full history export. Built end to end with **Spec Driven Development** and **OpenSpec**. The product website —**Astro**, bilingual, a blog with scheduled publishing and continuous delivery— is mine too.",
       "image": "/ownautocare.png",
       "projectLink": "https://ownautocare.com"
     }
