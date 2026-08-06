@@ -65,6 +65,21 @@
       "shortDescription": "**My own product**, from the app to the website. Vehicle maintenance history for **iPhone, iPad, Mac and Android**, published on the **App Store** and **Google Play**. Built with **Flutter** and with **no backend at all**: data lives in the user's own Google Drive, iCloud or OneDrive, with no extra accounts and no intermediate database — privacy is an architectural decision, not a promise. Service log, attached invoices, cost tracking and full history export. Built end to end with **Spec Driven Development** and **OpenSpec**. The product website —**Astro**, bilingual, a blog with scheduled publishing and continuous delivery— is mine too.",
       "image": "/ownautocare.png",
       "projectLink": "https://ownautocare.com"
+    },
+    {
+      "title": "This very résumé",
+      "shortDescription": "The page you are reading. **Astro** and **Tailwind**, bilingual with an automated check that both dictionaries stay in sync, light and dark themes with browser detection, and a print stylesheet so it downloads as a PDF. End-to-end tests on **Chromium and WebKit** plus visual regression snapshots, and a **Lighthouse audit that fails the build if any category drops below 100**. Continuous delivery to **Netlify** straight from the workflow.",
+      "image": "/curriculum-ia.png",
+      "projectLink": "https://rubenalvarezgonzalez.eu",
+      "sourceLink": "https://github.com/ralvarez83/curriculum-ia"
+    },
+    {
+      "title": "Movi-info",
+      "shortDescription": "Movie information management, used as an architecture testbed. **React** and **TypeScript** on the frontend, **DotNet Core 8** on the backend, with **hexagonal architecture** and the **DDD, Repository and Criteria** patterns. Automated tests and published **Docker** images.",
+      "image": "/movi-info.png",
+      "projectLink": "https://movie-info.rubenalvarezgonzalez.eu",
+      "sourceLink": "https://github.com/ralvarez83/movi-info",
+      "dockerLink": "https://hub.docker.com/repository/docker/rubenag83/movi-info-react-dotnet-frontend"
     }
   ],
   "experience": [

@@ -65,6 +65,21 @@
       "shortDescription": "**Producto propio**, de la app a la web. Historial de mantenimiento de vehículos para **iPhone, iPad, Mac y Android**, publicado en **App Store** y **Google Play**. Construido con **Flutter** y **sin servidor propio**: los datos se guardan en el Google Drive, iCloud u OneDrive del propio usuario, sin cuentas adicionales ni base de datos intermedia — la privacidad es una decisión de arquitectura, no una promesa. Registro de servicios, facturas adjuntas, control de gastos y exportación del historial completo. Desarrollado íntegramente con **Spec Driven Development** y **OpenSpec**. La web del producto —**Astro**, bilingüe, blog con publicación programada y despliegue continuo— también es mía.",
       "image": "/ownautocare.png",
       "projectLink": "https://ownautocare.com"
+    },
+    {
+      "title": "Este mismo CV",
+      "shortDescription": "La página que estás leyendo. **Astro** y **Tailwind**, bilingüe con verificación automática de que los dos diccionarios no se descuelgan, tema claro y oscuro con detección del navegador, y hoja de estilos de impresión para descargarlo en PDF. Pruebas end-to-end en **Chromium y WebKit** más capturas de regresión visual, y una **auditoría Lighthouse que rompe el build si alguna categoría baja de 100**. Despliegue continuo a **Netlify** desde el propio workflow.",
+      "image": "/curriculum-ia.png",
+      "projectLink": "https://rubenalvarezgonzalez.eu",
+      "sourceLink": "https://github.com/ralvarez83/curriculum-ia"
+    },
+    {
+      "title": "Movi-info",
+      "shortDescription": "Gestión de información de películas, como banco de pruebas de arquitectura. **React** y **TypeScript** en el frontend, **DotNet Core 8** en el backend, con **arquitectura hexagonal** y patrones **DDD, Repository y Criteria**. Pruebas automáticas y contenedores **Docker** publicados.",
+      "image": "/movi-info.png",
+      "projectLink": "https://movie-info.rubenalvarezgonzalez.eu",
+      "sourceLink": "https://github.com/ralvarez83/movi-info",
+      "dockerLink": "https://hub.docker.com/repository/docker/rubenag83/movi-info-react-dotnet-frontend"
     }
   ],
   "experience": [
