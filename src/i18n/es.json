@@ -40,7 +40,7 @@
     "SaaS multi-tenant",
     "Docker",
     "n8n",
-    ".Net Core",
+    ".NET",
     "Scrum"
   ],
   "languageLevels": {
@@ -75,11 +75,10 @@
     },
     {
       "title": "Movi-info",
-      "shortDescription": "Gestión de información de películas, como banco de pruebas de arquitectura. **React** y **TypeScript** en el frontend, **DotNet Core 8** en el backend, con **arquitectura hexagonal** y patrones **DDD, Repository y Criteria**. Pruebas automáticas y contenedores **Docker** publicados.",
+      "shortDescription": "Gestión de información de películas, como banco de pruebas de arquitectura. **React 19** con **TypeScript** y **Vite** en el frontend y **.NET 10** en el backend, ambos con **arquitectura hexagonal** y patrones **DDD, Repository, Criteria** y un **bus de consultas (CQRS)** sobre MediatR. Pruebas en cuatro niveles: unitarias, de infraestructura contra la API real, de aceptación con **Gherkin** y de accesibilidad con **jest-axe**. Despliegue continuo con **GitHub Actions** sobre **Netlify** y **Render**, servidos bajo un mismo origen con proxy inverso.",
       "image": "/movi-info.png",
       "projectLink": "https://movie-info.rubenalvarezgonzalez.eu",
-      "sourceLink": "https://github.com/ralvarez83/movi-info",
-      "dockerLink": "https://hub.docker.com/repository/docker/rubenag83/movi-info-react-dotnet-frontend"
+      "sourceLink": "https://github.com/ralvarez83/movi-info"
     }
   ],
   "experience": [
