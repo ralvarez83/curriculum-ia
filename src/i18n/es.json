@@ -21,9 +21,9 @@
   "print": {
     "label": "Descargar en PDF"
   },
-  "profile": "Dirijo el **desarrollo de producto en Uniendo Nodos** con **Spec Driven Development (SDD)** asistido por IA: la IA implementa y las personas dirigimos el ciclo — especificar, diseñar, revisar, validar y publicar. No es una intuición, lo **medimos sobre nuestros propios repositorios** y presupuestamos con esos datos. Y con ese método sale **producto real a producción y a las tiendas de aplicaciones**, no prototipos. Vengo de casi veinte años repartidos entre el **desarrollo**, la **dirección técnica** de dos empresas que cofundé y la **agilidad**, y esa mezcla es justo la que hace falta ahora: el cuello de botella ya no es teclear código, sino **decidir bien, cortar el trabajo en piezas entregables y verificar lo que se entrega**. Trabajo con **buenas prácticas** — TDD, DDD, despliegue continuo — y disfruto buscando **mejores maneras de hacer las cosas**; hoy eso significa dirigir la definición del **arnés** (reglas, agentes y automatizaciones) que permite al equipo ir más rápido sin perder el control.",
+  "profile": "Dirijo el **desarrollo de producto en Uniendo Nodos** con **Spec Driven Development (SDD)** asistido por IA: la IA implementa y las personas dirigimos el ciclo — especificar, diseñar, revisar, validar y publicar. No es una intuición, lo **medimos sobre nuestros propios repositorios** y presupuestamos con esos datos. Y con ese método sale **producto real a producción y a las tiendas de aplicaciones**, no prototipos. Vengo de casi veinte años repartidos entre el **desarrollo**, la **dirección técnica** de dos empresas que cofundé y la **agilidad**. El cuello de botella ya no es teclear código, sino **decidir bien, cortar el trabajo en piezas entregables y verificar lo que se entrega**. Trabajo con **buenas prácticas** — TDD, DDD, despliegue continuo — y disfruto buscando **mejores maneras de hacer las cosas**; hoy eso significa dirigir la definición del **arnés** (reglas, agentes y automatizaciones) que permite al equipo ir más rápido sin perder el control.",
   "skills": [
-    "Spec Driven Development",
+    "Spec Driven Development (OpenSpec)",
     "Dirección técnica de producto",
     "Arquitectura DDD y hexagonal",
     "Entrega continua y calidad automatizada",
@@ -31,7 +31,7 @@
     "Ecosistema Smartsheet",
     "Formación y mentoría técnica"
   ],
-  "stacksLabel": "Entregado sobre:",
+  "stacksLabel": "Entregado sobre",
   "stacks": [
     "TypeScript",
     ".NET",
@@ -59,7 +59,7 @@
   "projects": [
     {
       "title": "OwnAutoCare",
-      "shortDescription": "**Producto propio**, de la app a la web. Historial de mantenimiento de vehículos para **iPhone, iPad, Mac y Android**, publicado en **App Store** y **Google Play**. Construido con **Flutter** y **sin servidor propio**: los datos se guardan en el Google Drive, iCloud u OneDrive del propio usuario, sin cuentas adicionales ni base de datos intermedia — la privacidad es una decisión de arquitectura, no una promesa. Registro de servicios, facturas adjuntas, control de gastos y exportación del historial completo. Desarrollado íntegramente con **Spec Driven Development** y **OpenSpec**. La web del producto —**Astro**, bilingüe, blog con publicación programada y despliegue continuo— también es mía.",
+      "shortDescription": "**Producto propio**, de la app a la web. Historial de mantenimiento de vehículos para **iPhone, iPad, Mac y Android**, publicado en **App Store** y **Google Play**. Construido con **Flutter** y **sin servidor propio**: los datos se guardan en el Google Drive, iCloud u OneDrive del propio usuario, sin cuentas adicionales ni base de datos intermedia — la privacidad es una decisión de arquitectura, no una promesa. Registro de servicios, facturas adjuntas, control de gastos y exportación del historial completo. Desarrollado íntegramente con **Spec Driven Development**, usando **OpenSpec**. La web del producto —**Astro**, bilingüe, blog con publicación programada y despliegue continuo— también es mía.",
       "image": "/ownautocare.png",
       "projectLink": "https://ownautocare.com"
     },

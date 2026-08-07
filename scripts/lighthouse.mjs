@@ -69,20 +69,37 @@ let fallos = 0;
 try {
   await esperarServidor();
 
+  function porDebajo(puntuaciones) {
+    return Object.entries(MINIMOS).filter(
+      ([categoria, minimo]) =>
+        puntuaciones[categoria] !== undefined && puntuaciones[categoria] < minimo,
+    );
+  }
+
   for (const ruta of RUTAS) {
-    const puntuaciones = auditar(ruta);
+    let puntuaciones = auditar(ruta);
+
+    // La primera ruta que se audita paga el arranque en frío: el servidor
+    // acaba de levantarse y ninguna hoja de estilos, fuente o imagen está en
+    // caché, mientras que la siguiente ya las encuentra calientes. En una
+    // máquina holgada no se nota, pero en un runner cargado esa diferencia ha
+    // bastado para tumbar el rendimiento de "/" mientras "/en/", con los mismos
+    // recursos, sacaba 100 en la misma ejecución. Antes de dar por fallada una
+    // ruta se repite la medición una vez: si el problema era el frío, la
+    // segunda pasada lo confirma; si es una regresión real, vuelve a fallar.
+    if (porDebajo(puntuaciones).length > 0) {
+      console.error(`  … ${ruta} por debajo del umbral, repitiendo la medición`);
+      puntuaciones = auditar(ruta);
+    }
+
     const resumen = Object.entries(puntuaciones)
       .map(([id, valor]) => `${id} ${valor}`)
       .join('  ');
     console.log(`${ruta.padEnd(6)} ${resumen}`);
 
-    for (const [categoria, minimo] of Object.entries(MINIMOS)) {
-      const valor = puntuaciones[categoria];
-      if (valor === undefined) continue;
-      if (valor < minimo) {
-        console.error(`  ✗ ${ruta} · ${categoria}: ${valor} (mínimo ${minimo})`);
-        fallos++;
-      }
+    for (const [categoria, minimo] of porDebajo(puntuaciones)) {
+      console.error(`  ✗ ${ruta} · ${categoria}: ${puntuaciones[categoria]} (mínimo ${minimo})`);
+      fallos++;
     }
   }
 } finally {

@@ -18,10 +18,17 @@ const { skills, stacks, stacksLabel } = Astro.props;
   }
 </ul>
 
-{/* Las tecnologías van aparte y en segundo plano a propósito: son el terreno
-    donde se ha entregado, no la competencia que se reclama. Mezclarlas con las
-    capacidades las pondría al mismo nivel. */}
-<p class="mt-4 text-sm text-text-muted">
-  <span class="font-medium">{stacksLabel}</span>{' '}
-  <span>{stacks.join(' · ')}</span>
-</p>
+{/* Las tecnologías comparten la forma de píldora de las capacidades para que se
+    lean como parte de la misma sección, pero van en contorno en lugar de
+    relleno: son el terreno donde se ha entregado, no la competencia que se
+    reclama, y mezclarlas al mismo peso las pondría al mismo nivel. */}
+<ul class="flex flex-wrap items-center gap-2 list-none p-0 m-0 mt-3">
+  <li class="text-xs uppercase tracking-wider text-text-muted">{stacksLabel}</li>
+  {
+    stacks.map((stack) => (
+      <li class="border border-border text-text-muted px-3 py-1 rounded-full text-sm">
+        {stack}
+      </li>
+    ))
+  }
+</ul>

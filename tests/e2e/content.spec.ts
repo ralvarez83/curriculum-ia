@@ -63,9 +63,9 @@ for (const { locale, path, t } of LOCALES) {
         await expect(page.getByRole('listitem').filter({ hasText: skill }).first()).toBeVisible();
       }
 
-      // Los stacks van en una línea aparte, fuera de la lista de capacidades:
-      // se comprueba que se rendericen todos y bajo su etiqueta.
-      const stacks = page.locator('p').filter({ hasText: t.stacksLabel }).first();
+      // Los stacks van en su propia lista, encabezada por la etiqueta: se
+      // comprueba que estén todos y que sea esa lista y no la de capacidades.
+      const stacks = page.locator('ul').filter({ hasText: t.stacksLabel }).last();
       await expect(stacks).toBeVisible();
       for (const stack of t.stacks) {
         await expect(stacks).toContainText(stack);
