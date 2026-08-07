@@ -21,9 +21,9 @@
   "print": {
     "label": "Download as PDF"
   },
-  "profile": "I lead **product development at Uniendo Nodos** with AI-assisted **Spec Driven Development (SDD)**: the AI implements and people steer the cycle — specify, design, review, validate and ship. This is not a hunch: we **measure it against our own repositories** and we budget from those numbers. And that method ships **real product to production and to the app stores**, not prototypes. I bring almost twenty years split between **hands-on development**, the **technical leadership** of two companies I co-founded and **agile coaching** — exactly the mix this moment calls for, because the bottleneck is no longer typing code but **deciding well, slicing work into shippable pieces and verifying what gets delivered**. I work with **solid practices** — TDD, DDD, continuous delivery — and I enjoy looking for **better ways to do things**; today that means steering the definition of the **harness** (rules, agents and automations) that lets the team move faster without losing control.",
+  "profile": "I lead **product development at Uniendo Nodos** with AI-assisted **Spec Driven Development (SDD)**: the AI implements and people steer the cycle — specify, design, review, validate and ship. This is not a hunch: we **measure it against our own repositories** and we budget from those numbers. And that method ships **real product to production and to the app stores**, not prototypes. I bring almost twenty years split between **hands-on development**, the **technical leadership** of two companies I co-founded and **agile coaching**. The bottleneck is no longer typing code but **deciding well, slicing work into shippable pieces and verifying what gets delivered**. I work with **solid practices** — TDD, DDD, continuous delivery — and I enjoy looking for **better ways to do things**; today that means steering the definition of the **harness** (rules, agents and automations) that lets the team move faster without losing control.",
   "skills": [
-    "Spec Driven Development",
+    "Spec Driven Development (OpenSpec)",
     "Technical product leadership",
     "DDD and hexagonal architecture",
     "Continuous delivery and automated quality",
@@ -31,7 +31,7 @@
     "Smartsheet ecosystem",
     "Technical training and mentoring"
   ],
-  "stacksLabel": "Delivered on:",
+  "stacksLabel": "Delivered on",
   "stacks": [
     "TypeScript",
     ".NET",
@@ -59,7 +59,7 @@
   "projects": [
     {
       "title": "OwnAutoCare",
-      "shortDescription": "**My own product**, from the app to the website. Vehicle maintenance history for **iPhone, iPad, Mac and Android**, published on the **App Store** and **Google Play**. Built with **Flutter** and with **no backend at all**: data lives in the user's own Google Drive, iCloud or OneDrive, with no extra accounts and no intermediate database — privacy is an architectural decision, not a promise. Service log, attached invoices, cost tracking and full history export. Built end to end with **Spec Driven Development** and **OpenSpec**. The product website —**Astro**, bilingual, a blog with scheduled publishing and continuous delivery— is mine too.",
+      "shortDescription": "**My own product**, from the app to the website. Vehicle maintenance history for **iPhone, iPad, Mac and Android**, published on the **App Store** and **Google Play**. Built with **Flutter** and with **no backend at all**: data lives in the user's own Google Drive, iCloud or OneDrive, with no extra accounts and no intermediate database — privacy is an architectural decision, not a promise. Service log, attached invoices, cost tracking and full history export. Built end to end with **Spec Driven Development**, using **OpenSpec**. The product website —**Astro**, bilingual, a blog with scheduled publishing and continuous delivery— is mine too.",
       "image": "/ownautocare.png",
       "projectLink": "https://ownautocare.com"
     },
