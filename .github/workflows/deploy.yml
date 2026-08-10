@@ -65,9 +65,11 @@ jobs:
     name: Desplegar en Netlify
     needs: verificar
     runs-on: ubuntu-latest
-    # Sin credenciales no se intenta desplegar: así el workflow sigue siendo
-    # útil como CI en bifurcaciones del repositorio.
+    # En una bifurcación no hay credenciales posibles, así que ni se intenta.
     if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
     environment:
       name: ${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }}
       url: ${{ steps.netlify.outputs.url }}
@@ -79,17 +81,32 @@ jobs:
           name: sitio
           path: dist
 
-      - name: Publicar
-        id: netlify
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      # Los workflows que dispara Dependabot no reciben los secretos de
+      # Actions, sino los del almacén aparte de Dependabot. Faltar credenciales
+      # sólo es un fallo en main, donde el despliegue es el objetivo; en una
+      # rama se omite la previsualización y el PR queda verde, porque lo que
+      # importaba allí —las comprobaciones— ya se ha ejecutado.
+      - name: Comprobar credenciales
+        id: credenciales
         run: |
-          if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+          if [ -n "$NETLIFY_AUTH_TOKEN" ] && [ -n "$NETLIFY_SITE_ID" ]; then
+            echo "hay=si" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.ref }}" = "refs/heads/main" ]; then
             echo "::error::Faltan los secretos NETLIFY_AUTH_TOKEN y/o NETLIFY_SITE_ID"
             exit 1
+          else
+            echo "hay=no" >> "$GITHUB_OUTPUT"
+            echo "::notice::Sin credenciales de Netlify en este contexto: se omite la previsualización."
+            {
+              echo "### Previsualización omitida"
+              echo "Este contexto no recibe los secretos del repositorio. Las comprobaciones sí se han ejecutado."
+            } >> "$GITHUB_STEP_SUMMARY"
           fi
 
+      - name: Publicar
+        id: netlify
+        if: steps.credenciales.outputs.hay == 'si'
+        run: |
           # Sólo main publica en producción; el resto genera una previsualización.
           # Se mira github.ref porque en un pull_request ref_name vale "N/merge".
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
